@@ -1,0 +1,190 @@
+\documentclass[10pt,a4paper,landscape]{article}
+
+%% PACCHETTI AGGIUNTIVI
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+%\usepackage{bm}
+\usepackage{calc}
+%\usepackage[inline]{enumitem}
+%\usepackage{ifthen}
+%\usepackage[utf8]{inputenc}
+\usepackage[landscape]{geometry}
+%\usepackage{graphicx}
+%\usepackage[colorlinks=true,citecolor=blue,linkcolor=blue]{hyperref}
+\usepackage{mathrsfs}
+%\usepackage{multicol,multirow}
+%\usepackage{subcaption}
+%\usepackage{tabularx}
+%\usepackage[absolute]{textpos}
+%\usepackage{titlesec}
+%\usepackage{wrapfig}
+\usepackage{xfrac}
+
+%% GEOMETRIA
+\geometry{top=1cm,bottom=1cm,left=.7cm,right=.7cm}
+
+%%	STILE
+\pagestyle{empty}
+
+%%	HEADINGS
+%%	Numerazione
+%\setcounter{secnumdepth}{0}
+%\setlength{\parindent}{3pt}
+%\setlength{\parskip}{0pt plus 0.5ex}
+
+%%	DEFINIZIONE COMANDI
+\newcommand{\de}{\mathrm d}
+\newcommand{\fracd}[2]{\frac{\de #1}{\de #2}}
+\newcommand{\fracp}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\fracpq}[2]{\frac{\partial^2 #1}{{\partial #2}^2}}
+\newcommand{\fracpp}[3]{\frac{\partial^2 #1}{\partial #2 \partial #3}}
+\newcommand{\grad}[1]{\text{grad}\,#1}
+\newcommand{\dive}[1]{\text{div}\,#1}
+\newcommand{\rot}[1]{\text{rot}\,#1}
+
+
+\begin{document}
+	
+\section{Elettrostatica}
+\subsubsection{Lavoro del campo su una carica puntiforme}
+La carica $q$ nell'origine produce il campo $\vec E(\vec r) = \frac{q}{4\pi\varepsilon_0}\frac{\vec r}{||\vec r||^3}$. La carica $Q$ si muove da $A$ a $B$ lungo un percorso arbitrario $\gamma$. Decompongo il percorso in due tratti: con $\gamma_1$ arrivo sullo stesso raggio passante per $B$ muovendomi lungo un arco passante per $A$; con $\gamma_2$ arrivo a $B$ muovendomi radialmente. Il lavoro del campo sulla carica è $\mathscr L_\gamma = \frac{qQ}{4\pi\varepsilon_0}\int_A^B \frac{\vec r \cdot \de\vec s}{||\vec r||^3} = \mathscr L_{\gamma_1} + \mathscr L_{\gamma_2}$. Lungo $\gamma_1$ si ha $\vec r \perp \de\vec s$ quindi contano solo gli spostamenti radiali; il problema diventa unidimensionale. Lungo $\gamma_2$ si ha $\de\vec s = \hat r\,\de r$ quindi $\mathscr L_\gamma = \mathscr L_{\gamma_2} = \frac{qe}{4\pi\varepsilon_0}\int_{r_A}^{r_B} \frac{r\,\de r}{r^3} = -\frac{qQ}{4\pi\varepsilon_0}(\frac1{r_B}-\frac1{r_A})$.\\
+Gli spostamenti sulle superifici equipotenzialei non fanno lavoro.
+
+\subsubsection{Potenziale dipolo elettrico}
+Ho due cariche $q_+$ e $q_-$ a distanza $d$ e valuto il potenziale in un punto $P$ a distanza $r\gg d$ dal centro del dipolo, che vale $V(r)=\frac{q}{4\pi\varepsilon} (\frac1{r_+}-\frac1{r_-})=\frac{q}{4\pi\varepsilon}\frac{r_- - r_+}{r_- r_+}$. Lo voglio scrivere in termini di $\mathbf r$ e $\mathbf p=q\mathbf d$. Nel triangolo $q_+ P q_-$, se $r\gg d$ allora l'angolo in P è piccolo ed il suo coseno è circa 1; quindi $r_+$ e $r_-$ si confondono con $r$, e la proiezione di $r_+$ su $r_-$ si confonde con $r_-$. Inoltre l'angolo fra d e $r_-$ si confonde con quello fra $d$ e $r$. Dunque $r_- r_+\approx r^2$ e $r_- - r_+ \approx d \cos\theta$ essendo $\theta$ l'angolo fra $d$ e $r$. Rielaborando l'espressione ottengo $V(r)\approx\frac1{4\pi\varepsilon}\frac{\mathbf p\cdot\mathbf r}{r^3}$ ed è tanto migliore quanto più $r\gg d$.
+
+\subsubsection{Potenziale a grandi distanze}
+Il potenziale di una distribuzione di carica è $V(\mathbf r) = \frac1{4\pi\epsilon} \int \frac{\rho(\mathbf r^\prime)}{|\mathbf r - \mathbf r^\prime|} \de\Upsilon$. Riscrivo $|\mathbf r - \mathbf r^\prime| = \sqrt{(\mathbf r - \mathbf r^\prime)\cdot(\mathbf r - \mathbf r^\prime)} = \sqrt{r^2 + {r^\prime}^2 - 2rr^\prime\cos\theta} = r\sqrt{(1 + (r^\prime/r)^2 - 2r^\prime/r\cos\theta)}$ in modo da sfruttare lo sviluppo $(1+\delta)^{-1/2} = 1 - \frac12 \delta + \frac38 \delta^2 + O(\delta^3)$ con $\delta = (\frac{r^\prime}r)^2 - 2\frac{r^\prime}r\cos\theta$. A grandi distanze vale $r^\prime \ll r$ quindi $\delta \ll 1$ e lo sviluppo è lecito. Espandendo fino all'ordine $(\frac{r^\prime}r)^2$ trovo $1/|\mathbf r - \mathbf r^\prime| = \frac1r[1+\frac{r^\prime}r\cos\theta+\frac{3\cos^2\theta-1}2(\frac{r^\prime}r)^2+O((\frac{r^\prime}r)^3)]$ cioè una quantità espressa come serie delle potenze di $1/r$. Introducendo questo sviluppo nel calcolo del potenziale elettrostatico si ha uno sviluppo analogo $V(\mathbf r)= \frac1{4\pi\epsilon}\frac1r\int \rho(\mathbf r^\prime)\de\Upsilon + \frac1{4\pi\epsilon}\frac1{r^2}\int r^\prime\cos\theta\rho(\mathbf r^\prime)\de\Upsilon + \ldots$. Si può dare una forma più significativa osservando che $\int\rho(\mathbf r^\prime)\de\Upsilon = Q$ e definendo il momento di dipolo della distribuzione $\mathbf p := \int \mathbf r^\prime \rho(\mathbf r^\prime)\de\Upsilon$ [DA FINIRE]
+
+\subsubsection{Dipolo in un campo esterno}
+Sulle cariche agiscono le forze $\mathbf F_+ = q\mathbf E$ e $\mathbf F_- = -q\mathbf E$. Il momento risultate rispetto al centro del dipolo è $\mathbf M = \frac{\mathbf\delta}2 \times q\mathbf E + (-\frac{\mathbf\delta}2) \times -q\mathbf E = \mathbf p \times \mathbf E$. la forza risultate è $\mathbf F = q\mathbf E(\mathbf r_-)  -q \mathbf E(\mathbf r_+)$. Senza perdita di generalità (?) posso assumere $\mathbf r_-=(x,y,z)$ e $\mathbf r_+=(x+\de x,y+\de y,z+\de z)$. Per ogni componente della forza trovo $F_j = q(\fracp{E_x}{x}\de x + \fracp{E_x}{y}\de y + \fracp{E_x}{z}\de z) = q \nabla E_j \cdot \mathbf \delta = \mathbf p \cdot \nabla E_j$. Si dimostra che $\mathbf F = \nabla (\mathbf p \cdot \mathbf E)$
+
+\subsubsection{Le distribuzioni superficiali introducono discontinuità}
+Sia distribuita una carica $\sigma(\mathbf r)$ su una superficie. Prendo un cilindretto di Gauss a cavallo della superficie con altezza infinitesima rispetto al raggio; il flusso elementare è $\mathbf E_1 \cdot \mathbf n \de S - \mathbf E_1 \cdot \mathbf n \de S$ e la carica racchiusa è $\sigma \de S$. Per Gauss trovo $(\mathbf E_1 - \mathbf E_2)\cdot\mathbf n = \sigma/\epsilon$ cioè la componenti normale del campo subisce una discontinuità di $\sigma/\epsilon$
+
+\subsubsection{Potenziale di una distribuzione sferica}
+Uso Gauss
+
+\subsubsection{Distribuzione sferica con cavità circolare (poi immersa in un campo uniforme)}
+Una sfera di raggio $R_1$ e densità di carica uniforme $\varrho$ ha al suo interno una cavità sferica di raggio $R_2<\frac{R_1}{2}$, il cui centro $O_2$ è a distanza $D$ dal centro $O_1$ della sfera. Determinare il campo elettrico all'interno della cavità. Se la sfera viene posta in un campo elettrico $\vec E$, esterno ed uniforme, determinare la forza agente sulla distribuzione e il momento rispetto a $O_1$\\
+\underline{Soluzione:} la distribuzione assegnata la posso pensare come somma di una distribuzione sferica di densità $\varrho$ (centro e raggio della sfera) e di una distribuzione sferica di densità $-\varrho$ (centro e raggio della cavità). Fisso un s.d.r. cartesiano con origine in $O_1$ e asse $x$ orientato in modo che $(O_2-O_1)=D\,\hat\imath$. Sia $\vec r_1$ un punto della cavità rispetto a $O_1$ e $\vec r_2$ lo stesso punto rispetto a $O_2$, dunque $\vec r_1=D\,\hat\imath+\vec r_2$. Per la sovrapposizione degli effetti: $\vec E_\mathrm{tot}=\vec E_1+\vec E_2=\frac{\varrho}{3\varepsilon}\vec r_1+\frac{-\varrho}{3\varepsilon}\vec r_2=\frac{\varrho}{3\varepsilon}(\vec r_1-\vec r_2)=\frac{\varrho D}{3\varepsilon}\hat\imath$. Il campo nella cavità è uniforme
+
+
+\subsubsection{Dalle sorgenti al campo}
+$\mathbf E = 4\pi k \int \frac{\mathbf r-\mathbf r^\prime}{|\mathbf r-\mathbf r^\prime|^3}\de q$
+\subsubsection{Dal campo al potenziale}
+\subsubsection{Dal potenziale al campo}
+$\mathbf E = -\nabla V$
+\subsubsection{Dal campo alle sorgenti}
+
+\subsection{Conduttori}
+\subsubsection{Fra due mezzi materiali la componente trasversale del campo elettrico è continua}
+Considero un cammino fra i due mezzi con i tratti longitudinali paralleli all'interfaccia e i tratti trasversali infinitesimi rispetto ai tratti longitudinali. Per la conservatività deve essere $\oint \mathbf E\cdot\de\mathbf s=0$. Trascurando i tratti trasversali segue $E_{t1}=E_{t2}$.
+
+\subsubsection{Sulla superficie di un conduttore il campo non ha componente tangenziale}
+Dalla precedente, se il mezzo 1 è conduttore allora $E_{t2}=0$, cioè il campo ha solo componente normale alla superficie e presenta discontinuità fra interno $\mathbf E=0$ ed esterno $\mathbf E=E\mathbf n$.
+
+\subsubsection{Teorema di Coulomb}
+Nella precedente si determina $E$ applicando Gauss ad un cilindro metà nel conduttore e metà fuori, con altezza infinitesima rispetto al raggio. Al flusso contribuisce solo la base esterna quindi $\Phi(\mathbf E)=\rho/\varepsilon \Rightarrow E\de S=\sigma\de S/\varepsilon$. 
+
+\subsubsection{Pressione elettrostatica}
+Le cariche elettriche presenti sulla superficie $S$ di un conduttore costituiscono uno strato invalicabile per le cariche elettriche; questo si traduce nella presezna di pressioni elettrostatiche dovute alle cariche. Considero una superficie $\de S$ e il campo elettrico in vicinanza $\mathbf E=\frac{\sigma}{\varepsilon}\mathbf n$ (internamente è $\mathbf E=0$). Lo decompongo come $\mathbf E = \mathbf E^{(\de S)} + \mathbf E^{(S-\de S)}$ e $\de S$ è come un piano indefinito quindi $\mathbf E^{(\de S)}=\frac{\sigma}{2\varepsilon}\mathbf n$ (internamente è $\mathbf E^{(\de S)}=-\frac{\sigma}{2\varepsilon}\mathbf n$). Dalle precedenti segue che $\mathbf E^{(S-\de S)}=\frac{\sigma}{2\varepsilon}\mathbf n$ anche internamente. La forza agente su $\de S$ è quindi $\de F=\sigma\de S\,\mathbf E^{(S-\de S)}$ da cui segue la pressione $\mathbf p = \frac{\sigma^2}{2\varepsilon}\mathbf n=\frac{\varepsilon E^2}2\mathbf n$. Essa è proporzionale alla densità di energia del campo elettrostatico.
+
+%\subsubsection{Potenziale della sfera indotto da carica puntiforme}
+%Determinare il potenziale di una sfera conduttrice scarica di raggio $R$, considerando che una carica puntiforme $Q$ è posta a distanza $D$ dal centro della sfera.\\
+%\underline{Soluzione:} Per definizione di conduttore il potenziale $V$ è uniforme in tutta la sfera. Per semplicità posso calcolarlo nel centro e sarà dato dal potenziale generato dalla carica puntiforme sommato a quello generato dalla carica indotta $V=\frac{Q}{4\pi\varepsilon r}+V^\prime$. Poiché le cariche indotte si trovano tutte alla stessa distanza $R$ e sono globalmente nulle, deve essere $V^\prime=0$. Quindi, il potenziale della sfera è ovunque determinato solo dalla carica puntiforme
+
+\subsubsection{Guscio conduttore senza carica interna}
+Un conduttore scarico ha una cavità al suo interno in cui non sono presenti cariche. Ho due approcci per determinare il campo nella cavità e distribuzione della carica nel conduttore.
+GAUSS: prendo una superficie di Gauss nel conduttore che racchiude la cavità; per definizione di conduttore $\mathbf E(\mathcal G)=\mathbf 0$ quindi la carica netta racchiusa è nulla. Nella cavità non sono presenti cariche quindi nemmeno su $S_{int}$; tuttavia devo escludere la possibilità che $S_{int}$ abbia delle regioni con carica uguale ed opposta: se così fosse avrei un campo nella cavità e una circolazione non nulla lungo un cammino passante per la cavità, ma questo non è possibile per la conservatività. Se il conduttore è carico, tale carica si dispone su $S_{ext}$. Prendendo una superficie di Gauss nella cavità si trova che il campo nella cavità è nullo.\\
+POISSON: nella cavità vale l'equazione di Poisson $\nabla^2 V(r) = 0$ con la condizione $V(S_{int}) = \bar V$. Per definizione di conduttore $\bar V$ è costante nel conduttore quindi la soluzione (unica) è $V(r)=\bar V$. Poiché $\mathbf E = -\nabla V$, il campo nella cavità è nullo. Per il teorema di Coulomb applicato a $S_{int}$, la carica su di essa è quindi nulla.
+
+\subsubsection{Guscio conduttore con carica interna}
+È presente una carica $q$ nella cavità del conduttore. A differenza del precedente, la carica nella cavità deve essere bilanciata da una carica $-q$ su $S_{int}$. Di conseguenza su $S_{ext}$ si avrà la carica $q$, oltre alla carica eventualmente portata dal conduttore se esso non è scarico; su $S_{ext}$ quindi è presente tutta la carica contenuta nel conduttore. [sul picasso viene approfondita l'indipendenza fra problema interno ed esterno]
+
+
+\subsubsection{Energia di un condensatore carico}
+Un condensatore di capacità $C$ è caricato fino ad assumere la d.d.p. $\Delta V$ tra le armature. Calcolare l'energia elettrostatica immagazzinata\\
+\underline{Def:} l'energia elettrostatica di una distribuzione superficiale di carica è $U=\frac 12\int\sigma V\,\mathrm dS$. Le densità di carica sulle armature valgono $\pm\sigma_0$ mentre i potenziali sono $V_A$ e $V_B$, quindi $U=\frac 12 V_A\int\sigma_0\,\mathrm dS+\frac 12 V_B\int(-\sigma_0)\,\mathrm dS=\frac 12 Q\Delta V$. Poiché $C=\frac{Q}{\Delta V}$ si ha $U=\frac 12 C(\Delta V)^2$
+
+\section{Magnetostatica}
+\subsubsection{Due fili rettilinei indefiniti e paralleli}
+Nel piano $xy$ un filo rettilineo coincidente con l'asse $y$ è sede della corrente $I_1$. L'altro filo posto a dx del precedente alla distanza $d$ è sede della corrente $I_2$. Determinare il campo di induzione in tutto lo spazio e vedere se ci sono punti dell'asse delle ascisse nei quali esso è nullo (utilizzando $I_1=I_\mathrm n$ del problema precedente). Determinare la forza per unità di lunghezza tra i due fili.
+
+\underline{Def:} Il campo di induzione è somma dei campi prodotti dai fili $\vec B(P)=\vec B_1+\vec B_2$. Suddivido il piano nelle zone I a sx del primo filo, II tra i due fili, III a dx del secondo filo. Nelle zone I e III i campi di induzione sono concordi a $\hat k$ e $-\hat k$ rispettivamente. Nella zona II i campi di induzione sono discordi. Nelle zone I e III quindi $\vec B=\mp\frac{\mu_0}{2\pi}\big(\frac{I_1}{\rho_1}+\frac{I_2}{\rho_2}\big)\hat k$, il segno in base alla zona scelta. Nella zona II $\vec B=\frac{\mu_0}{2\pi}\big(\frac{I_2}{\rho_2}-\frac{I_1}{\rho_1}\big)\hat k$ che si annulla quando $\frac{I_1}{\rho_1}=\frac{I_2}{\rho_2}\;\Rightarrow\;$
+
+\subsubsection{Trasformatore ideale}
+Un circuito primario è costituito da un generatore $\mathcal E(t)=\mathcal E_0\cos(\omega t)$ e da una induttanza $L_1$. Un circuito secondario è costituito da un'induttanza $L_2$ e da una resistenza $R_2$. Le due induttanze sono accoppiate, con coeff. di mutua induzione $M$. Detrminare le correnti $I_h(t)$ circolanti nei due circuiti, la tensione $V_{R_2}$ ai capi di $R_2$ e il rapporto di trasformazione $\alpha$.\\
+\underline{Soluzione:} le equazioni di maglia dei due circuiti sono $\mathcal E-L_1\frac{\de I_1}{\de t}-M\frac{\de I_2}{\de t}=0\quad -L_2\frac{\de I_2}{\de t}-M\frac{\de I_1}{\de t}=R_2I_2$. Le correnti posso essere scritte come $I_h(t)=I_{0h}e^{j(\omega t+\varphi_h)}$ dunque $\frac{\de I_h}{\de t}=j\omega I_h$ e le equazioni di maglia diventano $\mathcal E-j\omega L_1I_1-j\omega MI_2=0\quad-j\omega L_2I_2-j\omega MI_1=RI_2$. Dalla seconda si ricava $I_2=\frac{-j\omega M}{R_2+j\omega L_2}I_1$ che sostituita nella prima permette di ricavare \big(tenendo conto che $M^2=L_1L_2$\big) la corrente $I_1(t)=\frac{R_2+j\omega L_2}{j\omega L_1 R_2}\,\mathcal E(t)$, quindi la corrente $I_2(t)=-\frac{M}{L_1R_2}\mathcal E(t)$. Ai capi di $R_2$ si ha la tensione $V_{R_2}(t)=R_2I_2(t)=-\frac{M}{L_1}\mathcal E(t)$. Il rapporto di trasformazione si può ottenere supponendo che le induttanze $L_h$ siano dei solenoidi di $N_h$ spire avvolte su un supporto ferromagnetico di lunghezza $d$ e sezione $S$, percui vale $L_h=\mu S\frac{N_h^2}{d}$ e $M=\mu S\frac{N_1N_2}d$. Osservando che nell'espressione di $I_1$ compare il rapporto $\frac{M}{L_1}$, sotto tale ipotesi vale $\frac{M}{L_1}=\frac{N_1}{N_2}=\alpha$
+
+\subsubsection{Filo metallico flessibile in campo di induzione uniforme}
+Un filo metallico perfettamente flessibile ed inestensibile, di lunghezza $L$, è percorso da una corrente costante $I$ ed è immerso in un campo di induzione uniforme $\vec B$. Determinare la configurazione di equilibrio supponendo che l'unica forza esterna agente è quella magnetica\\
+\underline{Soluzione:} la forza agente su un elemento di conduttore è $\mathrm d\vec F=I\mathrm d\vec l\times\vec B$, e può essere nulla solo se $\mathrm d\vec l\parallel\vec B$. Per la geometria del sistema questo è impossibile quindi $\oint \mathrm d\vec F\neq \vec 0$; per l'equilibrio si deve avere necessariamente una forza interna  oltre a $\mathrm d\vec F$. L'unica possibilità compatibile con le ipotesi è che nel filo si generano delle tensioni $\mathrm d\vec\tau_1$ e $\mathrm d\vec\tau_2$. Per l'elemento di filo: $0=\mathrm d\vec F+\mathrm d\vec\tau_1+\mathrm d\vec\tau_2=I\mathrm d\vec l\times\vec B-2\tau\sin\frac{\mathrm d\theta}{2}\,\hat n=I\mathrm d\vec l\times\vec B-\tau\,\mathrm d\theta\,\hat n=I\mathrm d\vec l\times\vec B+\tau\frac{dl}{r}\,\hat n$ dove $r$ è il raggio di curvatura locale e $\hat n$ punta verso l'esterno del cerchio osculatore; quindi la tensione agente sull'elemento ha azione centripeta e la forza magnetica ha azione centrifuga. Va osservato che $\mathrm d\vec F\perp\vec B$ ed è equilibrata dalla tensione interna, che quindi è perpendicolare a $\vec B$. Perciò nella configurazione di equilibrio il filo si dispone in un piano ortogonale a $\vec B$, cioè $\mathrm d\vec l\perp\vec B$. Quindi l'equazione di equilibrio diventa $IB\mathrm dl-\tau\frac{dl}{r}=IB-\frac{\tau}{r}=0$. Per capire la forma assunta dal filo, va osservato che $r=\frac{\tau}{IB}$ e tutte le quantità $\tau,I,B$ sono uniformi lungo il filo, quindi anche $r$ è uniforme e la configurazione è una circonferenza. Ma poiché $2\pi L=r$ si ha $\tau=\frac{LIB}{2\pi}$. È importante osservare che, all'equilibrio, il verso della corrente circolante è tale che, assegnato $\vec B$, la forza magnetica indotta è centrifuga. Riassumendo, il filo si dispone in un piano ortogonale a $\vec B$, assume forma circolare e si dispone in modo tale che $vec B$ induce una forza centrifuga equilibrata dalla tensione $\tau\propto LIB$
+
+\subsubsection{Forza magnetica agente su un circuito chiuso}
+Calcolare la forza risultante su un circuito chiuso percorso da corrente $I$ e disposto in un campo di induzione magnetica costante $\vec B$\\
+\underline{Soluzione:} il campo di induzione è $\vec B=B\,\hat u$ e la forza agente sul circuito è $\vec F=I\oint\mathrm d\vec l\times\vec B=IB(\oint\mathrm d\vec l)\times \vec B=0$ perché il versore $\hat u$ è per ipotesi costante, quindi può essere portato fuori dall'integrale, che è banalmente nullo. Non è nullo invece l'integrale $\oint \mathrm dl$ che rappresente ne rappresenta la lunghezza
+
+\subsubsection{Forza magnetica agente un conduttore non chiuso}
+Calcolare la forza risultante agente su un tratto conduttore di estremi $C$ e $D$, percorso da corrente $I$ ed immerso in un campo di induzione magnetica uniforme $\vec B$\\
+\underline{Soluzione:} $\vec F=I\int_C^D\mathrm d\vec l\times \vec B=IB(\int_C^D\mathrm d\vec l)\times\hat u=IB\,\overrightarrow{CD}\times\vec u$. La forza risultante dipende solo dalla posizione relativa degli estremi del conduttore, e non dalla sua lunghezza e forma
+
+\subsubsection{Circuito ad U con barra mobile immerso in un campo di induzione uniforme}
+Un conduttore filiforme è piegato ad U, con i rami paralleli a distanza $L$. Sulla U è disposta una barra conduttrice che chiude il circuito. Questo forma un rettangolo il cui piano è ortogonale alla direzione di $\vec B$ uniforme e costante. La barra scorre parallelamente a se stessa con velocità $\vec V$, garantendo il contatto elettrico con il conduttore. Calcolare la f.e.m. indotta\\
+\underline{Soluzione:} fissato un s.d.r. $\hat i\hat j\hat k$, le cariche mobili nella barra sono trascinate con velocità $\vec v_{tr}=V\hat j$ nel campo di induzione $\vec B=B\hat k$, e quindi risentono della forza di Lorentz che corrisponde al campo e.m. indotto $\vec E_i=V\hat\jmath\times B\hat k=VB\,\hat\imath$. La f.e.m. indotta è la circuitazione $\oint\vec E_i\cdot\mathrm d\vec s=-VBL$. Il flusso concatenato con il circuito è $\Phi_{S(\gamma)}=\iint_{S(\gamma(t))}\vec B\cdot\hat n\mathrm dS=B|S(\gamma(t))|=BLx(t)$, essendo $x(t)$ la distanza della barra dal lato della U. Per la legge di Lenz, $-\frac{\mathrm d\Phi}{\mathrm dt}=-\frac{\mathrm d}{\mathrm dt}\{BLx(t)\}=-BLV$
+
+\subsubsection{Nastro di carica in moto uniforme e forza indotta su un filo}
+È dato un nastro nel piano $xy$ descritto dalla regione $x\in[-\frac a2,\frac a2]$. Il nastro è carico uniformemente con densità $\sigma_0>0$ e si muove con velocità $\vec v=v_0\,\hat\jmath$ parallelamente al lato lungo. Calcolare il campo di induzione in un punto $P$ del piano $xy$ a distanza $d$ dal bordo destro del nastro. Alla distanza $d$ viene posto un filo rettilineo nel quale scorre la corrente $I_\mathrm f$, determinare la forza pr unità di lunghezza indotta dal nastro sul filo.
+
+\underline{Soluzione:} il moto delle cariche genera una densità di corrente $\vec J_\mathrm n=\sigma_0v_0\,\hat\jmath$ a cui corrisponde una corrente circolante in direzione $\hat\jmath$ di intensità $I_\mathrm n=\int_{-a/2}^{a/2}\vec J_\mathrm n\cdot\hat n\,\mathrm dx=\sigma_0v_0a$. Posso pensare di suddividere il nastro in fili rettilinei indefiniti infinitesimi larghi $\mathrm dx$. Per capire la corrente che scorre in ognuno di essi scrivo la corrente per unità di larghezza del nastro che è $\frac{I_\mathrm n}a$. Visto che un filo è largo $\mathrm dx$ allora in ogni filo scorre la corrente $\mathrm dI=\frac {I_\mathrm n}a\,\mathrm dx$. Il contributo di un filo al campo di induzione in $P$ è $\mathrm d\vec B=-\frac{\mu_0}{2\pi}\frac 1x\frac{I_\mathrm n}a\,\mathrm dx\,\hat k$, dove $x$ è la distanza di $P$ dal generico filo infinitesimo. Tutti i contributi dei vari fili infinitesimi sono paralleli fra di loro e concordi quindi basta integrarli $\vec B=-\frac{\mu_0I_\mathrm n}{2\pi a}\int_d^{d+a}\frac{\mathrm dx}{x}=-\frac{\mu_oI_\mathrm n}{2\pi a}\log(\frac{d+a}{d})$.\\
+Il campo di induzione generato dalla corrente $I_\mathrm n$ induce sugli elementi di corrente del filo la forza $\mathrm d\vec F=I_\mathrm f\,\mathrm dy\,\hat\jmath\times\frac{\mu_0I_\mathrm n}{2\pi a}\log(\frac{d+a}{d})(-\hat k)=-\frac{\mu_0I_\mathrm nI_\mathrm f}{2\pi a}\log(\frac{d+a}a)\mathrm dy\,\hat\imath$. Questa rappresenta la forza indotta dal nastro sul filo, per unità di lunghezza del filo.
+
+\subsubsection{Effetto Hall}
+Viene fatta scorrere corrente in una piastra conduttrice in senso longitudinale
+
+\section{Equazioni di Maxwell}
+\subsection{Equazioni per il campo elettrostatico}
+\subsubsection{I equazione - Legge di Gauss}
+$? \Longrightarrow \Phi_\mathcal G(\mathbf E) = 4\pi k Q_{int} \Longrightarrow \iint\mathbf E\cdot\mathbf n\de \varsigma = 4\pi k \iiint\de q \Longrightarrow \dive \mathbf E = 4\pi k \rho$
+
+\subsubsection{III equazione - Conservatività}
+$\oint \de\mathscr L = 0 \Longrightarrow \Gamma_\gamma(\mathbf E)=0 \Longrightarrow \oint \mathbf E\cdot\de s = 0 \Longrightarrow \rot\mathbf E = \mathbf 0$
+
+\section{Equazioni per il campo magnetostatico}
+\subsubsection{II equazione - Inesistenza di monopoli magnetici}
+$\Phi_\mathcal G(\mathbf B) = 0 \Longrightarrow \iint\mathbf B\cdot\mathbf n\de \varsigma = 0 \Longrightarrow \dive \mathbf B = 0$
+
+\section{Esperimenti}
+\subsubsection{Esperienza di Oersted}
+un filo percorso da corrente genera un campo magnetico
+
+\subsubsection{Esperienza di Faraday}
+un filo percorso da corrente risente dell'effetto di un campo magnetico esterno
+
+\subsubsection{Esperienza di Ampere}
+tra due fili percorsi da correnti si esercitano delle forze
+
+\section{Circuiti}
+\subsubsection{Generatori reali di f.e.m. in serie}
+Una maglia è costituita da $N$ generatori uguali con $f.e.m.=\mathcal E$ e resistenza interna $R$, collegati in serie con verso concorde delle f.e.m. Calcolare da d.d.p. fra due connessioni $A$ e $B$ qualsiasi fra i generatori\\
+\underline{Soluzione:} l'equazione della maglia è $\sum f.e.m.=I\sum R\;\Rightarrow\;N\mathcal E=INR\;\Rightarrow\;I=\frac{\mathcal E}{R}$. Per caloclare la d.d.p tra i punti $A$ e $B$ considero il ramo corrispondente, di equazione $V_A-V_B+n\mathcal E=InR\;\Rightarrow\;V_A-V_B+n\mathcal E=n\mathcal E\;\Rightarrow\;V_A=V_B$
+
+\subsubsection{RC serie}
+Sono noti $f.e.m., R, C$. Determinare $q_C, i, v_C, v_R$ in funzione del tempo, al variare di $f.e.m.\in\{0,\mathcal E\}$\\
+\underline{Soluzione:} per $f.e.m.=0$ l'equazione del circuito è $0=v_R+v_C\;\Rightarrow\;0=Ri+Q/C$. Considerando che la circolazione di una corrente comporta la diminuzione della carica acccumulata dal condensatore, vale $i=-\dot q$ per cui $\dot q+\frac{q}{RC}=0$. Tenendo conto della condizione iniziale $q(0)=Q_0$ ottengo la soluzione $q(t)=Q_0e^{-\frac{t}{RC}}$. La corrente circolante è $i(t)=-\frac{\mathrm dq(t)}{\mathrm dt}=\frac{Q_0}{RC}e^{-\frac{t}{RC}}=\frac{V_0}{R}e^{-\frac{t}{RC}}$ essendo $V_0=\frac{Q_0}{C}$ la tensione iniziale tra le armature. La tensione tra le armature del condensatore è $v_C=\frac{q(t)}{C}=Q_0e^{-\frac{t}{RC}}$. La tensione ai capi della resistenza è $v_R=Ri(t)=\frac{Q_0}{C}e^{-\frac{t}{RC}}=v_C$. La potenza dissipata per effetto Jou0.le è $W_R=Ri^2(t)=\frac{v_R^2}{R}=\frac{Q_0^2}{RC^2}e^{-\frac{2t}{RC}}$, a cui corrisponde l'energia $U_R=R\int_0^{+\infty}i^2(t)\mathrm dt=\frac{Q_0^2}{2C}$\\
+Per $f.e.m.=\mathcal E$ l'equazione del circuito è $\mathcal E=v_R+v_C$ cioè $\mathcal E=R\frac{\de q}{\de t}+\frac qC$. Per separazione delle variabili si ha $RC\frac{\de q}{\de t}=\mathcal E-q\;\Rightarrow\;$
+Tenendo conto della condizione iniziale $q(0)=0$ ottengo la soluzione $q(t)=\mathcal EC(1-e^{-\frac{t}{RC}})$. La corrente circolante è $i(t)=\frac{\mathrm dq(t)}{\mathrm dt}=\frac{\mathcal E}{R}e^{-\frac t\tau}$. La tensione tra le armature del condensatore è $v_C(t)=\frac{q(t)}{C}=\mathcal E(1-e^{-\frac{t}{RC}})$. La tensione ai capi della resistenza è $v_R(t)=Ri(t)=\mathcal E e^{-\frac{t}{RC}}$. La potenza erogata dal generatore è $W_\mathrm{gen}=\frac{\mathrm d\mathscr L_\mathrm{gen}}{\mathrm dt}=\frac{\mathcal E^2}{R}e^{-\frac{t}{RC}}$, a cui corrisponde l'energia $U_\mathrm{gen}=\frac{\mathcal E^2}{R}\int_0^{+\infty}e^{-\frac{t}{RC}}\mathrm dt=C\mathcal E^2$. La potenza dissipata dalla resistenza è $W_R=Ri^2(t)=\frac{v_R^2(t)}{R}=\frac{\mathcal E^2}{R}e^{-\frac{2t}{\tau}}$, a cui corrisponde l'energia $U_R=R\int_0^{+\infty}e^{-\frac{2t}{\tau}}\mathrm dt=\frac{C\mathcal E^2}{2}$. L'energia accumulata dal condensatore è $U_C=\frac C2\lim_{t\to+\infty}v_C^2(t)=\frac{C\mathcal E^2}{2}$. In accordo con la conservazione dell'energia si ha $U_\mathrm{gen}=U_R+U_C$
+
+\subsubsection{RL serie}
+Sono noti f.e.m. $\mathcal E$, resistenza $R$, induttanza $L$. Determinare: $i, v_L, v_R, W_\mathrm{gen}, W_R, W_L$ nelle fasi di carica e scarica\\
+\underline{Soluzione:} nella fase di carica l'equazione del circuito è $\mathcal E+\mathcal E_L=Ri$. La caratteristica dell'induttore è $\mathcal E_L=L\frac{\mathrm di}{\mathrm dt}$ quindi ottengo l'equazione $\frac{\de i}{\de t}+\frac{i}{\sfrac LR}=\frac{\mathcal E}{L}$. Tenendo conto della condizione iniziale $i(0)=0$ ottengo la soluzione $i(t)=\frac{\mathcal E}{R}(1-e^{-\frac{t}{\sfrac LR}})$. La tensione ai capi dell'induttore è $v_L=-L\frac{\mathrm dI(t)}{\mathrm dt}=RI(t)-\mathcal E=-\mathcal E(e^{-\frac{t}{\sfrac LR}})$. La tensione ai capi del resistore è $v_R=RI(t)=\mathcal E(1-e^{-\frac t\tau})$. La potenza erogata dal generatore è $W_\mathrm{gen}(t)=\frac{\mathrm d\mathscr L_\mathrm{gen}}{\mathrm dt}=\frac{\mathcal E^2}{R}(1-e^{-\frac t\tau})$. La potenza dissipata dalla resistenza è $W_R(t)=RI^2(t)=\frac{V_R^2(t)}{R}=\frac{\mathcal E^2}{R}(1-e^{-\frac{t}{\sfrac LR}})^2$. $W_L=???$
+
+\subsubsection{RLC serie}
+Sono noti $\mathcal E,\,R,\,L,\,C$.\\
+\underline{Soluzione:} in presenza del generatore l'equazione del circuito è $\mathcal E-\mathcal E_L-\mathcal E_C=RI$. Con le caratteristiche $\mathcal E_L=L\frac{\mathrm di}{\mathrm dt}$ e $\mathcal E_C=\frac{q}{C}$ ottengo l'equazione $\mathcal E-L\frac{\mathrm di}{\mathrm dt}-\frac qC=Ri$ cioè $\mathcal E-L\frac{\mathrm dI}{\mathrm dt}-\frac 1C\int i\,\mathrm dt=Ri$ da cui derivando $L\ddot i+R\dot i+\frac iC=0$. È conveniente introdurre i parametri $\gamma=\frac RL$ e $\omega_0=\frac{1}{\sqrt{LC}}$ per riscrivere l'equazione come $\ddot i+2\gamma\dot i+\omega_0^2=0$. Come è noto la soluzione è del tipo $i(t)=c_1e^{\lambda_1t}+c_2e^{\lambda_2t}$ in cui $\lambda_i$ dipendono dal discriminante $\Delta=\gamma^2-\omega_0^2$: se $\Delta>0$ (cioè $R^2>\frac{4L}C$) il regime è sovrasmorzato, $\lambda_{1,2}=-\gamma\pm\sqrt{\gamma-\omega_0^2}$ e $c_i\in\mathbb{R}$; se $\Delta<0$ (cioè $R^2>\frac{4L}C$) il regime è sottosmorzato, $\lambda_{1,2}=-\gamma\pm j\sqrt{\omega_0^2-\gamma^2}=-\gamma\pm j\omega$, $c_i\in\mathbb{C}$ e la soluzione può mettersi nella forma $i(t)=e^{-\gamma t }(c_1e^{j\omega t}+c_2e^{-j\omega t})=2e^{-\gamma t}\mathfrak{R}(c_1e^{-j\omega t})$ il cui pseudo-periodo è $T=\frac{2\pi}{\omega}$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       END DOCUMENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\vfill\null
+%\columnbreak
+\end{document}
