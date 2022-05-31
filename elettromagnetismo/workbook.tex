@@ -44,6 +44,8 @@
 
 \begin{document}
 	
+\tableofcontents
+	
 \section{Elettrostatica}
 \subsubsection{Lavoro del campo su una carica puntiforme}
 La carica $q$ nell'origine produce il campo $\vec E(\vec r) = \frac{q}{4\pi\varepsilon_0}\frac{\vec r}{||\vec r||^3}$. La carica $Q$ si muove da $A$ a $B$ lungo un percorso arbitrario $\gamma$. Decompongo il percorso in due tratti: con $\gamma_1$ arrivo sullo stesso raggio passante per $B$ muovendomi lungo un arco passante per $A$; con $\gamma_2$ arrivo a $B$ muovendomi radialmente. Il lavoro del campo sulla carica è $\mathscr L_\gamma = \frac{qQ}{4\pi\varepsilon_0}\int_A^B \frac{\vec r \cdot \de\vec s}{||\vec r||^3} = \mathscr L_{\gamma_1} + \mathscr L_{\gamma_2}$. Lungo $\gamma_1$ si ha $\vec r \perp \de\vec s$ quindi contano solo gli spostamenti radiali; il problema diventa unidimensionale. Lungo $\gamma_2$ si ha $\de\vec s = \hat r\,\de r$ quindi $\mathscr L_\gamma = \mathscr L_{\gamma_2} = \frac{qe}{4\pi\varepsilon_0}\int_{r_A}^{r_B} \frac{r\,\de r}{r^3} = -\frac{qQ}{4\pi\varepsilon_0}(\frac1{r_B}-\frac1{r_A})$.\\
@@ -101,6 +103,8 @@ POISSON: nella cavità vale l'equazione di Poisson $\nabla^2 V(r) = 0$ con la co
 \subsubsection{Guscio conduttore con carica interna}
 È presente una carica $q$ nella cavità del conduttore. A differenza del precedente, la carica nella cavità deve essere bilanciata da una carica $-q$ su $S_{int}$. Di conseguenza su $S_{ext}$ si avrà la carica $q$, oltre alla carica eventualmente portata dal conduttore se esso non è scarico; su $S_{ext}$ quindi è presente tutta la carica contenuta nel conduttore. [sul picasso viene approfondita l'indipendenza fra problema interno ed esterno]
 
+\subsubsection{Capacità del condensatore piano}
+Dal doppio piano di carica segue che il campo fra le armature è $E = \frac{\sigma d}\epsilon$
 
 \subsubsection{Energia di un condensatore carico}
 Un condensatore di capacità $C$ è caricato fino ad assumere la d.d.p. $\Delta V$ tra le armature. Calcolare l'energia elettrostatica immagazzinata\\
