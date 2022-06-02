@@ -8,7 +8,7 @@
 %\usepackage{ifthen}
 %\usepackage[utf8]{inputenc}
 \usepackage[portrait]{geometry}
-%\usepackage{graphicx}
+\usepackage{graphicx}
 %\usepackage[colorlinks=true,citecolor=blue,linkcolor=blue]{hyperref}
 \usepackage{mathrsfs}
 \usepackage{multicol,multirow}
@@ -33,18 +33,12 @@
 \setlength{\parskip}{0pt plus 0.5ex}
 %%	Formattazione
 \makeatletter
-\renewcommand{\section}{\@startsection{section}{1}{-3mm}
-	{2ex}
-	{.1ex}
-	{\normalfont\large\bfseries}}
-\renewcommand{\subsection}{\@startsection{subsection}{2}{0mm}
-	{.5ex}
-	{.1ex}
-	{\normalfont\normalsize\bfseries}}
-\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{1mm}
-	{.1ex}
-	{.1ex}
-	{\normalfont\small\bfseries}}
+\renewcommand{\section}{\@startsection{section}{1}
+	{0mm}{2ex}{.1ex}{\normalfont\large\bfseries}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}
+	{0mm}{.5ex}{.1ex}{\normalfont\normalsize\bfseries}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}
+	{0mm}{.1ex}{.1ex}{\normalfont\small\bfseries}}
 \makeatother
 
 %%	DEFINIZIONE COMANDI
@@ -64,144 +58,138 @@
 \begin{document}
 \begin{multicols}{2}
 	
-\section{Elettrostatica nel vuoto}	
-	\subsection{Forza elettrica tra due cariche (legge di Coulomb)}
-	$\mathbf F_{2\to1}(\mathbf r_2-\mathbf r_1)=q_2\mathbf E_1(\mathbf r_2)=\frac{q_1q_2}{4\pi\varepsilon} \frac{\mathbf r_1-\mathbf r_2}{|\mathbf r_1-\mathbf r_2|^3} = \frac{q_1q_2}{4\pi\varepsilon} \frac{\vers(\mathbf r_1-\mathbf r_2)}{|\mathbf r_1-\mathbf r_2|^2}$
-	
-	\subsection{Campo elettrico distribuzione mista}
-	$\mathbf E(\mathbf r) = \frac1{4\pi\varepsilon} \left[ \int_\Upsilon \frac{\varrho(\mathbf r^\prime)(\mathbf r-\mathbf r^\prime)}{| \mathbf r-\mathbf r ^\prime|^3} \de\upsilon^\prime + \sum_{i=1}^N \frac{q_i(\mathbf r-\mathbf r_i)}{|\mathbf r-\mathbf r_i|^3} \right]$\\
-	$V(\mathbf r) = \frac1{4\pi\varepsilon} \left[ \int_\Upsilon \frac{\varrho(\mathbf r^\prime)}{|\mathbf r-\mathbf r^\prime|} \de\upsilon^\prime + \sum_{i=1}^N\frac{q_i}{|\mathbf r-\mathbf r_i|}\right]$
-	
-	\subsection{Teorema di Gauss e I equazione di Maxwell}
-	$\Phi_{\partial \mathcal G}(\mathbf E) = \frac1{\varepsilon} \int_\mathcal G \varrho(\mathbf r^\prime) \, d\upsilon'\;\;\Rightarrow\;\;\dive\,\mathbf E=\frac \varrho\varepsilon$
- 	
- 	\subsection{Equazione di Poisson e di Laplace}
- 	$\mathbf E=-\vec\nabla V\;\Rightarrow\;
- 	\nabla^2V(\mathbf r)=\frac {\varrho(\mathbf r)}{\varepsilon}\qquad
- 	\rho(\mathbf r)\equiv 0\;\Rightarrow\;\nabla^2V(\mathbf r)=0$
-	
-	\subsection{Relazioni per l'elettrostatica nel vuoto}
-	$\mathbf E_0=\varepsilon_r\mathbf E\qquad V_0=\varepsilon_r V\qquad \varepsilon=\varepsilon_r\,\varepsilon_0\qquad\varepsilon_r>1$
-	
-	\subsection{Alcune costanti dielettriche}
-	$\varepsilon_0=8.854\cdot 10^{-12}\:\mathrm{\frac{C^2}{N\,m^2}}$\\
-	\begin{tabular}{@{}l|c}\;\;Materiale&$\varepsilon_r$\\
-	\hline
-	aria a 25$^\circ$&1.0005\\
-	acqua a 25$^\circ$&78\\
-	gomma&3\\
-	porcellana&6\\
-	carta paraffinata&2\\
-	vetro&4\,$\div$\,10\\
-	\end{tabular}\\
+	\section{ELETTROSTATICA NEL VUOTO}
+\subsection{Legge di Coulomb, campo e potenziale elettrostatico}
+$\mathbf F_{2\to1}(\mathbf r_2-\mathbf r_1)=q_2\mathbf E_1(\mathbf r_2)=\frac{q_1q_2}{4\pi\varepsilon} \frac{\mathbf r_1-\mathbf r_2}{|\mathbf r_1-\mathbf r_2|^3} = \frac{q_1q_2}{4\pi\varepsilon} \frac{\vers(\mathbf r_1-\mathbf r_2)}{|\mathbf r_1-\mathbf r_2|^2}$
+$\mathbf E(\mathbf r) = \frac1{4\pi\varepsilon} \left[ \int_\Upsilon \frac{\varrho(\mathbf r^\prime)(\mathbf r-\mathbf r^\prime)}{| \mathbf r-\mathbf r ^\prime|^3} \de\upsilon^\prime + \sum_{i=1}^N \frac{q_i(\mathbf r-\mathbf r_i)}{|\mathbf r-\mathbf r_i|^3} \right]$
+$V(\mathbf r) = \frac1{4\pi\varepsilon} \left[ \int_\Upsilon \frac{\varrho(\mathbf r^\prime)}{|\mathbf r-\mathbf r^\prime|} \de\upsilon^\prime + \sum_{i=1}^N\frac{q_i}{|\mathbf r-\mathbf r_i|}\right]$
 
-\section{Aspetti energetici e III equazione di maxwell}
-	\subsection{Lavoro, potenziale e energia elettrostatica}
- 	$L_{AB}=\int_A^B\!\mathbf F\cdot\mathrm d\mathbf s=q\int_A^B\!\mathbf E \cdot\de\mathbf s=-q\int_A^B \vec\nabla V\cdot\de\mathbf s=-q\int_A^B\de V$\\
- 	$V_O(P):=-\int_O^P\mathbf E\cdot\de\mathbf s$\\
- 	$\mathbf E = -\vec\nabla V \Rightarrow L_{AB} = \Delta U = q\Delta V \Rightarrow U=q\,V$\\
- 	\ldots energia di un sistema di cariche $\ldots$
- 	$\Delta T = L_{AB} \Rightarrow \frac12 m(v_B^2-v_A^2) = q(V_A - V_B)$
-%	\subsection{Conservatività e III equaz. di Maxwell stazionaria}	
-%	$\oint\!\mathbf F\cdot\mathrm{d}\mathbf s=q\oint\!\mathbf E\cdot\mathrm{d}\mathbf s=0\;\;\Rightarrow\;\;\mathrm{rot}\,\mathbf E=\vec 0$
-	
-	\subsection{Energia del campo elettrostatico}
-		\subsubsection{Sistema di cariche discrete}
-		\begin{tabular}{@{}lll}
-		una carica&due cariche&$n$ cariche\\
-		$U(\mathbf r)=q\,V(\mathbf r)$&$U=\frac{q_1q_2}{4\pi\varepsilon}\frac{1}{r_{12}}$&$U=\frac 12\underset{i\neq j}{\sum}\frac{1}{4\pi\varepsilon}\frac{q_iq_j}{r_{ij}}=\frac 12\sum_i q_iV_i$\end{tabular}\\
-		$V_i=\sum_j \frac{q_j}{4\pi\varepsilon r_{ij}}$ potenziale generato in $P_i$ dalle altre cariche
-		
-		\subsubsection{Sistema di cariche distribuite}
-		$U=\frac 12 \int_\Upsilon\varrho V\,\de\upsilon=\frac \varepsilon 2 \int_\Upsilon V\,\dive\mathbf E\,\de\upsilon=\frac \varepsilon 2\int_\Upsilon[\dive(V\mathbf E)+\|\mathbf E\|^2]\,\de\upsilon=$\\$\!\!\!=\frac \varepsilon 2\int_{\partial\Upsilon}V\,\mathbf E\cdot\mathbf n\,\mathrm dS+\frac \varepsilon 2\int_\Upsilon \|\mathbf E\|^2\,\de\upsilon\quad\underset{\Upsilon\to\mathbb{E}^3}{\lim}U=\int_{\mathbb{E}^3}\!\frac{\varepsilon \|\mathbf E\|^2}{2}\,\de\upsilon=\int_{\mathbb{E}^3}\!u\,\de\upsilon$
+\subsection{Teorema di Gauss e I equazione di Maxwell}
+$\Phi_{\partial \mathcal G}(\mathbf E) = \frac1{\varepsilon} \int_\mathcal G \varrho(\mathbf r^\prime) \, d\upsilon'\;\;\Rightarrow\;\;\dive\,\mathbf E=\frac \varrho\varepsilon$
 
-\vfill\null
-\columnbreak
+\subsection{Equazione di Poisson e di Laplace}
+$\mathbf E=-\vec\nabla V\;\Rightarrow\;
+\nabla^2V(\mathbf r)=\frac {\varrho(\mathbf r)}{\varepsilon}\qquad
+\rho(\mathbf r)\equiv 0\;\Rightarrow\;\nabla^2V(\mathbf r)=0$
 
-\section{Magnetostatica nel vuoto}
-	\subsection{Campo di induzione magnetica (legge di Ampère)}
-	\begin{tabular}{@{}ll}
-		conduttore filiforme&conduttore generico\\
-		$\de\mathbf F = i\mathrm d\mathbf l \times \mathbf B$ & $\de\mathbf F = \mathbf J\de\upsilon \times \mathbf B$\\
-		$\de\mathbf M = \mathbf r \times (i\mathrm \de\mathbf l \times \mathbf B)$ & $\de\mathbf M = \mathbf r \times (\mathbf J\de\upsilon \times \mathbf B)$\end{tabular}
-	
-	\subsection{Campo di induzione generato da cariche in moto}
-	\begin{tabular}{@{}ll}
-		conduttore filiforme&conduttore generico\\
-		$\de\mathbf B(\mathbf r) = \frac{\mu_0}{4\pi} \frac{i\mathrm \de\mathbf r^\prime \times (\mathbf r-\mathbf r^\prime)}{|\mathbf r-\mathbf r^\prime|^3}$&
-		$\de\mathbf B(\mathbf r) = \frac{\mu_0}{4\pi} \frac{\mathbf J(\mathbf r^\prime) \de\upsilon^\prime \times (\mathbf r-\mathbf r^\prime)}{|\mathbf r-\mathbf r^\prime|^3}$\end{tabular}
-	
-	\subsection{Teorema di Gauss e II equazione di Maxwell}
-	$\Phi_{\partial\mathcal G}(\mathbf B) = 0 \;\;\Rightarrow\;\; \dive\mathbf B = 0$
-	
-	\subsection{Teorema di Ampère e IV equazione di Maxwell}
-	$\oint_\gamma\mathbf B_0\cdot\mathrm d\mathbf s=\mu_0\underset{\mathrm{alg}}{\sum}m_iI_i(\gamma)\;\;\Rightarrow\;\;\mathrm{rot}\mathbf B_0=\mu_0\mathbf J$\\
-	$m_i$ grado di concatenazione di $I_i$
-	
-	\subsection{Carica in moto in un campo di induzione uniforme}
-		\subsubsection{Ipotesi}
-		$\mathbf B_0=B\mathbf u\qquad\|\mathbf v(t)\|=v_0\qquad\mathbf v_0=\mathbf v_0^\parallel+\mathbf v_0^\perp\qquad\mathbf v_0^\parallel=\mathbf v_0\cdot\mathbf u=v_0\cos\theta$\\
-		\subsubsection{Equazione del moto}
-		$qB\mathbf v_0^\perp\times\mathbf u=m\vec a\;\;\Rightarrow\;\begin{cases}\vec a^\parallel=\vec 0\\\frac{v_0^2}{r}=\frac{qBv_0\sin\theta}{m}\end{cases}\!\!\!\!\Rightarrow\;\begin{cases}\mathbf v^\parallel=v_0\cos\theta\,\mathbf u\\\omega=\frac{qB}{m}\quad r=\frac{mv_0\sin\theta}{qB}\end{cases}$\\
-		moto elicoidale cilindrico di passo $p=v_0^\parallel\,T=\frac{2\pi m v_0\sin\theta}{qB}$	
+%\subsection{Alcune costanti dielettriche}
+%$\varepsilon_0=8.854\cdot 10^{-12}\:\mathrm{\frac{C^2}{N\,m^2}}$\\
+%\begin{tabular}{@{}l|c}\;\;Materiale&$\varepsilon_r$\\
+%\hline
+%aria a 25$^\circ$&1.0005\\
+%acqua a 25$^\circ$&78\\
+%gomma&3\\
+%porcellana&6\\
+%carta paraffinata&2\\
+%vetro&4\,$\div$\,10\\
+%\end{tabular}\\
 
-%\section{Elettromagnetismo non stazionario}
-%	\subsection{Legge di F-N-L e III equaz. di Maxwell}
-%	$f_\mathrm{ind}=-\frac{\de\Phi_\gamma(\mathbf B)}{\mathrm dt}\qquad f_\mathrm{ind}=\oint_\gamma\mathbf E_\mathrm{ind}\cdot\mathrm d\mathbf s\quad \mathbf E_\mathrm{ind}=\mathbf E+\mathbf v_\mathrm{tr}\times\mathbf B$\\
-%	se $\mathbf v_\mathrm{tr}=\vec 0$ (circuito fermo) allora $\mathrm{rot}\,\mathbf E=-\frac{\partial\mathbf B}{\partial t}$
-%	\subsection{IV equazione di Maxwell}
-%	\subsection{Coeff. di mutua induzione}
-%	$M_{21}=\frac{\Phi_1(\mathbf B_2)}{I_2}\;\Rightarrow\;f_\text{ind}=-M_{21}\frac{\de I_1}{\de t}\qquad M_{21}=M_{12}$
-%	\subsection{Autoinduzione}
-%		\subsubsection{flusso concatenato, induttanza e f.e.m. autoindotta}
-%		$\Phi_\gamma(\mathbf B_0)=I\Big(\frac{\mu_0}{4\pi}\int_{\Sigma(\gamma)}\oint_\gamma\frac{\de\mathbf l\times\Delta\mathbf r}{\|\Delta\mathbf r\|^3}\cdot\mathbf n\,\de\mathbf s\Big)\qquad L=\frac{\Phi_\gamma(\mathbf B_0)}{I}\qquad f_\mathrm a=-L\frac{\mathrm dI}{\mathrm dt}$
-%		\subsubsection{energia immagazzinata in un induttore}
-%		incremento dovuto al passaggio di corrente\quad$\mathrm dU=LI\,\mathrm dI$\\
-%		energia di un induttore carico\quad$U=\frac 12 LI^2$
+\includegraphics[bb=0 0 100 100]{positiva.png}\qquad
+\includegraphics[bb=0 0 100 100]{negativa.png}
 
-%\section{Equazioni di Maxwell nel vuoto}
-%	\begin{tabular}{@{}ll}
-%		\textbf{I equazione}&\textbf{II equazione}\\
-%		$\dive\,\mathbf E_0(\mathbf r,t)=\frac{1}{\varepsilon_0}\varrho(\mathbf r,t)$&$\dive\,\mathbf B_0(\mathbf r,t)=0$\\
-%		\textbf{III equazione}&\textbf{IV equazione}\\
-%		$\mathrm{rot}\,\mathbf E_0(\mathbf r,t)=-\frac{\partial\mathbf B_0(\mathbf r,t)}{\partial t}$&$\mathrm{rot}\,\mathbf B_0(\mathbf r,t)=\mu_0\mathbf J$
-%	\end{tabular}
+	\section{MAGNETOSTATICA NEL VUOTO}
+\subsection{Legge di Ampère per campo di induzione magnetica}
+\begin{tabular}{@{}ll}
+conduttore filiforme&conduttore generico\\
+$\de\mathbf F = i\mathrm d\mathbf l \times \mathbf B$ & $\de\mathbf F = \mathbf J\de\upsilon \times \mathbf B$\\
+$\de\mathbf M = \mathbf r \times (i\mathrm \de\mathbf l \times \mathbf B)$ & $\de\mathbf M = \mathbf r \times (\mathbf J\de\upsilon \times \mathbf B)$\end{tabular}
 
-%\section{Capacità e condensatori}
-%	\subsection{Conduttore isolato}
-%	$C=\frac{Q}{V}$\quad dipende solo dalla geometria del conduttore\\
-%	$Q$ e $V$ sono determinati dalla distribuzione di carica
-%	
-%	\subsection{Due conduttori}
-%	$C=\frac{Q}{V_1-V_2}=\frac{-Q}{V_2-V_1}$
-%	
-%	\subsection{Collegamento di condensatori}
-%	in serie $C_\text{eq}=\sum_i C_i$\qquad in parallelo $C_\text{eq}=(\sum_i \frac{1}{C_i})^{-1}$
-%	
-%	\subsection{Energia immagazzinata in un condensatore}
-%	incremento dovuto a traferimento di carica\quad$\mathrm dU=\frac{q}{C}\mathrm dq$\\
-%	energia di un condensatore carico\quad$U=\frac 12\frac{Q^2}{C}=\frac 12 QV^2$
+\subsection{Campo di induzione generato da cariche in moto}
+\begin{tabular}{@{}ll}
+conduttore filiforme&conduttore generico\\
+$\de\mathbf B(\mathbf r) = \frac{\mu_0}{4\pi} \frac{i\mathrm \de\mathbf r^\prime \times (\mathbf r-\mathbf r^\prime)}{|\mathbf r-\mathbf r^\prime|^3}$&
+$\de\mathbf B(\mathbf r) = \frac{\mu_0}{4\pi} \frac{\mathbf J(\mathbf r^\prime) \de\upsilon^\prime \times (\mathbf r-\mathbf r^\prime)}{|\mathbf r-\mathbf r^\prime|^3}$
+\end{tabular}
+
+\subsection{Teorema di Gauss e II equazione di Maxwell}
+$\Phi_{\partial\mathcal G}(\mathbf B) = 0 \;\;\Rightarrow\;\; \dive\mathbf B = 0$
+
+\subsection{Teorema di Ampère e IV equazione di Maxwell}
+$\oint_\gamma \mathbf B \cdot \de\mathbf s = \mu_0 \sum_k m_k i_k \;\;\Rightarrow\;\; \rot\mathbf B = \mu_0\mathbf J$\\
+$m_i$ - grado di concatenazione di $I_i$
+
+
+
+	\section{ASPETTI ENERGETICI}
+\subsection{Lavoro, potenziale, energia elettrostatica}
+$L_{AB} = \int_A^B \mathbf F \cdot \de\mathbf s = q \int_A^B \mathbf E \cdot \de\mathbf s = -q \int_A^B \vec\nabla V \cdot \de\mathbf s = -q \int_A^B \de V$\\
+$V_O(P) = -\int_O^P \mathbf E \cdot \de\mathbf s$\\
+$L_{AB} = -q \Delta V = \Delta U \;\;\Longrightarrow\;\; U = -qV$\\
+
+\subsection{Conservatività e III equaz. di Maxwell stazionaria}	
+$\oint \mathbf E \cdot \de\mathbf s = 0 \;\;\Rightarrow\;\; \rot\mathbf E = 0$
+
+%\subsection{sistemi di cariche discrete}
+%\begin{tabular}{@{}lll}
+%una carica&due cariche&$n$ cariche\\
+%$U(\mathbf r)=q\,V(\mathbf r)$&$U=\frac{q_1q_2}{4\pi\varepsilon}\frac{1}{r_{12}}$&$U=\frac 12\underset{i\neq j}{\sum}\frac{1}{4\pi\varepsilon}\frac{q_iq_j}{r_{ij}}=\frac 12\sum_i q_iV_i$\end{tabular}\\
+%$V_i=\sum_j \frac{q_j}{4\pi\varepsilon r_{ij}}$ potenziale generato in $P_i$ dalle altre cariche
 %
-%\section{Correnti elettriche stazionarie}
-%	\subsection{Densità di corrente e corrente elettrica}
-%	$\mathbf J=Nq\,\mathbf v_\mathrm{d}=\varrho\,\mathbf v_\de\quad\mathbf v_\mathrm{d}\parallel\mathbf E\qquad\mathrm dq=Nq\,\mathbf v_\mathrm{d}\cdot\mathbf n\,\mathrm dS\,\mathrm dt$\\
-%	$\mathrm dI=\frac{\mathrm dq}{\mathrm dt}=\mathbf J\cdot\mathbf n\,\mathrm dS\;\;\Rightarrow\;\;I(\Sigma)=\int_\Sigma\mathbf J\cdot\mathbf n\,\mathrm dS$
-%	\subsection{Legge di Ohm}
-%	$\mathbf J=\tilde\sigma E$\qquad per mezzi isotropi $\tilde\sigma=\sigma\tilde I\;\Rightarrow\;\mathbf J=\sigma\mathbf E\;\Rightarrow\;\mathbf E=\rho\mathbf J$
-%	\subsection{Conservazione della carica e I legge di Kirchhoff}
-%	$\frac{\de}{\mathrm dt}\int_\Upsilon\varrho\,\de\upsilon=\int_{\partial\Upsilon}\mathbf J\cdot(-\mathbf n)\,\mathrm dS\qquad \frac{\partial\varrho}{\partial t}+\dive\mathbf J=0$\\\smallskip
-%   
-%	per un nodo di $n$ conduttori\quad$\sum_i^{\mathrm{(alg.)}}I_i=0$
-%	
-%	\subsection{Circuitazione del c.e. e II legge di Kirchhoff}
-%	$\mathbf E=\mathbf E^\mathrm s+\mathbf E^\mathrm m+\mathbf E^\mathrm c=\rho\mathbf J\;\;\Rightarrow\;\;\sum_i^{\mathrm{(alg.)}}{\mathcal E_i}^\mathrm m+\sum_i^{\mathrm{(alg.)}}{\mathcal E_i}^\mathrm c=R_\mathrm{tot}I$ 	
-% 	
-% 	\subsection{Resistività}
-%   	$R(T)=\rho(T)\frac LS\qquad \rho(T)=r(\mathrm{0^\circ C})(1+\alpha T)\quad\alpha$ dipende dal materiale
+%$\Delta T = L_{AB} \Rightarrow \frac12 m(v_B^2-v_A^2) = q(V_A - V_B)$
 
-%	\includegraphics[bb=0 0 100 100]{positiva.png}\qquad
-%	\includegraphics[bb=0 0 100 100]{negativa.png}
-	
+%\subsection{Sistema di cariche distribuite}
+%$U=\frac 12 \int_\Upsilon\varrho V\,\de\upsilon=\frac \varepsilon 2 \int_\Upsilon V\,\dive\mathbf E\,\de\upsilon=\frac \varepsilon 2\int_\Upsilon[\dive(V\mathbf E)+\|\mathbf E\|^2]\,\de\upsilon=$\\$\!\!\!=\frac \varepsilon 2\int_{\partial\Upsilon}V\,\mathbf E\cdot\mathbf n\,\de S+\frac \varepsilon 2\int_\Upsilon \|\mathbf E\|^2\,\de\upsilon\quad\underset{\Upsilon\to\mathbb{E}^3}{\lim}U=\int_{\mathbb{E}^3}\!\frac{\varepsilon \|\mathbf E\|^2}{2}\,\de\upsilon=\int_{\mathbb{E}^3}\!u\,\de\upsilon$
+
+%\subsection{Carica in moto in un campo di induzione uniforme}
+%\subsubsection{Ipotesi}
+%$\mathbf B_0=B\mathbf u\qquad\|\mathbf v(t)\|=v_0\qquad\mathbf v_0=\mathbf v_0^\parallel+\mathbf v_0^\perp\qquad\mathbf v_0^\parallel=\mathbf v_0\cdot\mathbf u=v_0\cos\theta$\\
+%\subsubsection{Equazione del moto}
+%$qB\mathbf v_0^\perp\times\mathbf u=m\vec a\;\;\Rightarrow\;\begin{cases}\vec a^\parallel=\vec 0\\\frac{v_0^2}{r}=\frac{qBv_0\sin\theta}{m}\end{cases}\!\!\!\!\Rightarrow\;\begin{cases}\mathbf v^\parallel=v_0\cos\theta\,\mathbf u\\\omega=\frac{qB}{m}\quad r=\frac{mv_0\sin\theta}{qB}\end{cases}$\\
+%moto elicoidale cilindrico di passo $p=v_0^\parallel\,T=\frac{2\pi m v_0\sin\theta}{qB}$
+
+	\section{ELETTROMAGNETISMO NON STAZIONARIO}
+\subsection{Legge di F-N-L e III equaz. di Maxwell}
+$f_\mathrm{ind}=-\frac{\de\Phi_\gamma(\mathbf B)}{\de t}\qquad f_\mathrm{ind}=\oint_\gamma\mathbf E_\mathrm{ind}\cdot\de \mathbf s\quad \mathbf E_\mathrm{ind}=\mathbf E+\mathbf v_\mathrm{tr}\times\mathbf B$\\
+se $\mathbf v_\mathrm{tr}=\vec 0$ (circuito fermo) allora $\rot\,\mathbf E=-\frac{\partial\mathbf B}{\partial t}$
+\subsection{IV equazione di Maxwell}
+\subsection{Coeff. di mutua induzione}
+$M_{21}=\frac{\Phi_1(\mathbf B_2)}{I_2}\;\Rightarrow\;f_\text{ind}=-M_{21}\frac{\de I_1}{\de t}\qquad M_{21}=M_{12}$
+\subsection{Autoinduzione}
+\subsubsection{flusso concatenato, induttanza e f.e.m. autoindotta}
+$\Phi_\gamma(\mathbf B_0)=I\Big(\frac{\mu_0}{4\pi}\int_{\Sigma(\gamma)}\oint_\gamma\frac{\de\mathbf l\times\Delta\mathbf r}{\|\Delta\mathbf r\|^3}\cdot\mathbf n\,\de\mathbf s\Big)\qquad L=\frac{\Phi_\gamma(\mathbf B_0)}{I}\qquad f_\mathrm a=-L\frac{\de I}{\de t}$
+\subsubsection{energia immagazzinata in un induttore}
+incremento dovuto al passaggio di corrente\quad$\de U=LI\,\de I$\\
+energia di un induttore carico\quad$U=\frac 12 LI^2$
+
+\vfill\null\columnbreak
+
+	\section{DIELETTRICI}
+\subsection{Polarizzazione e cariche di polarizzazione}
+$\langle\mathbf p\rangle = \frac{\sum_i \mathbf p_i}{n\Delta V} \qquad \mathbf P = n\langle\mathbf p\rangle \quad \sigma_{pol} = \mathbf P \cdot \mathbf n \quad \rho_{pol} = -\dive\mathbf P$
+
+	\section{CONDUTTORI}
+\subsection{Conduttore isolato}
+$C=\frac{Q}{V}$\quad dipende solo dalla geometria del conduttore\\
+$Q$ e $V$ sono determinati dalla distribuzione di carica
+
+\subsection{Due conduttori}
+$C=\frac{Q}{V_1-V_2}=\frac{-Q}{V_2-V_1}$
+
+\subsection{Collegamento di condensatori}
+in serie $C_\text{eq}=\sum_i C_i$\qquad in parallelo $C_\text{eq}=(\sum_i \frac{1}{C_i})^{-1}$
+
+\subsection{Energia immagazzinata in un condensatore}
+incremento dovuto a traferimento di carica\quad$\de U=\frac{q}{C}\de q$\\
+energia di un condensatore carico\quad$U=\frac 12\frac{Q^2}{C}=\frac 12 QV^2$
+
+	\section{CORRENTI ELETTRICHE STAZIONARIE}
+\subsection{Densità di corrente e corrente elettrica}
+$\mathbf J = n q \mathbf v_{der}=\varrho\,\mathbf v_{der} \quad \mathbf v_{der} \parallel \mathbf E \qquad \de q = n q \mathbf v_{der} \de t \cdot \mathbf n \de S$\\
+$\de i = \frac{\de q}{\de t} = \mathbf J \cdot \mathbf n \de S \;\;\Rightarrow\;\; i(\Sigma) = \int_\Sigma \mathbf J \cdot \mathbf n \de S$
+
+\subsection{Legge di Ohm}
+$\mathbf J = \tilde\sigma E$\qquad per mezzi isotropi $\tilde\sigma = \sigma\tilde I \;\Rightarrow\; \mathbf J = \sigma\mathbf E \;\Rightarrow\; \mathbf E = \rho\mathbf J$
+
+\subsection{Conservazione della carica e I legge di Kirchhoff}
+$\frac{\de}{\de t} \int_\Upsilon \varrho \de\upsilon = \int_{\partial\Upsilon} \mathbf J \cdot (-\mathbf n) \de S \qquad \frac{\partial\varrho}{\partial t} + \dive\mathbf J = 0$\\
+per un nodo di $n$ conduttori \quad $\sum_k^{(alg)} i_k=0$
+
+\subsection{Circuitazione campo elettrico e II legge di Kirchhoff}
+$\mathbf E = \mathbf E^\mathrm s + \mathbf E^\mathrm m + \mathbf E^\mathrm c = \rho\mathbf J \;\;\Rightarrow\;\; \sum_i^{(alg)} {\mathcal E_i}^\mathrm m + \sum_i^{(alg)} {\mathcal E_i}^\mathrm c = i R_{tot}$ 	
+
+\subsection{Resistività}
+$R(T) = \rho(T) \frac LS \qquad \rho(T) = r(\mathrm{0^\circ C}) (1+\alpha T)$
+
 \end{multicols}
 
 
@@ -325,7 +313,7 @@
 	C=\varepsilon_0\frac{S}{d}$
 	\subsection{condensatore sferico}
 	$E_r(r)=\frac{Q}{4\pi\varepsilon_0}\frac 1r\quad
-	\Delta V=-\int_{R_\mathrm{i}}^{R_\mathrm{e}}\mathbf E\cdot\mathrm d\mathbf s=\frac{Q}{4\pi\varepsilon_0}\frac{R_\mathrm{e}-R_\mathrm{i}}{R_\mathrm{e}R_\mathrm{i}}\;\;
+	\Delta V=-\int_{R_\mathrm{i}}^{R_\mathrm{e}}\mathbf E\cdot\de \mathbf s=\frac{Q}{4\pi\varepsilon_0}\frac{R_\mathrm{e}-R_\mathrm{i}}{R_\mathrm{e}R_\mathrm{i}}\;\;
 	\Longrightarrow\;\;
 	C=4\pi\varepsilon_0\frac{R_\mathrm{e}R_\mathrm{i}}{R_\mathrm{e}-R_\mathrm{i}}$\\
 	se $R_\mathrm{i},R_\mathrm{e}\ll (R_\mathrm{e}-R_\mathrm{i})$ allora $C\simeq\varepsilon_0\frac{S_\mathrm{i}}{R_\mathrm{e}-R_\mathrm{i}}$
@@ -350,20 +338,20 @@
 	\subsubsection{carica del condensatore}
 \itemm{carica sulle armature\quad}
 \itemm{d.d.p tra le armature\quad}
-\itemm{corrente circolante\quad$i(t)=\frac{\mathrm dq(t)}{\mathrm dt}=\frac{\mathcal E}{R}e^{-\frac{t}{RC}}$}
+\itemm{corrente circolante\quad$i(t)=\frac{\de q(t)}{\de t}=\frac{\mathcal E}{R}e^{-\frac{t}{RC}}$}
 \itemm{d.d.p alla resisteza\quad$v_R(t)=i(t)R=\mathcal Ee^{-\frac{t}{RC}}$}
 \itemm{potenza del generatore\quad$P_{gen}(t)=\mathcal Ei(t)=\frac{\mathcal E^2}{R}e^{-\frac{t}{RC}}$}
 \itemm{potenza sulla resistenza\quad$P_R(t)=Ri^2(t)=\frac{\mathcal E^2}{R}e^{-\frac{2t}{RC}}$}
 \itemm{potenza sul condensatore\quad$P_C(t)=v_C(t)i(t)=P_{gen}-P_R$}
 		\subsubsection{serie}
-		\itemm{equazione di maglia\quad$\mathcal E-\frac{q(t)}{C}=\frac{\mathrm dq(t)}{\mathrm dt}R$}
+		\itemm{equazione di maglia\quad$\mathcal E-\frac{q(t)}{C}=\frac{\de q(t)}{\de t}R$}
 		\itemm{carica sulle armature\quad$q(t)=C\mathcal E(1-e^{-\frac{t}{RC}})$}
 		\itemm{d.d.p. tra le armature\quad$v_C(t)\frac{q(t)}{C}=\mathcal E(1-e^-{t}{RC})$}
 		
 		\subsubsection{parallelo}
 	\subsection{RL}
 		\subsubsection{serie}
-		\itemm{equazione di maglia\quad$\mathcal E-L\frac{\mathrm dI}{\mathrm dt}=RI$}
+		\itemm{equazione di maglia\quad$\mathcal E-L\frac{\de I}{\de t}=RI$}
 	\subsection{LC}
 	\subsection{RLC}
 

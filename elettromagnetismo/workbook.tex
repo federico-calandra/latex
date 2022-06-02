@@ -110,6 +110,11 @@ Dal doppio piano di carica segue che il campo fra le armature è $\mathbf E = \f
 Un condensatore di capacità $C$ è caricato fino ad assumere la d.d.p. $\Delta V$ tra le armature. Calcolare l'energia elettrostatica immagazzinata\\
 \underline{Def:} l'energia elettrostatica di una distribuzione superficiale di carica è $U=\frac 12\int\sigma V\,\mathrm dS$. Le densità di carica sulle armature valgono $\pm\sigma_0$ mentre i potenziali sono $V_A$ e $V_B$, quindi $U=\frac 12 V_A\int\sigma_0\,\mathrm dS+\frac 12 V_B\int(-\sigma_0)\,\mathrm dS=\frac 12 Q\Delta V$. Poiché $C=\frac{Q}{\Delta V}$ si ha $U=\frac 12 C(\Delta V)^2$
 
+\section{Dielettrici}
+\subsubsection{Cariche di polarizzazione}
+Si dimostrano le due relazioni $\sigma_{pol} = \mathbf P \cdot \mathbf n$ e $\rho_{pol} = -\dive\mathbf P$. Per la prima, considero un elemento  $\de S$ di superficie esterna del dielettrico, di normale $\mathbf n$. Il campo esterno $\mathbf E$, che in generale ha direzione arbitraria e forma l'angolo $\theta$ con $\mathbf n$, polarizza la materia del dielettrico. Se $\mathbf E \perp \mathbf n$ allora i dipoli sono paralleli a $\de S$ e la carica netta su $\de S$ è nulla. Diversamente, su $\de S$ sarà presente una densità di carica $\sigma = \de Q/\de S$ in cui $Q$ è identificata dai dipoli, di momento medio $\langle \mathbf p\rangle = q \mathbf d$, presenti nel volume del cilindretto di base $\de S$ e altezza $d\cos\theta$. Conoscendo la densità volumica $n$ dei dipoli, la carica è $\de Q = q n d \cos\theta \de S = qn\mathbf d \cdot \mathbf n \de S$ quindi $\sigma_{pol}= n \langle \mathbf p\rangle \cdot \mathbf n = \mathbf P \cdot \mathbf n$\\
+Per la seconda relazione, 
+
 \section{Magnetostatica}
 \subsubsection{Due fili rettilinei indefiniti e paralleli}
 Nel piano $xy$ un filo rettilineo coincidente con l'asse $y$ è sede della corrente $I_1$. L'altro filo posto a dx del precedente alla distanza $d$ è sede della corrente $I_2$. Determinare il campo di induzione in tutto lo spazio e vedere se ci sono punti dell'asse delle ascisse nei quali esso è nullo (utilizzando $I_1=I_\mathrm n$ del problema precedente). Determinare la forza per unità di lunghezza tra i due fili.
@@ -146,16 +151,22 @@ Il campo di induzione generato dalla corrente $I_\mathrm n$ induce sugli element
 Viene fatta scorrere corrente in una piastra conduttrice in senso longitudinale
 
 \section{Equazioni di Maxwell}
-\subsection{Equazioni per il campo elettrostatico}
+\subsection{Caso stazionario}
 \subsubsection{I equazione - Legge di Gauss}
-$? \Longrightarrow \Phi_\mathcal G(\mathbf E) = 4\pi k Q_{int} \Longrightarrow \iint\mathbf E\cdot\mathbf n\de \varsigma = 4\pi k \iiint\de q \Longrightarrow \dive \mathbf E = 4\pi k \rho$
+$\Phi(\mathbf E) = Q_{int}/\epsilon \;\;\Longrightarrow\;\; \iint \mathbf E \cdot \mathbf n\de\varsigma = \frac 1\epsilon \iiint \rho\,\de\upsilon \;\;\Longrightarrow\;\; \dive\mathbf E = \rho/\epsilon$\\
+definizione di flusso, teorema della divergenza
 
-\subsubsection{III equazione - Conservatività}
-$\oint \de\mathscr L = 0 \Longrightarrow \Gamma_\gamma(\mathbf E)=0 \Longrightarrow \oint \mathbf E\cdot\de s = 0 \Longrightarrow \rot\mathbf E = \mathbf 0$
-
-\section{Equazioni per il campo magnetostatico}
 \subsubsection{II equazione - Inesistenza di monopoli magnetici}
-$\Phi_\mathcal G(\mathbf B) = 0 \Longrightarrow \iint\mathbf B\cdot\mathbf n\de \varsigma = 0 \Longrightarrow \dive \mathbf B = 0$
+$\Phi(\mathbf B) = 0 \;\;\Longrightarrow\;\; \iint \mathbf B \cdot \mathbf n\de\varsigma = 0 \;\;\Longrightarrow\;\; \dive\mathbf B = 0$\\
+definizione di flusso, teorema della divergenza
+
+\subsubsection{III equazione - Conservatività del campo elettrostatico}
+$\Gamma(\mathbf E) = 0 \;\;\Longrightarrow\;\; \oint \mathbf E \cdot \de\mathbf s = 0 \;\;\Longrightarrow\;\; \rot\mathbf E = 0$\\
+definizione di circuitazione, teorema del rotore
+
+\subsubsection{IV equazione - Teorema di Ampère}
+$\Gamma(\mathbf B) = \mu_0 \sum_k m_k i_k \;\;\Longrightarrow\;\; \oint \mathbf B \cdot \de\mathbf s = \mu_0 \iint \mathbf J \cdot \mathbf n\de\varsigma \;\;\Longrightarrow\;\; \rot\mathbf B  = \mu_0 \mathbf J$\\
+definizione di circuitazione, densità di corrente, teorema del rotore
 
 \section{Esperimenti}
 \subsubsection{Esperienza di Oersted}
