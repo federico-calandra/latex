@@ -56,6 +56,9 @@
 
 
 \begin{document}
+	
+\raggedright
+
 \begin{multicols}{2}
 	
 	\section{ELETTROSTATICA NEL VUOTO}
@@ -192,168 +195,195 @@ $R(T) = \rho(T) \frac LS \qquad \rho(T) = r(\mathrm{0^\circ C}) (1+\alpha T)$
 
 \end{multicols}
 
-
 \newpage
-\raggedright
 \footnotesize
 
-\begin{multicols}{3}
+\begin{multicols}{2}
 \setlength{\premulticols}{1pt}
-\setlength{\postmulticols}{1pt}4
+\setlength{\postmulticols}{1pt}
 \setlength{\multicolsep}{1pt}
 \setlength{\columnsep}{2pt}
 
-\section{Alcune distribuzioni statiche di carica}
-	\subsection{dipolo elettrico}
-	$\varrho=\{(Q,\frac D 2\mathbf k),(-Q,-\frac D 2\mathbf k)\}\:\Rightarrow\:
-	\mathbf E(r\mathbf u_r)=-\frac{Q}{4\pi\varepsilon}\frac D{(r^2+\frac{D^2}{4})^{3/2}}\mathbf k$\\
-	$\mathbf p=QD\mathbf e\;\Rightarrow\;\mathbf E(r\mathbf u_r)=-\frac{1}{4\pi\varepsilon}\frac{\mathbf p}{(r^2+\frac{D^2}{4})^{3/2}}\quad
-	\mathbf e$ orientato da $-q$ a $q$
-	\subsection{filo rettilineo indefinito}
-	$\varrho=\lambda_0\;\Rightarrow\;\begin{array}{@{}l}
-	\mathbf E(r\mathbf u_r)=\frac{\lambda_0}{2\pi\varepsilon}\frac 1 r\mathbf u_r\\
-	V(r\mathbf u_r)=\frac{\lambda_0}{2\pi\varepsilon}\log r\end{array}$\\
-	$I= I_0\;\Rightarrow\;
-	\mathbf B_0(r\mathbf u_r)=\frac{\mu_0 I_0}{2\pi}\frac 1 r \mathbf u_\theta$
-	\subsection{spira circolare}
-	$\varrho=\lambda_0\;\Rightarrow\;\begin{array}{@{}l}
-	\mathbf E(z\mathbf u_z)=\frac{\lambda_0 R}{2\varepsilon}\frac {z}{(z^2+R^2)^{3/2}}\mathbf u_z\\
-	V(z\mathbf u_z)=\frac{\lambda_0 R}{2\varepsilon}\frac{1}{\sqrt{z^2+R^2}}\end{array}$\\
-	$I= I_0\;\Rightarrow\;\mathbf B_0(z\mathbf u_z)=\frac{\mu_0I_0}{2}\frac{R^2}{(z^2+R^2)^{3/2}}\mathbf u_z=\frac{\mu_0}{2\pi}\frac{\mathbf M}{(z^2+R^2)^{3/2}}$
-	\subsection{corona circolare}
-	$\varrho=\sigma_0\:\Rightarrow\:\begin{array}{l}
-	\mathbf E(z\mathbf u_z)=\frac{\sigma_0 z}{2\varepsilon}(\frac{1}{\sqrt{{R_\mathrm{i}}^2+z^2}}-\frac1{\sqrt{{R_\mathrm{e}}^2+z^2}})\mathbf u_z\\
-	V(z\mathbf u_z)=\frac{\sigma_0}{2\varepsilon}(\sqrt{z^2+R_\mathrm{i}^2}-\sqrt{z^2+R_\mathrm{e}^2})\end{array}$\\
-	\subsection{disco}
-	$\varrho=\sigma_0\:\Rightarrow\:\begin{array}{l}
-	\mathbf E(z\mathbf u_z)=\frac{\sigma_0}{2\varepsilon_0}(1-\frac z{\sqrt{z^2+R^2}})\mathbf u_z\\
-	V(z\mathbf u_z)=\frac{\sigma_0}{2\varepsilon}(\sqrt{z^2+R^2}-z)\end{array}$\\
-	\subsection{piano indefinito}
-	$\varrho=\sigma_0\:\Rightarrow\:\begin{array}{l}
-	\mathbf E(x\mathbf n)=\frac{\sigma_0}{2\varepsilon_0}\,\mathbf n\\
-	V(x\mathbf n)=-\frac{\sigma_0}{2\varepsilon_0}x\end{array}$
-	\subsection{doppio piano indefinito}
-	$\varrho=\sigma_0\:\Rightarrow\:
-	\mathbf E(x\mathbf n)=\begin{cases}\frac{\sigma_0}{\varepsilon_0}\mathbf n & |x|<\frac D2\\0 & |x|>\frac D2\end{cases}\qquad
-	V(x\mathbf n)=\begin{cases}-\frac{\sigma_0}{\varepsilon_0}x & |x|<\frac D2\\0 & |x|>\frac D2\end{cases}$
-	\subsection{sfera piena}
-	$\varrho=\begin{cases}
-	\varrho_0&\!\!r\leq R\\
-	0&\!\!r>R
-	\end{cases}\;
-	\Longrightarrow\;\begin{array}{@{}l}
-	\mathbf E(r\mathbf u_r)=\begin{cases}
-	\frac{\varrho}{3\varepsilon_0}r\mathbf u_r=\frac{Q}{4\pi\varepsilon_0 R^3}r\,\mathbf u_r&\!\!r<R\\
-	\frac{Q}{4\pi\varepsilon_0}\frac1{r^2}\,\mathbf u_r=\frac{\varrho}{3\varepsilon_0}\frac{R^3}{r^2}\mathbf u_r&\!\!r>R\end{cases}\\
-	V(r)=\begin{cases}
-	\frac{\varrho_0}{6\varepsilon_0}(R^2-r^2)=\frac{Q}{8\pi\varepsilon_0 R^3}(R^2-r^2)\\
-	-\frac{Q}{2\pi\varepsilon_0}\frac 1r=-\frac{2\varrho}{3\varepsilon_0}\frac{R^3}{r}\end{cases}
-	\end{array}$\\
-	$\varrho=\begin{cases}
-	\varrho(r\mathbf u_r)&r\leq R\\
-	0&r>R
-	\end{cases}\;\;
-	\Longrightarrow\;\;
-	\mathbf E(r\mathbf u_r)=\begin{cases}
-	???&r<R\\
-	\frac1{4\pi\varepsilon_0}\frac{Q(r)}{r^2}&r>R
-	\end{cases}$\\
-	\subsection{guscio sferico}
-	$\varrho=\begin{cases}
-	\sigma_0&r=R\\
-	0&r\neq R
-	\end{cases}\Longrightarrow\;\begin{array}{@{}l}
-	\mathbf E(r\mathbf u_r)=\begin{cases}
-	0&r<R\\
-	\frac{Q}{4\pi\varepsilon_0}\frac{1}{r^2}=\frac{\sigma_0}{\varepsilon_0}\frac{R^2}{r^2}&r>R\end{cases}\\
-	V(r\mathbf u_r)=\begin{cases}
-	0&r<R\\
-	\frac{Q}{4\pi\varepsilon_0}\frac 1r=\frac{\sigma_0}{\varepsilon_0}\frac{R^2}{r}&r>R\end{cases}\end{array}$
-	\subsection{corona sferica}
-	$\varrho=\begin{cases}
-	\varrho_0&r\in [R_\mathrm{i},R_\mathrm{e}]\\
-	0&r\not\in [R_\mathrm{i},R_\mathrm{e}]
-	\end{cases}\;\Longrightarrow\;\begin{array}{@{}l}
-	\mathbf E(r\mathbf u_r)=\begin{cases}
-	0&r<R_\mathrm i\\
-	\frac{\varrho_0}{3\varepsilon_0}\frac{R_\mathrm e^3-R_\mathrm i^3}{r^2}&r\in[R_\mathrm{i},R_\mathrm{e}]\\
-	\frac{Q}{4\pi\varepsilon_0}\frac{1}{r^2}&r>R_\mathrm e\end{cases}\\
-	V(r\mathbf u_r)=\begin{cases}
-	0&r<R_\mathrm i\\
-	\frac{\varrho_0}{3\varepsilon_0}\frac{R_\mathrm e^3-R_\mathrm i^3}{r}&r\in[R_\mathrm{i},R_\mathrm{e}]\\
-	\frac{Q}{4\pi\varepsilon_0}\frac 1r&r>R_\mathrm e\end{cases}\end{array}$
-	\subsection{cilindro pieno indefinito}
-	$\varrho=\begin{cases}
-	\varrho_0&\rho\leq R\\
-	0&\rho>R
-	\end{cases}\;\;
-	\Longrightarrow\;\;\mathbf E(\rho\mathbf u_\rho)=\begin{cases}
-	\frac{\varrho_0}{2\varepsilon_0}\rho\,\mathbf u_\rho&\rho\leq R\\
-	\frac{\varrho_0 R^2}{2\varepsilon_0}\frac 1\rho\,\mathbf u_\rho&\rho\geq R
-	\end{cases}$
-	\subsection{guscio cilindrico indefinito}
-	$\varrho=\begin{cases}
-	\sigma_0&\rho=R\\
-	0&\rho\neq R
-	\end{cases}\;\;
-	\Longrightarrow\;\;
-	\mathbf E(\rho\mathbf u_\rho)=\begin{cases}
-	???&\rho\\
-	???&\rho
-	\end{cases}$
+	\section{CALCOLO CAMPO ELETTROSTATICO}
+\subsection{Dipolo elettrico}
+$\varrho=\{(Q,\frac D 2\mathbf k),(-Q,-\frac D 2\mathbf k)\}\:\Rightarrow\:
+\mathbf E(r\mathbf u_r)=-\frac{Q}{4\pi\varepsilon}\frac D{(r^2+\frac{D^2}{4})^{3/2}}\mathbf k$\\
+$\mathbf p=QD\mathbf u\;\Rightarrow\;\mathbf E(r\mathbf u_r)=-\frac{1}{4\pi\varepsilon}\frac{\mathbf p}{(r^2+\frac{D^2}{4})^{3/2}}\quad
+\mathbf u$ orientato da $-q$ a $q$
+
+\subsection{Filo rettilineo indefinito}
+$\varrho=\lambda_0\;\Rightarrow\;\begin{array}{@{}l}
+\mathbf E(r\mathbf u_r)=\frac{\lambda_0}{2\pi\varepsilon}\frac 1 r\mathbf u_r\\
+V(r\mathbf u_r)=\frac{\lambda_0}{2\pi\varepsilon}\log r\end{array}$\\
+$I= I_0\;\Rightarrow\;
+\mathbf B_0(r\mathbf u_r)=\frac{\mu_0 I_0}{2\pi}\frac 1 r \mathbf u_\theta$
+
+\subsection{Spira circolare}
+$\varrho=\lambda_0\;\Rightarrow\;\begin{array}{@{}l}
+\mathbf E(z\mathbf u_z)=\frac{\lambda_0 R}{2\varepsilon}\frac {z}{(z^2+R^2)^{3/2}}\mathbf u_z\\
+V(z\mathbf u_z)=\frac{\lambda_0 R}{2\varepsilon}\frac{1}{\sqrt{z^2+R^2}}\end{array}$\\
+$I= I_0\;\Rightarrow\;\mathbf B_0(z\mathbf u_z)=\frac{\mu_0I_0}{2}\frac{R^2}{(z^2+R^2)^{3/2}}\mathbf u_z=\frac{\mu_0}{2\pi}\frac{\mathbf M}{(z^2+R^2)^{3/2}}$
+
+\subsection{Corona circolare}
+$\varrho=\sigma_0\:\Rightarrow\:\begin{array}{l}
+\mathbf E(z\mathbf u_z)=\frac{\sigma_0 z}{2\varepsilon}(\frac{1}{\sqrt{{R_\mathrm{i}}^2+z^2}}-\frac1{\sqrt{{R_\mathrm{e}}^2+z^2}})\mathbf u_z\\
+V(z\mathbf u_z)=\frac{\sigma_0}{2\varepsilon}(\sqrt{z^2+R_\mathrm{i}^2}-\sqrt{z^2+R_\mathrm{e}^2})\end{array}$
+
+\subsection{Disco}
+$\varrho=\sigma_0\:\Rightarrow\:\begin{array}{l}
+\mathbf E(z\mathbf u_z)=\frac{\sigma_0}{2\varepsilon_0}(1-\frac z{\sqrt{z^2+R^2}})\mathbf u_z\\
+V(z\mathbf u_z)=\frac{\sigma_0}{2\varepsilon}(\sqrt{z^2+R^2}-z)\end{array}$
+
+\subsection{Piano indefinito}
+$\varrho=\sigma_0\:\Rightarrow\:\begin{array}{l}
+\mathbf E(x\mathbf n)=\frac{\sigma_0}{2\varepsilon_0}\,\mathbf n\\
+V(x\mathbf n)=-\frac{\sigma_0}{2\varepsilon_0}x\end{array}$
+
+\subsection{Doppio piano indefinito}
+$\varrho=\sigma_0\:\Rightarrow\:
+\mathbf E(x\mathbf n)=\begin{cases}\frac{\sigma_0}{\varepsilon_0}\mathbf n & |x|<\frac D2\\0 & |x|>\frac D2\end{cases}\qquad
+V(x\mathbf n)=\begin{cases}-\frac{\sigma_0}{\varepsilon_0}x & |x|<\frac D2\\0 & |x|>\frac D2\end{cases}$
+
+\subsection{Sfera piena}
+$\varrho=\begin{cases}
+\varrho_0&\!\!r\leq R\\
+0&\!\!r>R
+\end{cases}\;
+\Longrightarrow\;\begin{array}{@{}l}
+\mathbf E(r\mathbf u_r)=\begin{cases}
+\frac{\varrho}{3\varepsilon_0}r\mathbf u_r=\frac{Q}{4\pi\varepsilon_0 R^3}r\,\mathbf u_r&\!\!r<R\\
+\frac{Q}{4\pi\varepsilon_0}\frac1{r^2}\,\mathbf u_r=\frac{\varrho}{3\varepsilon_0}\frac{R^3}{r^2}\mathbf u_r&\!\!r>R\end{cases}\\
+V(r)=\begin{cases}
+\frac{\varrho_0}{6\varepsilon_0}(R^2-r^2)=\frac{Q}{8\pi\varepsilon_0 R^3}(R^2-r^2)\\
+-\frac{Q}{2\pi\varepsilon_0}\frac 1r=-\frac{2\varrho}{3\varepsilon_0}\frac{R^3}{r}\end{cases}
+\end{array}$\\
+$\varrho=\begin{cases}
+\varrho(r\mathbf u_r)&r\leq R\\
+0&r>R
+\end{cases}\;\;
+\Longrightarrow\;\;
+\mathbf E(r\mathbf u_r)=\begin{cases}
+???&r<R\\
+\frac1{4\pi\varepsilon_0}\frac{Q(r)}{r^2}&r>R
+\end{cases}$
+
+\subsection{Guscio sferico}
+$\varrho=\begin{cases}
+\sigma_0&r=R\\
+0&r\neq R
+\end{cases}\Longrightarrow\;\begin{array}{@{}l}
+\mathbf E(r\mathbf u_r)=\begin{cases}
+0&r<R\\
+\frac{Q}{4\pi\varepsilon_0}\frac{1}{r^2}=\frac{\sigma_0}{\varepsilon_0}\frac{R^2}{r^2}&r>R\end{cases}\\
+V(r\mathbf u_r)=\begin{cases}
+0&r<R\\
+\frac{Q}{4\pi\varepsilon_0}\frac 1r=\frac{\sigma_0}{\varepsilon_0}\frac{R^2}{r}&r>R\end{cases}\end{array}$
+
+\subsection{Corona sferica}
+$\varrho=\begin{cases}
+\varrho_0&r\in [R_\mathrm{i},R_\mathrm{e}]\\
+0&r\not\in [R_\mathrm{i},R_\mathrm{e}]
+\end{cases}\;\Longrightarrow\;\begin{array}{@{}l}
+\mathbf E(r\mathbf u_r)=\begin{cases}
+0&r<R_\mathrm i\\
+\frac{\varrho_0}{3\varepsilon_0}\frac{R_\mathrm e^3-R_\mathrm i^3}{r^2}&r\in[R_\mathrm{i},R_\mathrm{e}]\\
+\frac{Q}{4\pi\varepsilon_0}\frac{1}{r^2}&r>R_\mathrm e\end{cases}\\
+V(r\mathbf u_r)=\begin{cases}
+0&r<R_\mathrm i\\
+\frac{\varrho_0}{3\varepsilon_0}\frac{R_\mathrm e^3-R_\mathrm i^3}{r}&r\in[R_\mathrm{i},R_\mathrm{e}]\\
+\frac{Q}{4\pi\varepsilon_0}\frac 1r&r>R_\mathrm e\end{cases}\end{array}$
+
+\subsection{Cilindro pieno indefinito}
+$\varrho=\begin{cases}
+\varrho_0&\rho\leq R\\
+0&\rho>R
+\end{cases}\;\;
+\Longrightarrow\;\;\mathbf E(\rho\mathbf u_\rho)=\begin{cases}
+\frac{\varrho_0}{2\varepsilon_0}\rho\,\mathbf u_\rho&\rho\leq R\\
+\frac{\varrho_0 R^2}{2\varepsilon_0}\frac 1\rho\,\mathbf u_\rho&\rho\geq R
+\end{cases}$
+
+\subsection{Guscio cilindrico indefinito}
+$\varrho=\begin{cases}
+\sigma_0&\rho=R\\
+0&\rho\neq R
+\end{cases}\;\;
+\Longrightarrow\;\;
+\mathbf E(\rho\mathbf u_\rho)=\begin{cases}
+???&\rho\\
+???&\rho
+\end{cases}$
 
 \vfill\null
 \columnbreak
 
-\section{Capacità di alcuni sistemi di conduttori}
-	\subsection{condensatore piano}
-	$E(x)=\frac{Q}{\varepsilon_0 S}\quad
-	\Delta V=\frac{Qd}{\varepsilon_0 S}\;\;
-	\Longrightarrow\;\;
-	C=\varepsilon_0\frac{S}{d}$
-	\subsection{condensatore sferico}
-	$E_r(r)=\frac{Q}{4\pi\varepsilon_0}\frac 1r\quad
-	\Delta V=-\int_{R_\mathrm{i}}^{R_\mathrm{e}}\mathbf E\cdot\de \mathbf s=\frac{Q}{4\pi\varepsilon_0}\frac{R_\mathrm{e}-R_\mathrm{i}}{R_\mathrm{e}R_\mathrm{i}}\;\;
-	\Longrightarrow\;\;
-	C=4\pi\varepsilon_0\frac{R_\mathrm{e}R_\mathrm{i}}{R_\mathrm{e}-R_\mathrm{i}}$\\
-	se $R_\mathrm{i},R_\mathrm{e}\ll (R_\mathrm{e}-R_\mathrm{i})$ allora $C\simeq\varepsilon_0\frac{S_\mathrm{i}}{R_\mathrm{e}-R_\mathrm{i}}$
-	\subsection{condensatore cilindrico}
-	$E_\rho(\rho)=???$
+	\section{CALCOLO CAMPO MAGNETOSTATICO}
+\subsection{Spira circolare}
+
+\subsection{Conduttore cilindrico indefinito}
+$\mathbf B_0(\rho\mathbf u_\rho)=\begin{cases}\frac{\mu_0I_0}{2\pi R^2}r&\rho<R\\\frac{\mu_0I_0}{2\pi}\frac 1\rho\mathbf u_\theta&\rho\geq R\end{cases}$
+
+\subsection{Nastro rettilineo indefinito}
+$\mathbf B_0(d)=\begin{cases}-\frac{\mu_0I_0}{2\pi}\log(\frac{d+L}{L})\mathbf k&d>\frac L2\\\frac{\mu_0I_0}{2\pi}\log(\frac{d+L}{L})\mathbf k&d<-\frac L2\end{cases}$
+
+\subsection{Solenoide cilindrico}
+$\mathbf B_0(z\mathbf u_z)=\frac{n\mu_0I_0}{2}(\cos\theta_1-\cos\theta_2)\mathbf u_zs$\\
+se $R\ll L$ allora $\begin{array}{l}\theta_1\to 0\\\theta_2\to\pi\end{array}\;\Rightarrow\;\mathbf B_0=\frac{N\mu_0I_0}{L}\mathbf u_z$\\
+$\Phi_\mathrm a(\mathbf B_0)=\pi R^2B_0\;\Rightarrow\; L=\frac{N^2\mu_o\pi R^2}{L}$\\
+due solenoidi accoppiati\quad$M_{12}=\sqrt{L_1L_2}=\frac{\mu_0N_1N_2S}{L}$
+
+\subsection{Solenoide toroidale}
+$B=\frac{\mu_0NI_0}{2\pi r}$
 	
-\section{Campo magnetico di conduttori particolari}
-	\subsection{conduttore cilindrico indefinito}
- 	$\mathbf B_0(\rho\mathbf u_\rho)=\begin{cases}\frac{\mu_0I_0}{2\pi R^2}r&\rho<R\\\frac{\mu_0I_0}{2\pi}\frac 1\rho\mathbf u_\theta&\rho\geq R\end{cases}$
-	\subsection{nastro rettilineo indefinito}
-	$\mathbf B_0(d)=\begin{cases}-\frac{\mu_0I_0}{2\pi}\log(\frac{d+L}{L})\mathbf k&d>\frac L2\\\frac{\mu_0I_0}{2\pi}\log(\frac{d+L}{L})\mathbf k&d<-\frac L2\end{cases}$
-	\subsection{solenoide cilindrico}
-	$\mathbf B_0(z\mathbf u_z)=\frac{n\mu_0I_0}{2}(\cos\theta_1-\cos\theta_2)\mathbf u_zs$\\
-	se $R\ll L$ allora $\begin{array}{l}\theta_1\to 0\\\theta_2\to\pi\end{array}\;\Rightarrow\;\mathbf B_0=\frac{N\mu_0I_0}{L}\mathbf u_z$\\
-	$\Phi_\mathrm a(\mathbf B_0)=\pi R^2B_0\;\Rightarrow\; L=\frac{N^2\mu_o\pi R^2}{L}$\\
-	due solenoidi accoppiati\quad$M_{12}=\sqrt{L_1L_2}=\frac{\mu_0N_1N_2S}{L}$
-	\subsection{solenoide toroidale}
-	$B=\frac{\mu_0NI_0}{2\pi r}$
-	
-\section{Circuiti notevoli in regime quasi stazionario}
-	\subsection{RC}
-	\subsubsection{carica del condensatore}
-\itemm{carica sulle armature\quad}
-\itemm{d.d.p tra le armature\quad}
-\itemm{corrente circolante\quad$i(t)=\frac{\de q(t)}{\de t}=\frac{\mathcal E}{R}e^{-\frac{t}{RC}}$}
-\itemm{d.d.p alla resisteza\quad$v_R(t)=i(t)R=\mathcal Ee^{-\frac{t}{RC}}$}
-\itemm{potenza del generatore\quad$P_{gen}(t)=\mathcal Ei(t)=\frac{\mathcal E^2}{R}e^{-\frac{t}{RC}}$}
-\itemm{potenza sulla resistenza\quad$P_R(t)=Ri^2(t)=\frac{\mathcal E^2}{R}e^{-\frac{2t}{RC}}$}
-\itemm{potenza sul condensatore\quad$P_C(t)=v_C(t)i(t)=P_{gen}-P_R$}
-		\subsubsection{serie}
-		\itemm{equazione di maglia\quad$\mathcal E-\frac{q(t)}{C}=\frac{\de q(t)}{\de t}R$}
-		\itemm{carica sulle armature\quad$q(t)=C\mathcal E(1-e^{-\frac{t}{RC}})$}
-		\itemm{d.d.p. tra le armature\quad$v_C(t)\frac{q(t)}{C}=\mathcal E(1-e^-{t}{RC})$}
-		
-		\subsubsection{parallelo}
-	\subsection{RL}
-		\subsubsection{serie}
-		\itemm{equazione di maglia\quad$\mathcal E-L\frac{\de I}{\de t}=RI$}
-	\subsection{LC}
-	\subsection{RLC}
+	\section{CALCOLO CAPACITÀ}
+\subsection{Condensatore piano}
+$E(x)=\frac{Q}{\varepsilon_0 S}\quad
+\Delta V=\frac{Qd}{\varepsilon_0 S}\;\;
+\Longrightarrow\;\;
+C=\varepsilon_0\frac{S}{d}$
+
+\subsection{Condensatore sferico}
+$E_r(r)=\frac{Q}{4\pi\varepsilon_0}\frac 1r\quad
+\Delta V=-\int_{R_\mathrm{i}}^{R_\mathrm{e}}\mathbf E\cdot\de \mathbf s=\frac{Q}{4\pi\varepsilon_0}\frac{R_\mathrm{e}-R_\mathrm{i}}{R_\mathrm{e}R_\mathrm{i}}\;\;
+\Longrightarrow\;\;
+C=4\pi\varepsilon_0\frac{R_\mathrm{e}R_\mathrm{i}}{R_\mathrm{e}-R_\mathrm{i}}$\\
+se $R_\mathrm{i},R_\mathrm{e}\ll (R_\mathrm{e}-R_\mathrm{i})$ allora $C\simeq\varepsilon_0\frac{S_\mathrm{i}}{R_\mathrm{e}-R_\mathrm{i}}$
+
+\subsection{Condensatore cilindrico}
+$E_\rho(\rho)=???$
+
+	\section{CIRCUITI CON CORRENTI ALTERNATE}
+\subsection{Carica del condensatore}
+\itemm{carica sulle armature \quad}
+\itemm{d.d.p tra le armature \quad}
+\itemm{corrente circolante \quad $i(t)=\frac{\de q(t)}{\de t}=\frac{\mathcal E}{R}e^{-\frac{t}{RC}}$}
+\itemm{d.d.p alla resistenza \quad $v_R(t)=i(t)R=\mathcal Ee^{-\frac{t}{RC}}$}
+\itemm{potenza del generatore \quad $P_{gen}(t)=\mathcal Ei(t)=\frac{\mathcal E^2}{R}e^{-\frac{t}{RC}}$}
+\itemm{potenza sulla resistenza \quad $P_R(t)=Ri^2(t)=\frac{\mathcal E^2}{R}e^{-\frac{2t}{RC}}$}
+\itemm{potenza sul condensatore \quad $P_C(t)=v_C(t)i(t)=P_{gen}-P_R$}
+
+\subsection{Scarica del condensatore}
+
+\subsubsection{RC serie}
+\itemm{equazione di maglia\quad$\mathcal E-\frac{q(t)}{C}=\frac{\de q(t)}{\de t}R$}
+\itemm{carica sulle armature\quad$q(t)=C\mathcal E(1-e^{-\frac{t}{RC}})$}
+\itemm{d.d.p. tra le armature\quad$v_C(t)\frac{q(t)}{C}=\mathcal E(1-e^-{t}{RC})$}
+
+\subsubsection{RC parallelo}
+
+\subsection{RL serie}
+\itemm{equazione di maglia\quad$\mathcal E-L\frac{\de I}{\de t}=RI$}
+
+\subsection{RL parallelo}
+
+\subsection{LC serie}
+
+\subsection{LC parallelo}
+
+\subsection{RLC serie}
+
+\subsection{RLC parallelo}
 
 \end{multicols}
+
 \end{document}
