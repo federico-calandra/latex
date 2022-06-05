@@ -78,7 +78,7 @@ $\mathbf E = 4\pi k \int \frac{\mathbf r-\mathbf r^\prime}{|\mathbf r-\mathbf r^
 $\mathbf E = -\nabla V$
 \subsubsection{Dal campo alle sorgenti}
 
-\subsection{Conduttori}
+\section{Conduttori}
 \subsubsection{Fra due mezzi materiali la componente trasversale del campo elettrico è continua}
 Considero un cammino fra i due mezzi con i tratti longitudinali paralleli all'interfaccia e i tratti trasversali infinitesimi rispetto ai tratti longitudinali. Per la conservatività deve essere $\oint \mathbf E\cdot\de\mathbf s=0$. Trascurando i tratti trasversali segue $E_{t1}=E_{t2}$.
 
@@ -114,6 +114,12 @@ Un condensatore di capacità $C$ è caricato fino ad assumere la d.d.p. $\Delta 
 \subsubsection{Cariche di polarizzazione}
 Si dimostrano le due relazioni $\sigma_{pol} = \mathbf P \cdot \mathbf n$ e $\rho_{pol} = -\dive\mathbf P$. Per la prima, considero un elemento  $\de S$ di superficie esterna del dielettrico, di normale $\mathbf n$. Il campo esterno $\mathbf E$, che in generale ha direzione arbitraria e forma l'angolo $\theta$ con $\mathbf n$, polarizza la materia del dielettrico. Se $\mathbf E \perp \mathbf n$ allora i dipoli sono paralleli a $\de S$ e la carica netta su $\de S$ è nulla. Diversamente, su $\de S$ sarà presente una densità di carica $\sigma = \de Q/\de S$ in cui $Q$ è identificata dai dipoli, di momento medio $\langle \mathbf p\rangle = q \mathbf d$, presenti nel volume del cilindretto di base $\de S$ e altezza $d\cos\theta$. Conoscendo la densità volumica $n$ dei dipoli, la carica è $\de Q = q n d \cos\theta \de S = qn\mathbf d \cdot \mathbf n \de S$ quindi $\sigma_{pol}= n \langle \mathbf p\rangle \cdot \mathbf n = \mathbf P \cdot \mathbf n$\\
 Per la seconda relazione, 
+
+\subsubsection{Equazioni di Maxwell}
+Il teorema di Gauss per $\mathbf E = \mathbf E_{lib} + \mathbf E_{pol}$ fornisce $\int \dive\mathbf E \de\upsilon = (Q_{lib} + Q_{pol})/\varepsilon$. Sapendo la relazione fra $Q_{pol}$ e $\rho_{pol}$ si ottiene $\frac1\varepsilon \int \dive(\varepsilon\mathbf E +  \mathbf P)\de\upsilon = \frac 1\varepsilon \int \rho_{lib} \de\upsilon$ da cui $\dive\mathbf D = \rho_{lib}$.
+
+\subsubsection{}
+In presenza di un campo elettrostatico esterno, nell'ipotesi di isotropia, la materia del dielettrico di polarizza parallelamente al campo quindi $\langle \mathbf p \rangle \propto \varepsilon_0\mathbf E$. La costante $\alpha$ si chiama polarizzabilità molecolare. Di conseguenza $\mathbf P = n \alpha \varepsilon_0 \mathbf E$ e definisco la suscettività elettrica $\chi_{el} = n\alpha$ quindi $\mathbf P = \chi_{el}\varepsilon_0\mathbf E$. Lo spostamento elettrico è $\mathbf D = \varepsilon\mathbf E + \chi_{el}\varepsilon_0\mathbf E = \varepsilon_0 (1+\chi_{el}) \mathbf E$. Da qui posso definire la permittività elettrica (o costante dielettrica assoluta) del dielettrico $\varepsilon = \varepsilon_0(1+\chi_{el})$ e la costante dielettrica relativa $\varepsilon_r = \frac{\varepsilon}{\varepsilon_0} = 1+\chi_e$. Di conseguenza $\varepsilon = \varepsilon_r\varepsilon_0$ e $\mathbf D = \varepsilon\mathbf E$
 
 \section{Magnetostatica}
 \subsubsection{Due fili rettilinei indefiniti e paralleli}

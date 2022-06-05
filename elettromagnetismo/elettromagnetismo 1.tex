@@ -63,21 +63,21 @@
 	
 	\section{ELETTROSTATICA NEL VUOTO}
 \subsection{Legge di Coulomb, campo e potenziale elettrostatico}
-$\mathbf F_{2\to1}(\mathbf r_2-\mathbf r_1)=q_2\mathbf E_1(\mathbf r_2)=\frac{q_1q_2}{4\pi\varepsilon} \frac{\mathbf r_1-\mathbf r_2}{|\mathbf r_1-\mathbf r_2|^3} = \frac{q_1q_2}{4\pi\varepsilon} \frac{\vers(\mathbf r_1-\mathbf r_2)}{|\mathbf r_1-\mathbf r_2|^2}$
-$\mathbf E(\mathbf r) = \frac1{4\pi\varepsilon} \left[ \int_\Upsilon \frac{\varrho(\mathbf r^\prime)(\mathbf r-\mathbf r^\prime)}{| \mathbf r-\mathbf r ^\prime|^3} \de\upsilon^\prime + \sum_{i=1}^N \frac{q_i(\mathbf r-\mathbf r_i)}{|\mathbf r-\mathbf r_i|^3} \right]$
-$V(\mathbf r) = \frac1{4\pi\varepsilon} \left[ \int_\Upsilon \frac{\varrho(\mathbf r^\prime)}{|\mathbf r-\mathbf r^\prime|} \de\upsilon^\prime + \sum_{i=1}^N\frac{q_i}{|\mathbf r-\mathbf r_i|}\right]$
+$\mathbf F_{2\to1}(\mathbf r_2-\mathbf r_1)=q_2\mathbf E_1(\mathbf r_2)=\frac{q_1q_2}{4\pi\varepsilon_0} \frac{\mathbf r_1-\mathbf r_2}{|\mathbf r_1-\mathbf r_2|^3} = \frac{q_1q_2}{4\pi\varepsilon_0} \frac{\vers(\mathbf r_1-\mathbf r_2)}{|\mathbf r_1-\mathbf r_2|^2}$
+$\mathbf E(\mathbf r) = \frac1{4\pi\varepsilon_0} \left[ \int_\Upsilon \frac{\varrho(\mathbf r^\prime)(\mathbf r-\mathbf r^\prime)}{| \mathbf r-\mathbf r ^\prime|^3} \de\upsilon^\prime + \sum_{i=1}^N \frac{q_i(\mathbf r-\mathbf r_i)}{|\mathbf r-\mathbf r_i|^3} \right]$
+$V(\mathbf r) = \frac1{4\pi\varepsilon_0} \left[ \int_\Upsilon \frac{\varrho(\mathbf r^\prime)}{|\mathbf r-\mathbf r^\prime|} \de\upsilon^\prime + \sum_{i=1}^N\frac{q_i}{|\mathbf r-\mathbf r_i|}\right]$
 
 \subsection{Teorema di Gauss e I equazione di Maxwell}
-$\Phi_{\partial \mathcal G}(\mathbf E) = \frac1{\varepsilon} \int_\mathcal G \varrho(\mathbf r^\prime) \, d\upsilon'\;\;\Rightarrow\;\;\dive\,\mathbf E=\frac \varrho\varepsilon$
+$\Phi_{\partial \mathcal G}(\mathbf E) = \frac1{\varepsilon_0} \int_\mathcal G \varrho(\mathbf r^\prime) \, d\upsilon'\;\;\Rightarrow\;\;\dive\,\mathbf E=\frac \varrho{\varepsilon_0}$
 
 \subsection{Equazione di Poisson e di Laplace}
 $\mathbf E=-\vec\nabla V\;\Rightarrow\;
-\nabla^2V(\mathbf r)=\frac {\varrho(\mathbf r)}{\varepsilon}\qquad
+\nabla^2V(\mathbf r)=\frac {\varrho(\mathbf r)}{\varepsilon_0}\qquad
 \rho(\mathbf r)\equiv 0\;\Rightarrow\;\nabla^2V(\mathbf r)=0$
 
 %\subsection{Alcune costanti dielettriche}
-%$\varepsilon_0=8.854\cdot 10^{-12}\:\mathrm{\frac{C^2}{N\,m^2}}$\\
-%\begin{tabular}{@{}l|c}\;\;Materiale&$\varepsilon_r$\\
+%$\varepsilon_0_0=8.854\cdot 10^{-12}\:\mathrm{\frac{C^2}{N\,m^2}}$\\
+%\begin{tabular}{@{}l|c}\;\;Materiale&$\varepsilon_0_r$\\
 %\hline
 %aria a 25$^\circ$&1.0005\\
 %acqua a 25$^\circ$&78\\
@@ -140,25 +140,41 @@ $\oint \mathbf E \cdot \de\mathbf s = 0 \;\;\Rightarrow\;\; \rot\mathbf E = 0$
 %$qB\mathbf v_0^\perp\times\mathbf u=m\vec a\;\;\Rightarrow\;\begin{cases}\vec a^\parallel=\vec 0\\\frac{v_0^2}{r}=\frac{qBv_0\sin\theta}{m}\end{cases}\!\!\!\!\Rightarrow\;\begin{cases}\mathbf v^\parallel=v_0\cos\theta\,\mathbf u\\\omega=\frac{qB}{m}\quad r=\frac{mv_0\sin\theta}{qB}\end{cases}$\\
 %moto elicoidale cilindrico di passo $p=v_0^\parallel\,T=\frac{2\pi m v_0\sin\theta}{qB}$
 
-	\section{ELETTROMAGNETISMO NON STAZIONARIO}
-\subsection{Legge di F-N-L e III equaz. di Maxwell}
-$f_\mathrm{ind}=-\frac{\de\Phi_\gamma(\mathbf B)}{\de t}\qquad f_\mathrm{ind}=\oint_\gamma\mathbf E_\mathrm{ind}\cdot\de \mathbf s\quad \mathbf E_\mathrm{ind}=\mathbf E+\mathbf v_\mathrm{tr}\times\mathbf B$\\
-se $\mathbf v_\mathrm{tr}=\vec 0$ (circuito fermo) allora $\rot\,\mathbf E=-\frac{\partial\mathbf B}{\partial t}$
-\subsection{IV equazione di Maxwell}
-\subsection{Coeff. di mutua induzione}
-$M_{21}=\frac{\Phi_1(\mathbf B_2)}{I_2}\;\Rightarrow\;f_\text{ind}=-M_{21}\frac{\de I_1}{\de t}\qquad M_{21}=M_{12}$
-\subsection{Autoinduzione}
-\subsubsection{flusso concatenato, induttanza e f.e.m. autoindotta}
-$\Phi_\gamma(\mathbf B_0)=I\Big(\frac{\mu_0}{4\pi}\int_{\Sigma(\gamma)}\oint_\gamma\frac{\de\mathbf l\times\Delta\mathbf r}{\|\Delta\mathbf r\|^3}\cdot\mathbf n\,\de\mathbf s\Big)\qquad L=\frac{\Phi_\gamma(\mathbf B_0)}{I}\qquad f_\mathrm a=-L\frac{\de I}{\de t}$
-\subsubsection{energia immagazzinata in un induttore}
-incremento dovuto al passaggio di corrente\quad$\de U=LI\,\de I$\\
-energia di un induttore carico\quad$U=\frac 12 LI^2$
+%	\section{ELETTROMAGNETISMO NON STAZIONARIO}
+%\subsection{Legge di F-N-L e III equaz. di Maxwell}
+%$f_\mathrm{ind}=-\frac{\de\Phi_\gamma(\mathbf B)}{\de t}\qquad f_\mathrm{ind}=\oint_\gamma\mathbf E_\mathrm{ind}\cdot\de \mathbf s\quad \mathbf E_\mathrm{ind}=\mathbf E+\mathbf v_\mathrm{tr}\times\mathbf B$\\
+%se $\mathbf v_\mathrm{tr}=\vec 0$ (circuito fermo) allora $\rot\,\mathbf E=-\frac{\partial\mathbf B}{\partial t}$
+%\subsection{IV equazione di Maxwell}
+%\subsection{Coeff. di mutua induzione}
+%$M_{21}=\frac{\Phi_1(\mathbf B_2)}{I_2}\;\Rightarrow\;f_\text{ind}=-M_{21}\frac{\de I_1}{\de t}\qquad M_{21}=M_{12}$
+%\subsection{Autoinduzione}
+%\subsubsection{flusso concatenato, induttanza e f.e.m. autoindotta}
+%$\Phi_\gamma(\mathbf B_0)=I\Big(\frac{\mu_0}{4\pi}\int_{\Sigma(\gamma)}\oint_\gamma\frac{\de\mathbf l\times\Delta\mathbf r}{\|\Delta\mathbf r\|^3}\cdot\mathbf n\,\de\mathbf s\Big)\qquad L=\frac{\Phi_\gamma(\mathbf B_0)}{I}\qquad f_\mathrm a=-L\frac{\de I}{\de t}$
+%\subsubsection{energia immagazzinata in un induttore}
+%incremento dovuto al passaggio di corrente\quad$\de U=LI\,\de I$\\
+%energia di un induttore carico\quad$U=\frac 12 LI^2$
 
 \vfill\null\columnbreak
 
 	\section{DIELETTRICI}
-\subsection{Polarizzazione e cariche di polarizzazione}
-$\langle\mathbf p\rangle = \frac{\sum_i \mathbf p_i}{n\Delta V} \qquad \mathbf P = n\langle\mathbf p\rangle \quad \sigma_{pol} = \mathbf P \cdot \mathbf n \quad \rho_{pol} = -\dive\mathbf P$
+\subsection{Cariche e correnti di polarizzazione}
+$\begin{array}{l} \langle\mathbf p\rangle = \frac{\sum_i \mathbf p_i}{n\Delta V}\\
+	\mathbf P = n\langle\mathbf p\rangle\end{array}
+\begin{array}{l} \sigma_{pol} = \mathbf P \cdot \mathbf n \\
+	\rho_{pol} = -\dive\mathbf P\end{array}
+\begin{array}{l} \mathbf J_{pol} = \fracp{}{t}\{nq(\mathbf r_+ - \mathbf r_-)\} = \fracp{\mathbf P}{t} \\
+	\dive\mathbf J_{pol} + \fracp{\rho_{pol}}{t}=0\end{array}$
+
+\subsection{Contributi a campo e potenziale}
+$V_{pol}(\mathbf r) = \frac1{4\pi\varepsilon_0} \int_S \frac{\mathbf P \cdot \mathbf n}{|\mathbf r - \mathbf r^\prime|} \de\varsigma^\prime - \int_V \frac{\dive\mathbf P}{|\mathbf r - \mathbf r^\prime|} \de\upsilon^\prime \qquad \mathbf E_{pol} = -\nabla V_{pol}$\\
+$\mathbf E = \mathbf E_{lib} + \mathbf E_{pol} \qquad V = V_{lib} + V_{pol}$
+
+\subsection{I equazione di Maxwell per dielettrici}
+$\dive\mathbf D = \rho_{lib} \qquad \mathbf D = \varepsilon_0\mathbf E + \mathbf P$
+
+\subsection{Costanti del dielettrico}
+$\langle\mathbf p\rangle = \alpha \varepsilon_0\mathbf E \qquad \mathbf P = \chi_e \varepsilon_0\mathbf E \qquad \mathbf D = \varepsilon\mathbf E \qquad \varepsilon = \varepsilon_0(1+\chi_e)$
+
 
 	\section{CONDUTTORI}
 \subsection{Conduttore isolato}
@@ -181,7 +197,7 @@ $\mathbf J = n q \mathbf v_{der}=\varrho\,\mathbf v_{der} \quad \mathbf v_{der} 
 $\de i = \frac{\de q}{\de t} = \mathbf J \cdot \mathbf n \de S \;\;\Rightarrow\;\; i(\Sigma) = \int_\Sigma \mathbf J \cdot \mathbf n \de S$
 
 \subsection{Legge di Ohm}
-$\mathbf J = \tilde\sigma E$\qquad per mezzi isotropi $\tilde\sigma = \sigma\tilde I \;\Rightarrow\; \mathbf J = \sigma\mathbf E \;\Rightarrow\; \mathbf E = \rho\mathbf J$
+$\mathbf J = \tilde\sigma \mathbf E$\qquad per mezzi isotropi $\tilde\sigma = \sigma\tilde I \;\Rightarrow\; \mathbf J = \sigma\mathbf E \;\Rightarrow\; \mathbf E = \rho\mathbf J$
 
 \subsection{Conservazione della carica e I legge di Kirchhoff}
 $\frac{\de}{\de t} \int_\Upsilon \varrho \de\upsilon = \int_{\partial\Upsilon} \mathbf J \cdot (-\mathbf n) \de S \qquad \frac{\partial\varrho}{\partial t} + \dive\mathbf J = 0$\\
@@ -193,6 +209,7 @@ $\mathbf E = \mathbf E^\mathrm s + \mathbf E^\mathrm m + \mathbf E^\mathrm c = \
 \subsection{Resistività}
 $R(T) = \rho(T) \frac LS \qquad \rho(T) = r(\mathrm{0^\circ C}) (1+\alpha T)$
 
+\vfill\null
 \end{multicols}
 
 \newpage
@@ -206,10 +223,9 @@ $R(T) = \rho(T) \frac LS \qquad \rho(T) = r(\mathrm{0^\circ C}) (1+\alpha T)$
 
 	\section{CALCOLO CAMPO ELETTROSTATICO}
 \subsection{Dipolo elettrico}
-$\varrho=\{(Q,\frac D 2\mathbf k),(-Q,-\frac D 2\mathbf k)\}\:\Rightarrow\:
-\mathbf E(r\mathbf u_r)=-\frac{Q}{4\pi\varepsilon}\frac D{(r^2+\frac{D^2}{4})^{3/2}}\mathbf k$\\
-$\mathbf p=QD\mathbf u\;\Rightarrow\;\mathbf E(r\mathbf u_r)=-\frac{1}{4\pi\varepsilon}\frac{\mathbf p}{(r^2+\frac{D^2}{4})^{3/2}}\quad
-\mathbf u$ orientato da $-q$ a $q$
+$\varrho = \{(Q,\frac D 2\mathbf u),(-Q,-\frac D 2\mathbf u)\} \:\Rightarrow\: \begin{array}{l}
+	\mathbf E(d \mathbf u) = -\frac{Q}{4\pi\varepsilon} \frac D{(d^2+\frac{D^2}{4})^{3/2}} \mathbf k\\
+	V(d \mathbf u) = \end{array}$
 
 \subsection{Filo rettilineo indefinito}
 $\varrho=\lambda_0\;\Rightarrow\;\begin{array}{@{}l}
