@@ -118,10 +118,13 @@ Per la seconda relazione,
 \subsubsection{Equazioni di Maxwell}
 Il teorema di Gauss per $\mathbf E = \mathbf E_{lib} + \mathbf E_{pol}$ fornisce $\int \dive\mathbf E \de\upsilon = (Q_{lib} + Q_{pol})/\varepsilon$. Sapendo la relazione fra $Q_{pol}$ e $\rho_{pol}$ si ottiene $\frac1\varepsilon \int \dive(\varepsilon\mathbf E +  \mathbf P)\de\upsilon = \frac 1\varepsilon \int \rho_{lib} \de\upsilon$ da cui $\dive\mathbf D = \rho_{lib}$.
 
-\subsubsection{}
+\subsubsection{Costanti caratteristiche dei dielettrici}
 In presenza di un campo elettrostatico esterno, nell'ipotesi di isotropia, la materia del dielettrico di polarizza parallelamente al campo quindi $\langle \mathbf p \rangle \propto \varepsilon_0\mathbf E$. La costante $\alpha$ si chiama polarizzabilità molecolare. Di conseguenza $\mathbf P = n \alpha \varepsilon_0 \mathbf E$ e definisco la suscettività elettrica $\chi_{el} = n\alpha$ quindi $\mathbf P = \chi_{el}\varepsilon_0\mathbf E$. Lo spostamento elettrico è $\mathbf D = \varepsilon\mathbf E + \chi_{el}\varepsilon_0\mathbf E = \varepsilon_0 (1+\chi_{el}) \mathbf E$. Da qui posso definire la permittività elettrica (o costante dielettrica assoluta) del dielettrico $\varepsilon = \varepsilon_0(1+\chi_{el})$ e la costante dielettrica relativa $\varepsilon_r = \frac{\varepsilon}{\varepsilon_0} = 1+\chi_e$. Di conseguenza $\varepsilon = \varepsilon_r\varepsilon_0$ e $\mathbf D = \varepsilon\mathbf E$
 
 \section{Magnetostatica}
+\subsubsection{Campo magnetico generato da spira circolare}
+La spira ha raggio $R$, è posta nel piano $Oxy$ e conduce la corrente $i$. Si vuole calcolare il campo sull'asse della spira. Gli ingredienti della legge di Biot-Savart sono: $\mathbf r = z\mathbf k \quad \mathbf r^\prime= R \mathbf u_\rho \quad \de\mathbf l^\prime = \de l \mathbf u_{\phi}\quad |\mathbf r - \mathbf r^\prime|^2 = z^2 + R^2$
+
 \subsubsection{Due fili rettilinei indefiniti e paralleli}
 Nel piano $xy$ un filo rettilineo coincidente con l'asse $y$ è sede della corrente $I_1$. L'altro filo posto a dx del precedente alla distanza $d$ è sede della corrente $I_2$. Determinare il campo di induzione in tutto lo spazio e vedere se ci sono punti dell'asse delle ascisse nei quali esso è nullo (utilizzando $I_1=I_\mathrm n$ del problema precedente). Determinare la forza per unità di lunghezza tra i due fili.
 
