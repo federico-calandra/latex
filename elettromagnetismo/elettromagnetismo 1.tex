@@ -91,12 +91,6 @@ $\mathbf E=-\vec\nabla V\;\Rightarrow\;
 \includegraphics[bb=0 0 100 100]{negativa.png}
 
 	\section{MAGNETOSTATICA NEL VUOTO}
-\subsection{Legge di Ampère per campo di induzione magnetica}
-\begin{tabular}{@{}ll}
-conduttore filiforme&conduttore generico\\
-$\de\mathbf F = i\mathrm d\mathbf l \times \mathbf B$ & $\de\mathbf F = \mathbf J\de\upsilon \times \mathbf B$\\
-$\de\mathbf M = \mathbf r \times (i\mathrm \de\mathbf l \times \mathbf B)$ & $\de\mathbf M = \mathbf r \times (\mathbf J\de\upsilon \times \mathbf B)$\end{tabular}
-
 \subsection{Campo di induzione generato da cariche in moto}
 \begin{tabular}{@{}ll}
 conduttore filiforme&conduttore generico\\
@@ -104,14 +98,21 @@ $\de\mathbf B(\mathbf r) = \frac{\mu_0}{4\pi} \frac{i\mathrm \de\mathbf r^\prime
 $\de\mathbf B(\mathbf r) = \frac{\mu_0}{4\pi} \frac{\mathbf J(\mathbf r^\prime) \de\upsilon^\prime \times (\mathbf r-\mathbf r^\prime)}{|\mathbf r-\mathbf r^\prime|^3}$
 \end{tabular}
 
-\subsection{Teorema di Gauss e II equazione di Maxwell}
-$\Phi_{\partial\mathcal G}(\mathbf B) = 0 \;\;\Rightarrow\;\; \dive\mathbf B = 0$
+\subsection{II equazione di Maxwell e potenziale magnetico}
+$\Phi_{\partial\mathcal G}(\mathbf B) = 0 \;\Rightarrow\; \dive\mathbf B = 0 \;\Rightarrow\; \mathbf B = \rot\mathbf A$
 
 \subsection{Teorema di Ampère e IV equazione di Maxwell}
 $\oint_\gamma \mathbf B \cdot \de\mathbf s = \mu_0 \sum_k m_k i_k \;\;\Rightarrow\;\; \rot\mathbf B = \mu_0\mathbf J$\\
 $m_i$ - grado di concatenazione di $I_i$
 
+\subsection{Equazione di Poisson}
+$\mathbf B = \rot\mathbf A \;\Rightarrow\; \rot\mathbf B = $
 
+\subsection{Legge di Ampère per campo di induzione magnetica}
+\begin{tabular}{@{}ll}
+	conduttore filiforme&conduttore generico\\
+	$\de\mathbf F = i\mathrm d\mathbf l \times \mathbf B$ & $\de\mathbf F = \mathbf J\de\upsilon \times \mathbf B$\\
+	$\de\mathbf M = \mathbf r \times (i\mathrm \de\mathbf l \times \mathbf B)$ & $\de\mathbf M = \mathbf r \times (\mathbf J\de\upsilon \times \mathbf B)$\end{tabular}
 
 	\section{ASPETTI ENERGETICI}
 \subsection{Lavoro, potenziale, energia elettrostatica}
@@ -175,39 +176,38 @@ $\dive\mathbf D = \rho_{lib} \qquad \mathbf D = \varepsilon_0\mathbf E + \mathbf
 \subsection{Costanti del dielettrico}
 $\langle\mathbf p\rangle = \alpha \varepsilon_0\mathbf E \qquad \mathbf P = \chi_e \varepsilon_0\mathbf E \qquad \mathbf D = \varepsilon\mathbf E \qquad \varepsilon = \varepsilon_0(1+\chi_e)$
 
-
-	\section{CONDUTTORI}
-\subsection{Conduttore isolato}
-$C=\frac{Q}{V}$\quad dipende solo dalla geometria del conduttore\\
-$Q$ e $V$ sono determinati dalla distribuzione di carica
-
-\subsection{Due conduttori}
-$C=\frac{Q}{V_1-V_2}=\frac{-Q}{V_2-V_1}$
-
-\subsection{Collegamento di condensatori}
-in serie $C_\text{eq}=\sum_i C_i$\qquad in parallelo $C_\text{eq}=(\sum_i \frac{1}{C_i})^{-1}$
-
-\subsection{Energia immagazzinata in un condensatore}
-incremento dovuto a traferimento di carica\quad$\de U=\frac{q}{C}\de q$\\
-energia di un condensatore carico\quad$U=\frac 12\frac{Q^2}{C}=\frac 12 QV^2$
-
-	\section{CORRENTI ELETTRICHE STAZIONARIE}
-\subsection{Densità di corrente e corrente elettrica}
-$\mathbf J = n q \mathbf v_{der}=\varrho\,\mathbf v_{der} \quad \mathbf v_{der} \parallel \mathbf E \qquad \de q = n q \mathbf v_{der} \de t \cdot \mathbf n \de S$\\
-$\de i = \frac{\de q}{\de t} = \mathbf J \cdot \mathbf n \de S \;\;\Rightarrow\;\; i(\Sigma) = \int_\Sigma \mathbf J \cdot \mathbf n \de S$
-
-\subsection{Legge di Ohm}
-$\mathbf J = \tilde\sigma \mathbf E$\qquad per mezzi isotropi $\tilde\sigma = \sigma\tilde I \;\Rightarrow\; \mathbf J = \sigma\mathbf E \;\Rightarrow\; \mathbf E = \rho\mathbf J$
-
-\subsection{Conservazione della carica e I legge di Kirchhoff}
-$\frac{\de}{\de t} \int_\Upsilon \varrho \de\upsilon = \int_{\partial\Upsilon} \mathbf J \cdot (-\mathbf n) \de S \qquad \frac{\partial\varrho}{\partial t} + \dive\mathbf J = 0$\\
-per un nodo di $n$ conduttori \quad $\sum_k^{(alg)} i_k=0$
-
-\subsection{Circuitazione campo elettrico e II legge di Kirchhoff}
-$\mathbf E = \mathbf E^\mathrm s + \mathbf E^\mathrm m + \mathbf E^\mathrm c = \rho\mathbf J \;\;\Rightarrow\;\; \sum_i^{(alg)} {\mathcal E_i}^\mathrm m + \sum_i^{(alg)} {\mathcal E_i}^\mathrm c = i R_{tot}$ 	
-
-\subsection{Resistività}
-$R(T) = \rho(T) \frac LS \qquad \rho(T) = \rho_0 (1+\alpha T)$
+%	\section{CONDUTTORI}
+%\subsection{Conduttore isolato}
+%$C=\frac{Q}{V}$\quad dipende solo dalla geometria del conduttore\\
+%$Q$ e $V$ sono determinati dalla distribuzione di carica
+%
+%\subsection{Due conduttori}
+%$C=\frac{Q}{V_1-V_2}=\frac{-Q}{V_2-V_1}$
+%
+%\subsection{Collegamento di condensatori}
+%in serie $C_\text{eq}=\sum_i C_i$\qquad in parallelo $C_\text{eq}=(\sum_i \frac{1}{C_i})^{-1}$
+%
+%\subsection{Energia immagazzinata in un condensatore}
+%incremento dovuto a traferimento di carica\quad$\de U=\frac{q}{C}\de q$\\
+%energia di un condensatore carico\quad$U=\frac 12\frac{Q^2}{C}=\frac 12 QV^2$
+%
+%	\section{CORRENTI ELETTRICHE STAZIONARIE}
+%\subsection{Densità di corrente e corrente elettrica}
+%$\mathbf J = n q \mathbf v_{der}=\varrho\,\mathbf v_{der} \quad \mathbf v_{der} \parallel \mathbf E \qquad \de q = n q \mathbf v_{der} \de t \cdot \mathbf n \de S$\\
+%$\de i = \frac{\de q}{\de t} = \mathbf J \cdot \mathbf n \de S \;\;\Rightarrow\;\; i(\Sigma) = \int_\Sigma \mathbf J \cdot \mathbf n \de S$
+%
+%\subsection{Legge di Ohm}
+%$\mathbf J = \tilde\sigma \mathbf E$\qquad per mezzi isotropi $\tilde\sigma = \sigma\tilde I \;\Rightarrow\; \mathbf J = \sigma\mathbf E \;\Rightarrow\; \mathbf E = \rho\mathbf J$
+%
+%\subsection{Conservazione della carica e I legge di Kirchhoff}
+%$\frac{\de}{\de t} \int_\Upsilon \varrho \de\upsilon = \int_{\partial\Upsilon} \mathbf J \cdot (-\mathbf n) \de S \qquad \frac{\partial\varrho}{\partial t} + \dive\mathbf J = 0$\\
+%per un nodo di $n$ conduttori \quad $\sum_k^{(alg)} i_k=0$
+%
+%\subsection{Circuitazione campo elettrico e II legge di Kirchhoff}
+%$\mathbf E = \mathbf E^\mathrm s + \mathbf E^\mathrm m + \mathbf E^\mathrm c = \rho\mathbf J \;\;\Rightarrow\;\; \sum_i^{(alg)} {\mathcal E_i}^\mathrm m + \sum_i^{(alg)} {\mathcal E_i}^\mathrm c = i R_{tot}$ 	
+%
+%\subsection{Resistività}
+%$R(T) = \rho(T) \frac LS \qquad \rho(T) = \rho_0 (1+\alpha T)$
 
 \vfill\null
 \end{multicols}

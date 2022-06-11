@@ -1,4 +1,4 @@
-\documentclass[10pt,a4paper,landscape]{article}
+\documentclass[10pt,a4paper]{article}
 
 %% PACCHETTI AGGIUNTIVI
 \usepackage{amssymb,amsmath,amsthm,amsfonts}
@@ -7,7 +7,7 @@
 %\usepackage[inline]{enumitem}
 %\usepackage{ifthen}
 %\usepackage[utf8]{inputenc}
-\usepackage[landscape]{geometry}
+\usepackage[portrait]{geometry}
 %\usepackage{graphicx}
 %\usepackage[colorlinks=true,citecolor=blue,linkcolor=blue]{hyperref}
 \usepackage{mathrsfs}
@@ -27,6 +27,7 @@
 
 %%	HEADINGS
 %%	Numerazione
+%\setcounter{section}{-1}  %# -1:start at 0
 %\setcounter{secnumdepth}{0}
 %\setlength{\parindent}{3pt}
 %\setlength{\parskip}{0pt plus 0.5ex}
@@ -46,10 +47,43 @@
 	
 \tableofcontents
 	
-\section{Elettrostatica}
+	\section*{}
+	\subsection{Costanti}
+\begin{list}{}
+	\item carica elementare $e = 1.602 \cdot 10^{-19} \;C$
+	\item massa elettrone $m_e = 9.109 \cdot 10^{-31} \;kg$
+	\item carica elettrone $q_e = -e = -1.602 \cdot 10^{-19} \;C$
+	\item massa protone $m_p = 1.673 \cdot 10^{-27} \;kg$
+	\item carica protone $q_p = e = 1.602 \cdot 10^{-19} \;C$
+	\item costante dielettrica del vuoto $\varepsilon_0 = 8.854 \cdot 10^{-12} \;\;C^2 N^{-1} m^{-2}$
+	\item permeabilità magnetica del vuoto $\mu_0 = 1.257 \cdot 10^{-6} \;Hm^{-1}$
+\end{list}
+	\subsection{Esperimenti}
+\subsubsection{Esperienza di Oersted}
+Un filo percorso da corrente genera un campo magnetico.
+
+\subsubsection{Esperienza di Faraday}
+Un filo percorso da corrente risente dell'effetto di un campo magnetico esterno.\\
+Osservazioni quantitative su relazioni tempo-dipendenti fra $\mathbf E$ e $\mathbf B$ (1820)
+
+\subsubsection{Esperienza di Ampere}
+Tra due fili percorsi da correnti si esercitano delle forze.
+
+\subsubsection{Moto di cariche e corrente}
+In un volume unitario ho $N$ portatori di carica $q$in moto, ognuno con velocità propria $\mathbf v_i$. Posso identificare una velocità media $\mathbf v_{der} = \frac1N \sum_i \mathbf v_i$. In assenza di azioni esterne è $\mathbf v_{der} = 0$. Un campo elettrico mette in moto i portatori quindi $\mathbf v_{der} \neq 0$ e definisco la densità di corrente $\mathbf J = N q\mathbf v_{der}$. Dato che in un intervallo $\de t$ un portatore si sposta in media di $\mathbf v_{der} \de t$, presa una superficie $\mathbf n \de\varsigma$, i portatori che nell'intervallo $\de t$ attraversano tale superficie sono quelli contenuti nel cilindretto di volume $\de \upsilon = \mathbf v_{der} \de t \cdot \mathbf n \de\varsigma = v_{der} \de t \cos\theta \de\varsigma$; essi sono in numero $N \de\upsilon$ e hanno carica $\de q = q N \de\upsilon$. L'intensità di corrente è $\de i = \fracd{q}{t} = q N v_{der} \cos\theta \de\varsigma = \mathbf J \cdot \mathbf n \de\varsigma$ da cui $I_S = \int_S \mathbf J \cdot \mathbf n\de\varsigma$.
+
+\subsubsection{Campi elettrici non conservativi}
+Per il campo $\mathbf E_s$ delle forze elettrostatiche vale la II equazione di Maxwell $\rot\mathbf E_s = 0$ quindi $\Gamma(\mathbf E) = \oint E_s\cdot\de s = 0$. Ma esistono campi elettrici $E_{nc}$ per i quali si verifica $\Gamma(\mathbf E_{nc}) \neq 0$ e si parla di forze elettromotrici $fem$. Alcuni esempi sono:
+generatore van de Graff, reazioni chimiche nelle pila/accumulatore, forza di Lorentz in effetto Hall, induzione elettromagnetica (!).
+
+	\section{Elettrostatica e magnetostatica}
+	\subsection{Elettrostatica}
 \subsubsection{Lavoro del campo su una carica puntiforme}
-La carica $q$ nell'origine produce il campo $\vec E(\vec r) = \frac{q}{4\pi\varepsilon_0}\frac{\vec r}{||\vec r||^3}$. La carica $Q$ si muove da $A$ a $B$ lungo un percorso arbitrario $\gamma$. Decompongo il percorso in due tratti: con $\gamma_1$ arrivo sullo stesso raggio passante per $B$ muovendomi lungo un arco passante per $A$; con $\gamma_2$ arrivo a $B$ muovendomi radialmente. Il lavoro del campo sulla carica è $\mathscr L_\gamma = \frac{qQ}{4\pi\varepsilon_0}\int_A^B \frac{\vec r \cdot \de\vec s}{||\vec r||^3} = \mathscr L_{\gamma_1} + \mathscr L_{\gamma_2}$. Lungo $\gamma_1$ si ha $\vec r \perp \de\vec s$ quindi contano solo gli spostamenti radiali; il problema diventa unidimensionale. Lungo $\gamma_2$ si ha $\de\vec s = \hat r\,\de r$ quindi $\mathscr L_\gamma = \mathscr L_{\gamma_2} = \frac{qe}{4\pi\varepsilon_0}\int_{r_A}^{r_B} \frac{r\,\de r}{r^3} = -\frac{qQ}{4\pi\varepsilon_0}(\frac1{r_B}-\frac1{r_A})$.\\
-Gli spostamenti sulle superifici equipotenzialei non fanno lavoro.
+La carica $q$ nell'origine produce il campo $\vec E(\vec r) = \frac{q}{4\pi\varepsilon_0}\frac{\vec r}{||\vec r||^3}$. La carica $Q$ si muove da $A$ a $B$ lungo un percorso arbitrario $\gamma$. Decompongo il percorso in due tratti: con $\gamma_1$ arrivo sullo stesso raggio passante per $B$ muovendomi lungo 'arco $AB$ centrato nella carica; con $\gamma_2$ arrivo a $B$ muovendomi radialmente. Il lavoro del campo sulla carica è $\mathscr L_\gamma = \frac{qQ}{4\pi\varepsilon_0}\int_A^B \frac{\vec r \cdot \de\vec s}{||\vec r||^3} = \mathscr L_{\gamma_1} + \mathscr L_{\gamma_2}$. Lungo $\gamma_1$ si ha $\vec r \perp \de\vec s$ quindi contano solo gli spostamenti radiali; il problema diventa unidimensionale. Lungo $\gamma_2$ si ha $\de\vec s = \hat r\,\de r$ quindi $\mathscr L_\gamma = \mathscr L_{\gamma_2} = \frac{qe}{4\pi\varepsilon_0}\int_{r_A}^{r_B} \frac{r\,\de r}{r^3} = -\frac{qQ}{4\pi\varepsilon_0}(\frac1{r_B}-\frac1{r_A})$.\\
+Gli spostamenti sulle superfici equipotenziali non fanno lavoro.
+
+\subsubsection{II equazione di Maxwell}
+Nella definizione di campo elettrico si può usare l'identità $\nabla(-\frac1{|\mathbf r-\mathbf r^\prime|}) = \frac{\mathbf r-\mathbf r^\prime}{|\mathbf r-\mathbf r^\prime|^3}$ per definire $\mathbf E$ in termini del gradiente di una funzione (potenziale elettrostatico). La II equazione di Maxwell segue dall'identità $\rot(\nabla{A})=0$ dove $A$ è il potenziale elettrostatico definito sopra.
 
 \subsubsection{Potenziale dipolo elettrico}
 Ho due cariche $q_+$ e $q_-$ a distanza $d$ e valuto il potenziale in un punto $P$ a distanza $r\gg d$ dal centro del dipolo, che vale $V(r)=\frac{q}{4\pi\varepsilon} (\frac1{r_+}-\frac1{r_-})=\frac{q}{4\pi\varepsilon}\frac{r_- - r_+}{r_- r_+}$. Lo voglio scrivere in termini di $\mathbf r$ e $\mathbf p=q\mathbf d$. Nel triangolo $q_+ P q_-$, se $r\gg d$ allora l'angolo in P è piccolo ed il suo coseno è circa 1; quindi $r_+$ e $r_-$ si confondono con $r$, e la proiezione di $r_+$ su $r_-$ si confonde con $r_-$. Inoltre l'angolo fra d e $r_-$ si confonde con quello fra $d$ e $r$. Dunque $r_- r_+\approx r^2$ e $r_- - r_+ \approx d \cos\theta$ essendo $\theta$ l'angolo fra $d$ e $r$. Rielaborando l'espressione ottengo $V(r)\approx\frac1{4\pi\varepsilon}\frac{\mathbf p\cdot\mathbf r}{r^3}$ ed è tanto migliore quanto più $r\gg d$.
@@ -78,53 +112,10 @@ $\mathbf E = 4\pi k \int \frac{\mathbf r-\mathbf r^\prime}{|\mathbf r-\mathbf r^
 $\mathbf E = -\nabla V$
 \subsubsection{Dal campo alle sorgenti}
 
-\section{Conduttori}
-\subsubsection{Fra due mezzi materiali la componente trasversale del campo elettrico è continua}
-Considero un cammino fra i due mezzi con i tratti longitudinali paralleli all'interfaccia e i tratti trasversali infinitesimi rispetto ai tratti longitudinali. Per la conservatività deve essere $\oint \mathbf E\cdot\de\mathbf s=0$. Trascurando i tratti trasversali segue $E_{t1}=E_{t2}$.
+	\subsection{Magnetostatica}
+\subsubsection{Potenziale magnetico}
+vedi Jackson, ma passaggio 5.16 non mi torna. Quindi $\mathbf A(\mathbf r) = \oint \frac{\mathbf J(\mathbf r^\prime) \de\upsilon^\prime}{|\mathbf r - \mathbf r^\prime|}$. Il calcolo $\rot\mathbf B = \rot(\rot\mathbf A)$ con identità vettoriale introduce un termine con $\nabla^2$
 
-\subsubsection{Sulla superficie di un conduttore il campo non ha componente tangenziale}
-Dalla precedente, se il mezzo 1 è conduttore allora $E_{t2}=0$, cioè il campo ha solo componente normale alla superficie e presenta discontinuità fra interno $\mathbf E=0$ ed esterno $\mathbf E=E\mathbf n$.
-
-\subsubsection{Teorema di Coulomb}
-Nella precedente si determina $E$ applicando Gauss ad un cilindro metà nel conduttore e metà fuori, con altezza infinitesima rispetto al raggio. Al flusso contribuisce solo la base esterna quindi $\Phi(\mathbf E)=\rho/\varepsilon \Rightarrow E\de S=\sigma\de S/\varepsilon$. 
-
-\subsubsection{Pressione elettrostatica}
-Le cariche elettriche presenti sulla superficie $S$ di un conduttore costituiscono uno strato invalicabile per le cariche elettriche; questo si traduce nella presezna di pressioni elettrostatiche dovute alle cariche. Considero una superficie $\de S$ e il campo elettrico in vicinanza $\mathbf E=\frac{\sigma}{\varepsilon}\mathbf n$ (internamente è $\mathbf E=0$). Lo decompongo come $\mathbf E = \mathbf E^{(\de S)} + \mathbf E^{(S-\de S)}$ e $\de S$ è come un piano indefinito quindi $\mathbf E^{(\de S)}=\frac{\sigma}{2\varepsilon}\mathbf n$ (internamente è $\mathbf E^{(\de S)}=-\frac{\sigma}{2\varepsilon}\mathbf n$). Dalle precedenti segue che $\mathbf E^{(S-\de S)}=\frac{\sigma}{2\varepsilon}\mathbf n$ anche internamente. La forza agente su $\de S$ è quindi $\de F=\sigma\de S\,\mathbf E^{(S-\de S)}$ da cui segue la pressione $\mathbf p = \frac{\sigma^2}{2\varepsilon}\mathbf n=\frac{\varepsilon E^2}2\mathbf n$. Essa è proporzionale alla densità di energia del campo elettrostatico.
-
-%\subsubsection{Potenziale della sfera indotto da carica puntiforme}
-%Determinare il potenziale di una sfera conduttrice scarica di raggio $R$, considerando che una carica puntiforme $Q$ è posta a distanza $D$ dal centro della sfera.\\
-%\underline{Soluzione:} Per definizione di conduttore il potenziale $V$ è uniforme in tutta la sfera. Per semplicità posso calcolarlo nel centro e sarà dato dal potenziale generato dalla carica puntiforme sommato a quello generato dalla carica indotta $V=\frac{Q}{4\pi\varepsilon r}+V^\prime$. Poiché le cariche indotte si trovano tutte alla stessa distanza $R$ e sono globalmente nulle, deve essere $V^\prime=0$. Quindi, il potenziale della sfera è ovunque determinato solo dalla carica puntiforme
-
-\subsubsection{Guscio conduttore senza carica interna}
-Un conduttore scarico ha una cavità al suo interno in cui non sono presenti cariche. Ho due approcci per determinare il campo nella cavità e distribuzione della carica nel conduttore.
-GAUSS: prendo una superficie di Gauss nel conduttore che racchiude la cavità; per definizione di conduttore $\mathbf E(\mathcal G)=\mathbf 0$ quindi la carica netta racchiusa è nulla. Nella cavità non sono presenti cariche quindi nemmeno su $S_{int}$; tuttavia devo escludere la possibilità che $S_{int}$ abbia delle regioni con carica uguale ed opposta: se così fosse avrei un campo nella cavità e una circolazione non nulla lungo un cammino passante per la cavità, ma questo non è possibile per la conservatività. Se il conduttore è carico, tale carica si dispone su $S_{ext}$. Prendendo una superficie di Gauss nella cavità si trova che il campo nella cavità è nullo.\\
-POISSON: nella cavità vale l'equazione di Poisson $\nabla^2 V(r) = 0$ con la condizione $V(S_{int}) = \bar V$. Per definizione di conduttore $\bar V$ è costante nel conduttore quindi la soluzione (unica) è $V(r)=\bar V$. Poiché $\mathbf E = -\nabla V$, il campo nella cavità è nullo. Per il teorema di Coulomb applicato a $S_{int}$, la carica su di essa è quindi nulla.
-
-\subsubsection{Guscio conduttore con carica interna}
-È presente una carica $q$ nella cavità del conduttore. A differenza del precedente, la carica nella cavità deve essere bilanciata da una carica $-q$ su $S_{int}$. Di conseguenza su $S_{ext}$ si avrà la carica $q$, oltre alla carica eventualmente portata dal conduttore se esso non è scarico; su $S_{ext}$ quindi è presente tutta la carica contenuta nel conduttore. [sul picasso viene approfondita l'indipendenza fra problema interno ed esterno]
-
-\subsubsection{Capacità del condensatore piano}
-Dal doppio piano di carica segue che il campo fra le armature è $\mathbf E = \frac\sigma\epsilon \mathbf n$ quindi la differenza di potenziale è $\Delta V = -\int_A^B \frac\sigma\epsilon \mathbf n \cdot \de x \mathbf n = -\frac{\sigma d}\epsilon$. Per definizione di capacità $C=\frac{Q}{\Delta V} = \sigma S \frac{\epsilon}{\sigma d} = \frac{\epsilon S}d$.
-
-\subsubsection{Energia di un condensatore carico}
-Un condensatore di capacità $C$ è caricato fino ad assumere la d.d.p. $\Delta V$ tra le armature. Calcolare l'energia elettrostatica immagazzinata\\
-\underline{Def:} l'energia elettrostatica di una distribuzione superficiale di carica è $U=\frac 12\int\sigma V\,\mathrm dS$. Le densità di carica sulle armature valgono $\pm\sigma_0$ mentre i potenziali sono $V_A$ e $V_B$, quindi $U=\frac 12 V_A\int\sigma_0\,\mathrm dS+\frac 12 V_B\int(-\sigma_0)\,\mathrm dS=\frac 12 Q\Delta V$. Poiché $C=\frac{Q}{\Delta V}$ si ha $U=\frac 12 C(\Delta V)^2$
-
-\section{Dielettrici}
-\subsubsection{Cariche di polarizzazione}
-Si dimostrano le due relazioni $\sigma_{pol} = \mathbf P \cdot \mathbf n$ e $\rho_{pol} = -\dive\mathbf P$. Per la prima, considero un elemento  $\de S$ di superficie esterna del dielettrico, di normale $\mathbf n$. Il campo esterno $\mathbf E$, che in generale ha direzione arbitraria e forma l'angolo $\theta$ con $\mathbf n$, polarizza la materia del dielettrico. Se $\mathbf E \perp \mathbf n$ allora i dipoli sono paralleli a $\de S$ e la carica netta su $\de S$ è nulla. Diversamente, su $\de S$ sarà presente una densità di carica $\sigma = \de Q/\de S$ in cui $Q$ è identificata dai dipoli, di momento medio $\langle \mathbf p\rangle = q \mathbf d$, presenti nel volume del cilindretto di base $\de S$ e altezza $d\cos\theta$. Conoscendo la densità volumica $n$ dei dipoli, la carica è $\de Q = q n d \cos\theta \de S = qn\mathbf d \cdot \mathbf n \de S$ quindi $\sigma_{pol}= n \langle \mathbf p\rangle \cdot \mathbf n = \mathbf P \cdot \mathbf n$\\
-Per la seconda relazione, 
-
-\subsubsection{I equazione di Maxwell nei dielettrici}
-Il teorema di Gauss per $\mathbf E = \mathbf E_{lib} + \mathbf E_{pol}$ fornisce $\int \dive\mathbf E \de\upsilon = (Q_{lib} + Q_{pol})/\varepsilon$. Conoscendo la relazione fra $\rho_{pol}$ e $\mathbf P$ si ottiene $\frac1\varepsilon \int \dive(\varepsilon\mathbf E +  \mathbf P)\de\upsilon = \frac 1\varepsilon \int \rho_{lib} \de\upsilon$ da cui $\dive\mathbf D = \rho_{lib}$.
-
-\subsubsection{II equazione di Maxwell nei dielettrici}
-vedi Jackson
-
-\subsubsection{Costanti caratteristiche dei dielettrici}
-In presenza di un campo elettrostatico esterno, nell'ipotesi di isotropia, la materia del dielettrico di polarizza parallelamente al campo quindi $\langle \mathbf p \rangle \propto \varepsilon_0\mathbf E$. La costante $\alpha$ si chiama polarizzabilità molecolare. Di conseguenza $\mathbf P = n \alpha \varepsilon_0 \mathbf E$ e definisco la suscettività elettrica $\chi_{el} = n\alpha$ quindi $\mathbf P = \chi_{el}\varepsilon_0\mathbf E$. Lo spostamento elettrico è $\mathbf D = \varepsilon\mathbf E + \chi_{el}\varepsilon_0\mathbf E = \varepsilon_0 (1+\chi_{el}) \mathbf E$. Da qui posso definire la permittività elettrica (o costante dielettrica assoluta) del dielettrico $\varepsilon = \varepsilon_0(1+\chi_{el})$ e la costante dielettrica relativa $\varepsilon_r = \frac{\varepsilon}{\varepsilon_0} = 1+\chi_e$. Di conseguenza $\varepsilon = \varepsilon_r\varepsilon_0$ e $\mathbf D = \varepsilon\mathbf E$
-
-\section{Magnetostatica}
 \subsubsection{Campo magnetico generato da filo rettilineo}
 Nel filo rettilineo indefinito scorre la corrente $i$. Si vuole il campo magnetico a distanza $r$ dal filo.\\
 Soluzione 1: tutti i contributi $\de\mathbf B(\mathbf r)$ in uno stesso punto sono paralleli fra di loro e di intensità variabile con l'elemento considerato. Per la regola della mano destra $\de\mathbf B = \de B_\phi \mathbf u_\phi$ quindi $\mathbf B = B_\phi \mathbf u_\phi$ con $B_\phi = \oint \de B_\phi$. Per il modulo applico la legge di B-S considerando che $|\de\mathbf l^\prime \times (\mathbf r - \mathbf r^\prime)| = \de z^\prime |\mathbf r - \mathbf r^\prime| \sin\theta$, quindi $\de B_\phi(\mathbf r) = \frac{\mu_0 i}{4\pi} \sin\theta \frac1{|\mathbf r - \mathbf r^\prime|^2} \de z^\prime$. L'integrazione non può svolgersi in questa variabile; se uso l'angolo di $(\mathbf r - \mathbf r^\prime)$ con il piano della spira allora gli estremi sono $\pm \frac\pi 2$. Quindi devo tradurre l'integrando in termini di tale angolo $\alpha$. Dalla trigonometria $\theta + \phi  = \pi \;\Longrightarrow\; \sin\theta = \sin\phi$ e $\phi + \alpha = \frac\pi 2 \;\Longrightarrow\; \sin\phi = \cos\alpha$. Per il denominatore, sempre dalla trigonometria $|\mathbf r - \mathbf r^\prime| = r/\cos\alpha$. Rimane il differenziale $\de z^\prime$ ma ho prima bisogno di $z^\prime$, sempre dalla trigonometria $z^\prime = |\mathbf r - \mathbf r^\prime| \sin\alpha = r \tan\alpha$ quindi $\de z^\prime = r \de(\tan\alpha) = \frac{r}{\cos^2\alpha} \de\alpha$. Ho ottenuto $B_\phi(r) = \frac{\mu_0 i}{4\pi} \int_{-\pi/2}^{+\pi/2} \cos\alpha \frac{\cos^2\alpha}{r^2} \frac{r}{\cos^2\alpha} \de\alpha = \frac{\mu_0 i}{4\pi} \frac1r (\sin(\frac\pi 2) - \sin(-\frac\pi 2)) = \frac{\mu_0 i}{2\pi} \frac1r$ quindi $\mathbf B(\mathbf r) = \frac{\mu_0 i}{2\pi} \frac1{|\mathbf r|} \mathbf u_\phi$.
@@ -135,6 +126,9 @@ Soluzione 1: per la simmetria cilindrica i contributi $\de\mathbf B(\mathbf r)$ 
 
 \subsubsection{Spira circolare a grande distanza}
 Dalla precedente con $z \gg R$ risulta $\mathbf B(z) \simeq \frac{\mu_0 i}{2} \frac{R^2}{z^3} \mathbf u_z$. Posso reinterpretare questo risultato considerando che $A = \pi R^2$ e definendo (analogamente al dipolo elettrico) il momento magnetico della spira $\mathbf m = i A \mathbf n$. In questo caso $\mathbf n = \mathbf u_z$ quindi $\mathbf B(z \gg R) \simeq \frac{\mu_0}{2\pi} \frac{\mathbf m}{z^3}$.
+
+\subsubsection{Forza magnetica su elemento di corrente}
+Su una particella di carica $q$ in moto con velocità $\mathbf v$ in un campo magnetico $\mathbf B$ è $\mathbf F = q\mathbf v \times \mathbf B$. In un conduttore avrò $n$ cariche per unità di volume in moto con velocità media $\mathbf v_{der}$ quindi 
 
 \subsubsection{Due fili rettilinei indefiniti e paralleli}
 Nel piano $xy$ un filo rettilineo coincidente con l'asse $y$ è sede della corrente $I_1$. L'altro filo posto a dx del precedente alla distanza $d$ è sede della corrente $I_2$. Determinare il campo di induzione in tutto lo spazio e vedere se ci sono punti dell'asse delle ascisse nei quali esso è nullo (utilizzando $I_1=I_\mathrm n$ del problema precedente). Determinare la forza per unità di lunghezza tra i due fili.
@@ -166,9 +160,8 @@ Il campo di induzione generato dalla corrente $I_\mathrm n$ induce sugli element
 \subsubsection{Effetto Hall}
 Viene fatta scorrere corrente in una piastra conduttrice in senso longitudinale
 
-\section{Equazioni di Maxwell}
-\subsection{Caso stazionario}
-\subsubsection{I equazione - Legge di Gauss}
+	\subsection{Equazioni di Maxwell nel vuoto}
+\subsubsection{I equazione - Legge di Gauss - Sorgenti del campo eletrtico}
 $\Phi(\mathbf E) = Q_{int}/\epsilon \;\;\Longrightarrow\;\; \iint \mathbf E \cdot \mathbf n\de\varsigma = \frac 1\epsilon \iiint \rho\,\de\upsilon \;\;\Longrightarrow\;\; \dive\mathbf E = \rho/\epsilon$\\
 definizione di flusso, teorema della divergenza
 
@@ -180,24 +173,76 @@ definizione di flusso, teorema della divergenza
 $\Gamma(\mathbf E) = 0 \;\;\Longrightarrow\;\; \oint \mathbf E \cdot \de\mathbf s = 0 \;\;\Longrightarrow\;\; \rot\mathbf E = 0$\\
 definizione di circuitazione, teorema del rotore
 
-\subsubsection{IV equazione - Teorema di Ampère}
+\subsubsection{IV equazione - Teorema di Ampère - Sorgenti del campo magnetico}
 $\Gamma(\mathbf B) = \mu_0 \sum_k m_k i_k \;\;\Longrightarrow\;\; \oint \mathbf B \cdot \de\mathbf s = \mu_0 \iint \mathbf J \cdot \mathbf n\de\varsigma \;\;\Longrightarrow\;\; \rot\mathbf B  = \mu_0 \mathbf J$\\
-definizione di circuitazione, densità di corrente, teorema del rotore
+definizione di circuitazione e densità di corrente, teorema del rotore
 
-\section{Esperimenti}
-\subsubsection{Esperienza di Oersted}
-Un filo percorso da corrente genera un campo magnetico.
+	\section{Conduttori e dielettrici}
+	\subsection{Conduttori}
+\subsubsection{Fra due mezzi materiali la componente trasversale del campo elettrico è continua}
+Considero un cammino fra i due mezzi con i tratti longitudinali paralleli all'interfaccia e i tratti trasversali infinitesimi rispetto ai tratti longitudinali. Per la conservatività deve essere $\oint \mathbf E\cdot\de\mathbf s=0$. Trascurando i tratti trasversali segue $E_{t1}=E_{t2}$.
 
-\subsubsection{Esperienza di Faraday}
-Un filo percorso da corrente risente dell'effetto di un campo magnetico esterno.
+\subsubsection{Sulla superficie di un conduttore il campo non ha componente tangenziale}
+Dalla precedente, se il mezzo 1 è conduttore allora $E_{t2}=0$, cioè il campo ha solo componente normale alla superficie e presenta discontinuità fra interno $\mathbf E=0$ ed esterno $\mathbf E=E\mathbf n$.
 
-\subsubsection{Esperienza di Ampere}
-Tra due fili percorsi da correnti si esercitano delle forze.
+\subsubsection{Teorema di Coulomb}
+Nella precedente si determina $E$ applicando Gauss ad un cilindro metà nel conduttore e metà fuori, con altezza infinitesima rispetto al raggio. Al flusso contribuisce solo la base esterna quindi $\Phi(\mathbf E)=\rho/\varepsilon \Rightarrow E\de S=\sigma\de S/\varepsilon$. 
 
-\subsubsection{Dielettrico in condensatore piano}
-Fissata la carica $Q$, prima del dielettrico la capacità è $C$, dopo il dielettrico si osserva $C^\prime > C$ quindi $\Delta V^\prime < \Delta V$.
+\subsubsection{Pressione elettrostatica}
+Le cariche elettriche presenti sulla superficie $S$ di un conduttore costituiscono uno strato invalicabile per le cariche elettriche; questo si traduce nella presezna di pressioni elettrostatiche dovute alle cariche. Considero una superficie $\de S$ e il campo elettrico in vicinanza $\mathbf E=\frac{\sigma}{\varepsilon}\mathbf n$ (internamente è $\mathbf E=0$). Lo decompongo come $\mathbf E = \mathbf E^{(\de S)} + \mathbf E^{(S-\de S)}$ e $\de S$ è come un piano indefinito quindi $\mathbf E^{(\de S)}=\frac{\sigma}{2\varepsilon}\mathbf n$ (internamente è $\mathbf E^{(\de S)}=-\frac{\sigma}{2\varepsilon}\mathbf n$). Dalle precedenti segue che $\mathbf E^{(S-\de S)}=\frac{\sigma}{2\varepsilon}\mathbf n$ anche internamente. La forza agente su $\de S$ è quindi $\de F=\sigma\de S\,\mathbf E^{(S-\de S)}$ da cui segue la pressione $\mathbf p = \frac{\sigma^2}{2\varepsilon}\mathbf n=\frac{\varepsilon E^2}2\mathbf n$. Essa è proporzionale alla densità di energia del campo elettrostatico.
 
-\section{Circuiti}
+%\subsubsection{Potenziale della sfera indotto da carica puntiforme}
+%Determinare il potenziale di una sfera conduttrice scarica di raggio $R$, considerando che una carica puntiforme $Q$ è posta a distanza $D$ dal centro della sfera.\\
+%\underline{Soluzione:} Per definizione di conduttore il potenziale $V$ è uniforme in tutta la sfera. Per semplicità posso calcolarlo nel centro e sarà dato dal potenziale generato dalla carica puntiforme sommato a quello generato dalla carica indotta $V=\frac{Q}{4\pi\varepsilon r}+V^\prime$. Poiché le cariche indotte si trovano tutte alla stessa distanza $R$ e sono globalmente nulle, deve essere $V^\prime=0$. Quindi, il potenziale della sfera è ovunque determinato solo dalla carica puntiforme
+
+\subsubsection{Guscio conduttore senza carica interna}
+Un conduttore scarico ha una cavità al suo interno in cui non sono presenti cariche. Ho due approcci per determinare il campo nella cavità e distribuzione della carica nel conduttore.
+GAUSS: prendo una superficie di Gauss nel conduttore che racchiude la cavità; per definizione di conduttore $\mathbf E(\mathcal G)=\mathbf 0$ quindi la carica netta racchiusa è nulla. Nella cavità non sono presenti cariche quindi nemmeno su $S_{int}$; tuttavia devo escludere la possibilità che $S_{int}$ abbia delle regioni con carica uguale ed opposta: se così fosse avrei un campo nella cavità e una circolazione non nulla lungo un cammino passante per la cavità, ma questo non è possibile per la conservatività. Se il conduttore è carico, tale carica si dispone su $S_{ext}$. Prendendo una superficie di Gauss nella cavità si trova che il campo nella cavità è nullo.\\
+POISSON: nella cavità vale l'equazione di Poisson $\nabla^2 V(r) = 0$ con la condizione $V(S_{int}) = \bar V$. Per definizione di conduttore $\bar V$ è costante nel conduttore quindi la soluzione (unica) è $V(r)=\bar V$. Poiché $\mathbf E = -\nabla V$, il campo nella cavità è nullo. Per il teorema di Coulomb applicato a $S_{int}$, la carica su di essa è quindi nulla.
+
+\subsubsection{Guscio conduttore con carica interna}
+È presente una carica $q$ nella cavità del conduttore. A differenza del precedente, la carica nella cavità deve essere bilanciata da una carica $-q$ su $S_{int}$. Di conseguenza su $S_{ext}$ si avrà la carica $q$, oltre alla carica eventualmente portata dal conduttore se esso non è scarico; su $S_{ext}$ quindi è presente tutta la carica contenuta nel conduttore. [sul picasso viene approfondita l'indipendenza fra problema interno ed esterno]
+
+\subsubsection{Capacità del condensatore piano}
+Dal doppio piano di carica segue che il campo fra le armature è $\mathbf E = \frac\sigma\epsilon \mathbf n$ quindi la differenza di potenziale è $\Delta V = -\int_A^B \frac\sigma\epsilon \mathbf n \cdot \de x \mathbf n = -\frac{\sigma d}\epsilon$. Per definizione di capacità $C=\frac{Q}{\Delta V} = \sigma S \frac{\epsilon}{\sigma d} = \frac{\epsilon S}d$.
+
+\subsubsection{Energia di un condensatore carico}
+Un condensatore di capacità $C$ è caricato fino ad assumere la d.d.p. $\Delta V$ tra le armature. Calcolare l'energia elettrostatica immagazzinata\\
+\underline{Def:} l'energia elettrostatica di una distribuzione superficiale di carica è $U=\frac 12\int\sigma V\,\mathrm dS$. Le densità di carica sulle armature valgono $\pm\sigma_0$ mentre i potenziali sono $V_A$ e $V_B$, quindi $U=\frac 12 V_A\int\sigma_0\,\mathrm dS+\frac 12 V_B\int(-\sigma_0)\,\mathrm dS=\frac 12 Q\Delta V$. Poiché $C=\frac{Q}{\Delta V}$ si ha $U=\frac 12 C(\Delta V)^2$
+
+	\subsection{Dielettrici}
+\subsubsection{Cariche di polarizzazione}
+Si dimostrano le due relazioni $\sigma_{pol} = \mathbf P \cdot \mathbf n$ e $\rho_{pol} = -\dive\mathbf P$. Per la prima, considero un elemento  $\de S$ di superficie esterna del dielettrico, di normale $\mathbf n$. Il campo esterno $\mathbf E$, che in generale ha direzione arbitraria e forma l'angolo $\theta$ con $\mathbf n$, polarizza la materia del dielettrico. Se $\mathbf E \perp \mathbf n$ allora i dipoli sono paralleli a $\de S$ e la carica netta su $\de S$ è nulla. Diversamente, su $\de S$ sarà presente una densità di carica $\sigma = \de Q/\de S$ in cui $Q$ è identificata dai dipoli, di momento medio $\langle \mathbf p\rangle = q \mathbf d$, presenti nel volume del cilindretto di base $\de S$ e altezza $d\cos\theta$. Conoscendo la densità volumica $n$ dei dipoli, la carica è $\de Q = q n d \cos\theta \de S = qn\mathbf d \cdot \mathbf n \de S$ quindi $\sigma_{pol}= n \langle \mathbf p\rangle \cdot \mathbf n = \mathbf P \cdot \mathbf n$\\
+Per la seconda relazione, 
+
+\subsubsection{I equazione di Maxwell nei dielettrici}
+Il teorema di Gauss per $\mathbf E = \mathbf E_{lib} + \mathbf E_{pol}$ fornisce $\int \dive\mathbf E \de\upsilon = (Q_{lib} + Q_{pol})/\varepsilon$. Conoscendo la relazione fra $\rho_{pol}$ e $\mathbf P$ si ottiene $\frac1\varepsilon \int \dive(\varepsilon\mathbf E +  \mathbf P)\de\upsilon = \frac 1\varepsilon \int \rho_{lib} \de\upsilon$ da cui $\dive\mathbf D = \rho_{lib}$.
+
+\subsubsection{II equazione di Maxwell nei dielettrici}
+vedi Jackson
+
+\subsubsection{Costanti caratteristiche dei dielettrici}
+In presenza di un campo elettrostatico esterno, nell'ipotesi di isotropia, la materia del dielettrico di polarizza parallelamente al campo quindi $\langle \mathbf p \rangle \propto \varepsilon_0\mathbf E$. La costante $\alpha$ si chiama polarizzabilità molecolare. Di conseguenza $\mathbf P = n \alpha \varepsilon_0 \mathbf E$ e definisco la suscettività elettrica $\chi_{el} = n\alpha$ quindi $\mathbf P = \chi_{el}\varepsilon_0\mathbf E$. Lo spostamento elettrico è $\mathbf D = \varepsilon\mathbf E + \chi_{el}\varepsilon_0\mathbf E = \varepsilon_0 (1+\chi_{el}) \mathbf E$. Da qui posso definire la permittività elettrica (o costante dielettrica assoluta) del dielettrico $\varepsilon = \varepsilon_0(1+\chi_{el})$ e la costante dielettrica relativa $\varepsilon_r = \frac{\varepsilon}{\varepsilon_0} = 1+\chi_e$. Di conseguenza $\varepsilon = \varepsilon_r\varepsilon_0$ e $\mathbf D = \varepsilon\mathbf E$
+
+\subsubsection{Interfaccia fra dielettrici}
+
+\subsubsection{Cavità in un dielettrico}
+La cavità è stretta e lunga, in direzione del campo esterno. Prendo un cammino metà nel dielettrico e metà nella cavità, i tratti trasversali sono trascurabili. Deve essere $\int \mathbf E_{diel} \cdot \de\mathbf s + \int \mathbf E_{cav} \cdot \de\mathbf s = 0$ ma per come è stata presa la cavità risulta $E_{diel} l - E_{cav} l = 0$ da cui $E_{diel} = E_{cav}$
+
+\subsubsection{Cavo coassiale}
+Un cavo coassiale è un conduttore cilindrico indefinito di raggio $R_1$ circondato da una corona cilindrica di dielettrico con raggio esterno $R_2$. La carica sul conduttore è determinata dalla densità lineare $\lambda$. Suppongo che il dielettrico è lineare ed isotropo. Il campo elettrico nel conduttore è $\mathbf E(r < R_1) = 0$. All'esterno del cavo ha direzione radiale (per simmetria) e modulo tramite Gauss, quindi $\mathbf E(r > R_2) = \frac{\lambda}{2\pi \varepsilon_0 r} \mathbf u_\rho$. Nel dielettrico vale $\Phi(\mathbf D) = Q_{lib}$ dove $Q_{lib} = \lambda h$ e $\Phi(\mathbf D) = D(r) 2\pi r h$, quindi $\mathbf D(R_1 < r < R_2) = \frac{\lambda}{2\pi r} \mathbf u_\rho$. Per il campo elettrico nel dielettrico serve la relazione costitutiva del dielettrico: ipotizzato lineare vale l'equazione $\mathbf D = \varepsilon \mathbf E$ da cui $\mathbf E(R_1 < r < R_2) = \mathbf D/\varepsilon = \frac{\lambda}{2\pi \varepsilon r} \mathbf u_\rho$
+
+	
+	
+
+
+	\section{Circuiti}
+\subsubsection{Modello classico della conduzione e legge di Ohm}
+Il modello classico di conduttore è un reticolo di ioni positivi fissi e un mare di elettroni in moto che urtano continuamente con gli ioni. Fra gli urti le traiettorie sono rettilinee e complessivamente casuali ed isotrope. Se un elettrone ha velocità $\mathbf v$ e il cammino libero medio fra due urti è $l$ allora il tempo medio fra due urti è $\tau = l/v$. Quando viene applicato un campo elettrico $\mathbf E$ nel conduttore, l'elettrone risente della forza $-e \mathbf E$ che causa l'accelerazione $\mathbf a = -e/m_e \mathbf E$ e le traiettorie diventano parabole. L'applicazione del campo fa acquisire una velocità che si sovrappone a quella propria degli elettroni. Tale velocità di deriva $\mathbf v_{der}$ si può calcolare considerando la velocità $\mathbf v_{i}$ subito dopo un urto e la velocità $\mathbf v_{i+1}$ subito prima dell'urto successivo. Fra questi due istanti il moto è accelerato quindi $\mathbf v_{i+1} = \mathbf v_i + \frac{-e \mathbf E}{m_e} \tau$. La velocità di deriva è la velocità mediata su un gran numero di urti $\mathbf v_{der} = \langle \mathbf v_{i+1} \rangle = \langle \mathbf v_{i} \rangle -\frac{e \mathbf E}{m_e} \tau$. Statisticamente si osserva che dopo ogni urto la velocità è casuale quindi $\langle \mathbf v_i \rangle$ e di conseguenza $\mathbf v_{der} = -\frac{e \tau}{m_e} \mathbf E$. 
+
+\subsubsection{Legge di Ohm ed effetto Joule}
+La densità di corrente è quindi $\mathbf J = \frac{n e^2 \tau}{m_e} \mathbf E$, dove $\sigma = \frac{n e^2 \tau}{m_e}$ è la conduttività del conduttore e $\rho = 1/\sigma$ è la resistività. La potenza spesa dal campo per mantenere in moto con velocità $\mathbf v_{der}$ gli $n$ elettroni nell'unità di volume è $P = n e \mathbf E \cdot \mathbf v_{der} = \mathbf J \cdot \mathbf E = \sigma^2 E = \rho^2 J$ (i vettori sono concordi). Questa potenza viene trasferita al reticolo ionico durante gli urti e va ad aumentarew l'energia interna del conduttore, quindi la sua temperatura. 
+
 \subsubsection{Generatori reali di f.e.m. in serie}
 Una maglia è costituita da $N$ generatori uguali con $f.e.m.=\mathcal E$ e resistenza interna $R$, collegati in serie con verso concorde delle f.e.m. Calcolare da d.d.p. fra due connessioni $A$ e $B$ qualsiasi fra i generatori\\
 \underline{Soluzione:} l'equazione della maglia è $\sum f.e.m.=I\sum R\;\Rightarrow\;N\mathcal E=INR\;\Rightarrow\;I=\frac{\mathcal E}{R}$. Per caloclare la d.d.p tra i punti $A$ e $B$ considero il ramo corrispondente, di equazione $V_A-V_B+n\mathcal E=InR\;\Rightarrow\;V_A-V_B+n\mathcal E=n\mathcal E\;\Rightarrow\;V_A=V_B$
@@ -220,9 +265,4 @@ Sono noti $\mathcal E,\,R,\,L,\,C$.\\
 Un circuito primario è costituito da un generatore $\mathcal E(t)=\mathcal E_0\cos(\omega t)$ e da una induttanza $L_1$. Un circuito secondario è costituito da un'induttanza $L_2$ e da una resistenza $R_2$. Le due induttanze sono accoppiate, con coeff. di mutua induzione $M$. Detrminare le correnti $I_h(t)$ circolanti nei due circuiti, la tensione $V_{R_2}$ ai capi di $R_2$ e il rapporto di trasformazione $\alpha$.\\
 \underline{Soluzione:} le equazioni di maglia dei due circuiti sono $\mathcal E-L_1\frac{\de I_1}{\de t}-M\frac{\de I_2}{\de t}=0\quad -L_2\frac{\de I_2}{\de t}-M\frac{\de I_1}{\de t}=R_2I_2$. Le correnti posso essere scritte come $I_h(t)=I_{0h}e^{j(\omega t+\varphi_h)}$ dunque $\frac{\de I_h}{\de t}=j\omega I_h$ e le equazioni di maglia diventano $\mathcal E-j\omega L_1I_1-j\omega MI_2=0\quad-j\omega L_2I_2-j\omega MI_1=RI_2$. Dalla seconda si ricava $I_2=\frac{-j\omega M}{R_2+j\omega L_2}I_1$ che sostituita nella prima permette di ricavare \big(tenendo conto che $M^2=L_1L_2$\big) la corrente $I_1(t)=\frac{R_2+j\omega L_2}{j\omega L_1 R_2}\,\mathcal E(t)$, quindi la corrente $I_2(t)=-\frac{M}{L_1R_2}\mathcal E(t)$. Ai capi di $R_2$ si ha la tensione $V_{R_2}(t)=R_2I_2(t)=-\frac{M}{L_1}\mathcal E(t)$. Il rapporto di trasformazione si può ottenere supponendo che le induttanze $L_h$ siano dei solenoidi di $N_h$ spire avvolte su un supporto ferromagnetico di lunghezza $d$ e sezione $S$, percui vale $L_h=\mu S\frac{N_h^2}{d}$ e $M=\mu S\frac{N_1N_2}d$. Osservando che nell'espressione di $I_1$ compare il rapporto $\frac{M}{L_1}$, sotto tale ipotesi vale $\frac{M}{L_1}=\frac{N_1}{N_2}=\alpha$
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%       END DOCUMENT
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\vfill\null
-%\columnbreak
 \end{document}

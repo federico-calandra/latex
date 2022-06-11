@@ -1,4 +1,4 @@
-\documentclass[10pt,a4paper,landscape]{article}
+\documentclass[10pt,a4paper]{article}
 
 %% PACCHETTI AGGIUNTIVI
 \usepackage{amssymb,amsmath,amsthm,amsfonts}
@@ -54,9 +54,9 @@
 \begin{document}
 
 \section{Identità di primo ordine}
-	\paragraph{gradiente di una funzione composta} $\nabla(f\circ F) = \fracp{}{x_i}\{f(F(x_1,\ldots,x_n))\}\mathbf e_i = f^\prime(F(x_1,\ldots,n_n))\fracp{}{x_i}\{F(x_1,\ldots,x_n)\}\mathbf e_i = (f^\prime\circ F) \nabla F$
+	\paragraph{gradiente di una funzione composta} $\nabla(f\circ F) = \partial_i\{f(F(x_1,\ldots,x_n))\}\mathbf e_i = f^\prime(F(x_1,\ldots,n_n))\partial_i\{F(x_1,\ldots,x_n)\}\mathbf e_i = (f^\prime\circ F) \nabla F$
 		
-	\paragraph{gradiente di un campo composto} $\nabla(F\circ\mathbf A) = \fracp{}{x_i}\{F(A_1(x_1,\ldots,x_n),\ldots,A_n(x_1,\ldots,x_n))\}\mathbf e_i = \ldots= (\nabla F\circ\mathbf A)\nabla \mathbf A$
+	\paragraph{gradiente di un campo composto} $\nabla(F\circ\mathbf A) = \partial_i\{F(A_1(x_1,\ldots,x_n),\ldots,A_n(x_1,\ldots,x_n))\}\mathbf e_i = \ldots= (\nabla F\circ\mathbf A)\nabla \mathbf A$
 	
 	\paragraph{gradiente del prodotto 1} $\nabla (f g) = \fracp{(fg)}{x_i} \mathbf e_i = f \fracp{g}{x_i} \mathbf e_i + \fracp{f}{x_i} g\, \mathbf e_i = f\,\nabla g+g\,\nabla f$
 	
@@ -65,7 +65,7 @@
 	\paragraph{gradiente del prodotto scalare} $\nabla(\mathbf A \cdot \mathbf B) = \nabla(A_iB_i) = A_i\nabla B_i + B_i\nabla A_i = \mathbf A \cdot \mathbf J_\mathbf B + \mathbf B \cdot \mathbf J_\mathbf A$\\
 	caso particolare $\frac 12 \nabla (\mathbf A^2) = \mathbf A \cdot \mathbf J_\mathbf A$
 	
-	\paragraph{divergenza del prodotto} $\nabla \cdot (f \mathbf A) = \fracp{}{x_i}\, \mathbf e_i \cdot A_j\, \mathbf e_j = \fracp{(f A_i)}{x_i}=f\, \fracp{A_i}{x_i} + \fracp{f}{x_i} A_i=f\, \dive{\mathbf A} + \nabla f \cdot \mathbf A$
+	\paragraph{divergenza del prodotto} $\nabla \cdot (f \mathbf A) = \partial_i\, \mathbf e_i \cdot A_j\, \mathbf e_j = \fracp{(f A_i)}{x_i}=f\, \fracp{A_i}{x_i} + \fracp{f}{x_i} A_i=f\, \dive{\mathbf A} + \nabla f \cdot \mathbf A$
 	
 	\paragraph{divergenza del prodotto vettoriale} $\nabla \cdot (\mathbf A \times \mathbf B) = \fracp{}{x_h} \mathbf e_h \cdot \varepsilon_{ijk} A_iB_j \mathbf e_k = 
 	(\varepsilon_{ijk}\fracp{A_i}{x_k}B_j + \varepsilon_{ijk}\fracp{B_j}{x_k}A_i) = \varepsilon_{ijk}\fracp{A_i}{x_k}\mathbf e_j\cdot B_j\mathbf e_j + \varepsilon_{ijk}\fracp{B_j}{x_k}\mathbf e_i\cdot A_i\mathbf e_i = \ldots = \mathbf B \cdot \rot \mathbf A - \mathbf A \cdot \rot \mathbf B$
@@ -75,20 +75,21 @@
 	
 	\paragraph{divergenza del prodotto vettoriale} $\nabla \times (\mathbf A \times \mathbf B) = $
 	
-	\paragraph{laplaciano del prodotto} $\nabla^2 (f g) = \nabla \cdot \nabla(f g) = \fracp{}{x_i}\, \mathbf e_i \cdot \big( f \fracp{g}{x_j} \mathbf e_j + \fracp{f}{x_j} g\, \mathbf e_j \big) = \fracp{}{x_i} \{f \fracp{g}{x_i}\} + \fracp{}{x_i} \{\fracp{f}{x_i} g\} = f \fracpq{g}{x_i} + \fracp{f}{x_i}\fracp{g}{x_i} + \fracp{f}{x_i}\fracp{g}{x_i} + \fracpq{f}{x_i}\, g = f\, \nabla^2 g + g\, \nabla^2 f + 2 \nabla f \cdot \nabla g$
+	\paragraph{laplaciano del prodotto} $\nabla^2 (f g) = \nabla \cdot \nabla(f g) = \partial_i\, \mathbf e_i \cdot \big( f \fracp{g}{x_j} \mathbf e_j + \fracp{f}{x_j} g\, \mathbf e_j \big) = \partial_i \{f \fracp{g}{x_i}\} + \partial_i \{\fracp{f}{x_i} g\} = f \fracpq{g}{x_i} + \fracp{f}{x_i}\fracp{g}{x_i} + \fracp{f}{x_i}\fracp{g}{x_i} + \fracpq{f}{x_i}\, g = f\, \nabla^2 g + g\, \nabla^2 f + 2 \nabla f \cdot \nabla g$
 	
 	\paragraph{identità notevoli} $\nabla\{\frac1{|\mathbf x - \mathbf x^\prime|}\} = \nabla \{[(x-x^\prime)^2 + (y-y^\prime)^2 + (z-z^\prime)^2]^{-1/2}\} = -\frac12 [(\ldots)^2 + (\ldots)^2 + (\ldots)^2]^{-3/2} \, \nabla\{(\ldots)^2 + (\ldots)^2 + (\ldots)^2\} = -\frac{(\mathbf x - \mathbf x^\prime)}{|\mathbf x - \mathbf x^\prime|^3}$
 
 \section{Identità di secondo ordine}
-	\paragraph{gradiente della divergenza} $\nabla(\nabla \cdot \mathbf A) = \fracp{}{x_i} \{\fracp{}{x_j} \mathbf e_j \cdot A_k \mathbf e_k\}\, \mathbf e_i = \fracp{}{x_i} \{\fracp{A_j}{x_j}\}\, \mathbf e_i$
+	\paragraph{gradiente della divergenza} $\nabla(\nabla \cdot \mathbf A) = \partial_i \{\fracp{}{x_j} \mathbf e_j \cdot A_k \mathbf e_k\}\, \mathbf e_i = \partial_i \{\fracp{A_j}{x_j}\}\, \mathbf e_i$
 	
 	\paragraph{divergenza del gradiente} $\nabla \cdot \nabla\mathbf A = \nabla^2 \mathbf A$
 	
 	\paragraph{divergenza del rotore} $\nabla \cdot(\nabla \times \mathbf A) = \fracp{}{x_h}\, \mathbf e_h \cdot (\varepsilon_{ijk} \fracp{A_j}{x_i}\, \mathbf e_k) = \varepsilon_{ijk} \fracpp{A_j}{x_k}{x_i}$.\;\; Se $f \in C^2 \Rightarrow \partial_{ij}f = \partial_{ji}f \Rightarrow \varepsilon_{ijk} \fracpp{A_j}{x_h}{x_i}\, \mathbf e_k = (\varepsilon_{ijk}+\varepsilon_{kji}) \fracpp{A_j}{x_h}{x_i} \mathbf e_k = 0$
 	
-	\paragraph{rotore del gradiente} $\nabla \times {(\nabla f)}=\varepsilon_{ijk} \fracp{}{x_i}\fracp{f}{x_j}\, \mathbf e_k = \varepsilon_{ijk}\frac{\partial^2 f}{\partial x_i\partial x_j}\, \mathbf e_k$.\;\; Se $f \in C^2 \Rightarrow \partial_{ij}f = \partial_{ji}f \Rightarrow \varepsilon_{ijk}\fracpp{f}{x_i}{x_j}\, \mathbf e_k = (\varepsilon_{ijk} + \varepsilon_{jik})\fracpp{f}{x_i}{x_j} \mathbf e_k = \mathbf 0$
+	\paragraph{rotore del gradiente} $\nabla \times {(\nabla f)} = \varepsilon_{ijk} \partial_i \fracp{f}{x_j} \mathbf e_k = \varepsilon_{ijk} \frac{\partial^2 f}{\partial x_i\partial x_j} \mathbf e_k$.\;\; Se $f \in C^2 \Rightarrow \partial_{ij}f = \partial_{ji}f \Rightarrow \varepsilon_{ijk}\fracpp{f}{x_i}{x_j}\, \mathbf e_k = (\varepsilon_{ijk} + \varepsilon_{jik}) \fracpp{f}{x_i}{x_j} \mathbf e_k = \mathbf 0$
 	
-	\paragraph{rotore del rotore} $\nabla \times (\nabla \times \mathbf A)=-\nabla^2\mathbf A+\nabla (\nabla\cdot\mathbf A)$
+	\paragraph{rotore del rotore} $\nabla \times (\nabla \times \mathbf A) = \varepsilon_{ijk} \fracp{(\rot A)_j}{x_i} \mathbf e_k = \varepsilon_{ijk} \partial_i \{\varepsilon_{rst} \fracp{A_s}{x_r}\} \mathbf e_k =
+	\nabla (\nabla\cdot\mathbf A) - \nabla^2\mathbf A$
 
 
 \section{Simboli}
