@@ -48,7 +48,7 @@
 \tableofcontents
 	
 	\section*{}
-	\subsection{Costanti}
+\subsection{Costanti}
 \begin{list}{}
 	\item carica elementare $e = 1.602 \cdot 10^{-19} \;C$
 	\item massa elettrone $m_e = 9.109 \cdot 10^{-31} \;kg$
@@ -58,26 +58,19 @@
 	\item costante dielettrica del vuoto $\varepsilon_0 = 8.854 \cdot 10^{-12} \;\;C^2 N^{-1} m^{-2}$
 	\item permeabilità magnetica del vuoto $\mu_0 = 1.257 \cdot 10^{-6} \;Hm^{-1}$
 \end{list}
-	\subsection{Esperimenti}
-\subsubsection{Esperienza di Oersted}
-Un filo percorso da corrente genera un campo magnetico.
+\subsection{Esperimenti}
+\subsubsection{Oersted}
+Un filo percorso da corrente genera un campo magnetico (1820)
 
-\subsubsection{Esperienza di Faraday}
-Un filo percorso da corrente risente dell'effetto di un campo magnetico esterno.\\
-Osservazioni quantitative su relazioni tempo-dipendenti fra $\mathbf E$ e $\mathbf B$ (1820)
+\subsubsection{Faraday}
+Un filo percorso da corrente risente dell'effetto di un campo magnetico esterno (1821)\\
+Una corrente elettrica compare in un circuito chiuso quando varia il flusso amgnetico ad esso concatenato (1831)
 
-\subsubsection{Esperienza di Ampere}
-Tra due fili percorsi da correnti si esercitano delle forze.
-
-\subsubsection{Moto di cariche e corrente}
-In un volume unitario ho $N$ portatori di carica $q$in moto, ognuno con velocità propria $\mathbf v_i$. Posso identificare una velocità media $\mathbf v_{der} = \frac1N \sum_i \mathbf v_i$. In assenza di azioni esterne è $\mathbf v_{der} = 0$. Un campo elettrico mette in moto i portatori quindi $\mathbf v_{der} \neq 0$ e definisco la densità di corrente $\mathbf J = N q\mathbf v_{der}$. Dato che in un intervallo $\de t$ un portatore si sposta in media di $\mathbf v_{der} \de t$, presa una superficie $\mathbf n \de\varsigma$, i portatori che nell'intervallo $\de t$ attraversano tale superficie sono quelli contenuti nel cilindretto di volume $\de \upsilon = \mathbf v_{der} \de t \cdot \mathbf n \de\varsigma = v_{der} \de t \cos\theta \de\varsigma$; essi sono in numero $N \de\upsilon$ e hanno carica $\de q = q N \de\upsilon$. L'intensità di corrente è $\de i = \fracd{q}{t} = q N v_{der} \cos\theta \de\varsigma = \mathbf J \cdot \mathbf n \de\varsigma$ da cui $I_S = \int_S \mathbf J \cdot \mathbf n\de\varsigma$.
-
-\subsubsection{Campi elettrici non conservativi}
-Per il campo $\mathbf E_s$ delle forze elettrostatiche vale la II equazione di Maxwell $\rot\mathbf E_s = 0$ quindi $\Gamma(\mathbf E) = \oint E_s\cdot\de s = 0$. Ma esistono campi elettrici $E_{nc}$ per i quali si verifica $\Gamma(\mathbf E_{nc}) \neq 0$ e si parla di forze elettromotrici $fem$. Alcuni esempi sono:
-generatore van de Graff, reazioni chimiche nelle pila/accumulatore, forza di Lorentz in effetto Hall, induzione elettromagnetica (!).
+\subsubsection{Ampere}
+Tra due fili percorsi da correnti si esercitano delle forze (1820)
 
 	\section{Elettrostatica e magnetostatica}
-	\subsection{Elettrostatica}
+\subsection{Elettrostatica}
 \subsubsection{Lavoro del campo su una carica puntiforme}
 La carica $q$ nell'origine produce il campo $\vec E(\vec r) = \frac{q}{4\pi\varepsilon_0}\frac{\vec r}{||\vec r||^3}$. La carica $Q$ si muove da $A$ a $B$ lungo un percorso arbitrario $\gamma$. Decompongo il percorso in due tratti: con $\gamma_1$ arrivo sullo stesso raggio passante per $B$ muovendomi lungo 'arco $AB$ centrato nella carica; con $\gamma_2$ arrivo a $B$ muovendomi radialmente. Il lavoro del campo sulla carica è $\mathscr L_\gamma = \frac{qQ}{4\pi\varepsilon_0}\int_A^B \frac{\vec r \cdot \de\vec s}{||\vec r||^3} = \mathscr L_{\gamma_1} + \mathscr L_{\gamma_2}$. Lungo $\gamma_1$ si ha $\vec r \perp \de\vec s$ quindi contano solo gli spostamenti radiali; il problema diventa unidimensionale. Lungo $\gamma_2$ si ha $\de\vec s = \hat r\,\de r$ quindi $\mathscr L_\gamma = \mathscr L_{\gamma_2} = \frac{qe}{4\pi\varepsilon_0}\int_{r_A}^{r_B} \frac{r\,\de r}{r^3} = -\frac{qQ}{4\pi\varepsilon_0}(\frac1{r_B}-\frac1{r_A})$.\\
 Gli spostamenti sulle superfici equipotenziali non fanno lavoro.
@@ -104,6 +97,9 @@ Uso Gauss
 Una sfera di raggio $R_1$ e densità di carica uniforme $\varrho$ ha al suo interno una cavità sferica di raggio $R_2<\frac{R_1}{2}$, il cui centro $O_2$ è a distanza $D$ dal centro $O_1$ della sfera. Determinare il campo elettrico all'interno della cavità. Se la sfera viene posta in un campo elettrico $\vec E$, esterno ed uniforme, determinare la forza agente sulla distribuzione e il momento rispetto a $O_1$\\
 \underline{Soluzione:} la distribuzione assegnata la posso pensare come somma di una distribuzione sferica di densità $\varrho$ (centro e raggio della sfera) e di una distribuzione sferica di densità $-\varrho$ (centro e raggio della cavità). Fisso un s.d.r. cartesiano con origine in $O_1$ e asse $x$ orientato in modo che $(O_2-O_1)=D\,\hat\imath$. Sia $\vec r_1$ un punto della cavità rispetto a $O_1$ e $\vec r_2$ lo stesso punto rispetto a $O_2$, dunque $\vec r_1=D\,\hat\imath+\vec r_2$. Per la sovrapposizione degli effetti: $\vec E_\mathrm{tot}=\vec E_1+\vec E_2=\frac{\varrho}{3\varepsilon}\vec r_1+\frac{-\varrho}{3\varepsilon}\vec r_2=\frac{\varrho}{3\varepsilon}(\vec r_1-\vec r_2)=\frac{\varrho D}{3\varepsilon}\hat\imath$. Il campo nella cavità è uniforme
 
+\subsubsection{Campi elettrici non conservativi}
+Per il campo $\mathbf E_s$ delle forze elettrostatiche vale la II equazione di Maxwell $\rot\mathbf E_s = 0$ quindi $\Gamma(\mathbf E) = \oint E_s\cdot\de s = 0$. Ma esistono campi elettrici $E_{nc}$ per i quali si verifica $\Gamma(\mathbf E_{nc}) \neq 0$ e si parla di forze elettromotrici $fem$. Alcuni esempi sono:
+generatore van de Graff, reazioni chimiche nelle pila/accumulatore, forza di Lorentz in effetto Hall, induzione elettromagnetica (!).
 
 \subsubsection{Dalle sorgenti al campo}
 $\mathbf E = 4\pi k \int \frac{\mathbf r-\mathbf r^\prime}{|\mathbf r-\mathbf r^\prime|^3}\de q$
@@ -112,7 +108,7 @@ $\mathbf E = 4\pi k \int \frac{\mathbf r-\mathbf r^\prime}{|\mathbf r-\mathbf r^
 $\mathbf E = -\nabla V$
 \subsubsection{Dal campo alle sorgenti}
 
-	\subsection{Magnetostatica}
+\subsection{Magnetostatica}
 \subsubsection{Potenziale magnetico}
 vedi Jackson, ma passaggio 5.16 non mi torna. Quindi $\mathbf A(\mathbf r) = \oint \frac{\mathbf J(\mathbf r^\prime) \de\upsilon^\prime}{|\mathbf r - \mathbf r^\prime|}$. Il calcolo $\rot\mathbf B = \rot(\rot\mathbf A)$ con identità vettoriale introduce un termine con $\nabla^2$
 
@@ -160,7 +156,7 @@ Il campo di induzione generato dalla corrente $I_\mathrm n$ induce sugli element
 \subsubsection{Effetto Hall}
 Viene fatta scorrere corrente in una piastra conduttrice in senso longitudinale
 
-	\subsection{Equazioni di Maxwell nel vuoto}
+\subsection{Equazioni di Maxwell stazionarie nel vuoto}
 \subsubsection{I equazione - Legge di Gauss - Sorgenti del campo eletrtico}
 $\Phi(\mathbf E) = Q_{int}/\epsilon \;\;\Longrightarrow\;\; \iint \mathbf E \cdot \mathbf n\de\varsigma = \frac 1\epsilon \iiint \rho\,\de\upsilon \;\;\Longrightarrow\;\; \dive\mathbf E = \rho/\epsilon$\\
 definizione di flusso, teorema della divergenza
@@ -178,7 +174,7 @@ $\Gamma(\mathbf B) = \mu_0 \sum_k m_k i_k \;\;\Longrightarrow\;\; \oint \mathbf 
 definizione di circuitazione e densità di corrente, teorema del rotore
 
 	\section{Conduttori e dielettrici}
-	\subsection{Conduttori}
+\subsection{Conduttori}
 \subsubsection{Fra due mezzi materiali la componente trasversale del campo elettrico è continua}
 Considero un cammino fra i due mezzi con i tratti longitudinali paralleli all'interfaccia e i tratti trasversali infinitesimi rispetto ai tratti longitudinali. Per la conservatività deve essere $\oint \mathbf E\cdot\de\mathbf s=0$. Trascurando i tratti trasversali segue $E_{t1}=E_{t2}$.
 
@@ -191,9 +187,9 @@ Nella precedente si determina $E$ applicando Gauss ad un cilindro metà nel cond
 \subsubsection{Pressione elettrostatica}
 Le cariche elettriche presenti sulla superficie $S$ di un conduttore costituiscono uno strato invalicabile per le cariche elettriche; questo si traduce nella presezna di pressioni elettrostatiche dovute alle cariche. Considero una superficie $\de S$ e il campo elettrico in vicinanza $\mathbf E=\frac{\sigma}{\varepsilon}\mathbf n$ (internamente è $\mathbf E=0$). Lo decompongo come $\mathbf E = \mathbf E^{(\de S)} + \mathbf E^{(S-\de S)}$ e $\de S$ è come un piano indefinito quindi $\mathbf E^{(\de S)}=\frac{\sigma}{2\varepsilon}\mathbf n$ (internamente è $\mathbf E^{(\de S)}=-\frac{\sigma}{2\varepsilon}\mathbf n$). Dalle precedenti segue che $\mathbf E^{(S-\de S)}=\frac{\sigma}{2\varepsilon}\mathbf n$ anche internamente. La forza agente su $\de S$ è quindi $\de F=\sigma\de S\,\mathbf E^{(S-\de S)}$ da cui segue la pressione $\mathbf p = \frac{\sigma^2}{2\varepsilon}\mathbf n=\frac{\varepsilon E^2}2\mathbf n$. Essa è proporzionale alla densità di energia del campo elettrostatico.
 
-%\subsubsection{Potenziale della sfera indotto da carica puntiforme}
-%Determinare il potenziale di una sfera conduttrice scarica di raggio $R$, considerando che una carica puntiforme $Q$ è posta a distanza $D$ dal centro della sfera.\\
-%\underline{Soluzione:} Per definizione di conduttore il potenziale $V$ è uniforme in tutta la sfera. Per semplicità posso calcolarlo nel centro e sarà dato dal potenziale generato dalla carica puntiforme sommato a quello generato dalla carica indotta $V=\frac{Q}{4\pi\varepsilon r}+V^\prime$. Poiché le cariche indotte si trovano tutte alla stessa distanza $R$ e sono globalmente nulle, deve essere $V^\prime=0$. Quindi, il potenziale della sfera è ovunque determinato solo dalla carica puntiforme
+\subsubsection{Potenziale della sfera indotto da carica puntiforme}
+Determinare il potenziale di una sfera conduttrice scarica di raggio $R$, considerando che una carica puntiforme $Q$ è posta a distanza $D$ dal centro della sfera.\\
+\underline{Soluzione:} Per definizione di conduttore il potenziale $V$ è uniforme in tutta la sfera. Per semplicità posso calcolarlo nel centro e sarà dato dal potenziale generato dalla carica puntiforme sommato a quello generato dalla carica indotta $V=\frac{Q}{4\pi\varepsilon r}+V^\prime$. Poiché le cariche indotte si trovano tutte alla stessa distanza $R$ e sono globalmente nulle, deve essere $V^\prime=0$. Quindi, il potenziale della sfera è ovunque determinato solo dalla carica puntiforme
 
 \subsubsection{Guscio conduttore senza carica interna}
 Un conduttore scarico ha una cavità al suo interno in cui non sono presenti cariche. Ho due approcci per determinare il campo nella cavità e distribuzione della carica nel conduttore.
@@ -210,7 +206,7 @@ Dal doppio piano di carica segue che il campo fra le armature è $\mathbf E = \f
 Un condensatore di capacità $C$ è caricato fino ad assumere la d.d.p. $\Delta V$ tra le armature. Calcolare l'energia elettrostatica immagazzinata\\
 \underline{Def:} l'energia elettrostatica di una distribuzione superficiale di carica è $U=\frac 12\int\sigma V\,\mathrm dS$. Le densità di carica sulle armature valgono $\pm\sigma_0$ mentre i potenziali sono $V_A$ e $V_B$, quindi $U=\frac 12 V_A\int\sigma_0\,\mathrm dS+\frac 12 V_B\int(-\sigma_0)\,\mathrm dS=\frac 12 Q\Delta V$. Poiché $C=\frac{Q}{\Delta V}$ si ha $U=\frac 12 C(\Delta V)^2$
 
-	\subsection{Dielettrici}
+\subsection{Dielettrici}
 \subsubsection{Cariche di polarizzazione}
 Si dimostrano le due relazioni $\sigma_{pol} = \mathbf P \cdot \mathbf n$ e $\rho_{pol} = -\dive\mathbf P$. Per la prima, considero un elemento  $\de S$ di superficie esterna del dielettrico, di normale $\mathbf n$. Il campo esterno $\mathbf E$, che in generale ha direzione arbitraria e forma l'angolo $\theta$ con $\mathbf n$, polarizza la materia del dielettrico. Se $\mathbf E \perp \mathbf n$ allora i dipoli sono paralleli a $\de S$ e la carica netta su $\de S$ è nulla. Diversamente, su $\de S$ sarà presente una densità di carica $\sigma = \de Q/\de S$ in cui $Q$ è identificata dai dipoli, di momento medio $\langle \mathbf p\rangle = q \mathbf d$, presenti nel volume del cilindretto di base $\de S$ e altezza $d\cos\theta$. Conoscendo la densità volumica $n$ dei dipoli, la carica è $\de Q = q n d \cos\theta \de S = qn\mathbf d \cdot \mathbf n \de S$ quindi $\sigma_{pol}= n \langle \mathbf p\rangle \cdot \mathbf n = \mathbf P \cdot \mathbf n$\\
 Per la seconda relazione, 
@@ -232,13 +228,51 @@ La cavità è stretta e lunga, in direzione del campo esterno. Prendo un cammino
 \subsubsection{Cavo coassiale}
 Un cavo coassiale è un conduttore cilindrico indefinito di raggio $R_1$ circondato da una corona cilindrica di dielettrico con raggio esterno $R_2$. La carica sul conduttore è determinata dalla densità lineare $\lambda$. Suppongo che il dielettrico è lineare ed isotropo. Il campo elettrico nel conduttore è $\mathbf E(r < R_1) = 0$. All'esterno del cavo ha direzione radiale (per simmetria) e modulo tramite Gauss, quindi $\mathbf E(r > R_2) = \frac{\lambda}{2\pi \varepsilon_0 r} \mathbf u_\rho$. Nel dielettrico vale $\Phi(\mathbf D) = Q_{lib}$ dove $Q_{lib} = \lambda h$ e $\Phi(\mathbf D) = D(r) 2\pi r h$, quindi $\mathbf D(R_1 < r < R_2) = \frac{\lambda}{2\pi r} \mathbf u_\rho$. Per il campo elettrico nel dielettrico serve la relazione costitutiva del dielettrico: ipotizzato lineare vale l'equazione $\mathbf D = \varepsilon \mathbf E$ da cui $\mathbf E(R_1 < r < R_2) = \mathbf D/\varepsilon = \frac{\lambda}{2\pi \varepsilon r} \mathbf u_\rho$
 
-	
-	
+\subsection{Equazioni di Maxwell stazionarie nella materia}
+\subsubsection{I equazione}
+$\Phi(\mathbf D) = Q_{lib} \;\;\Longrightarrow\;\; \iint \mathbf D \cdot \mathbf n\de\varsigma = \iiint \rho_{lib} \,\de\upsilon \;\;\Longrightarrow\;\; \dive\mathbf D = \rho_{lib}$\\
+definizione di flusso, teorema della divergenza
 
+\subsubsection{II equazione}
+$\Phi(\mathbf B) = 0 \;\;\Longrightarrow\;\; \iint \mathbf B \cdot \mathbf n\de\varsigma = 0 \;\;\Longrightarrow\;\; \dive\mathbf B = 0$\\
+definizione di flusso, teorema della divergenza
+
+\subsubsection{III equazione}
+$\Gamma(\mathbf E) = 0 \;\;\Longrightarrow\;\; \oint \mathbf E \cdot \de\mathbf s = 0 \;\;\Longrightarrow\;\; \rot\mathbf E = 0$\\
+definizione di circuitazione, teorema del rotore
+
+\subsubsection{IV equazione - Teorema di Ampère - Sorgenti del campo magnetico}
+$\Gamma(\mathbf B) = \mu_0 \sum_k m_k i_k \;\;\Longrightarrow\;\; \oint \mathbf B \cdot \de\mathbf s = \mu_0 \iint \mathbf J \cdot \mathbf n\de\varsigma \;\;\Longrightarrow\;\; \rot\mathbf B  = \mu_0 \mathbf J$\\
+definizione di circuitazione e densità di corrente, teorema del rotore
+
+	\section{Campo elettromagnetico}
+\subsubsection{Natura relativa dei campi elettrici e magnetici}
+In un riferimento inerziale $\Sigma= Oxyz$ fisso nello spazio è data una particella di carica $q$ in moto con velocità $\mathbf v$. Nello spazio è quindi presente $\mathbf E$ generato dalla particella e $\mathbf B$ dovuto al suo moto. Preso un altro riferimento inerziale $\Sigma^\prime = O^\prime\xi\eta\zeta$ in moto uniforme con la particella, in questo riferimento la particella è ferma quindi si ha solo $\mathbf E^\prime$.\\
+Ora la particella è ferma in $\Sigma$ mentre $\Sigma^\prime$ continua muoversi di moto uniforme. In $\Sigma$ si avrà solo $\mathbf E$ mentre in $\Sigma^\prime$ sia $\mathbf E^\prime$ che $\textbf B^\prime$\\
+La presenza dei fenomeni elettrici e magnetici dipende quindi dal sistema di riferimento scelto. Prescindendo da esso si può dedurre l'esistenza di una entità unica, il campo elettromagnetico, le cui manifestazioni dipendono dal riferimento in cui la si studia.
+
+\subsubsection{Trasformazione non relativistica del campo elettromagnetico}
+La carica $q$ si muove rispeto a $\Sigma$ con velocità $\mathbf v$ in una regione in cui sono presenti $\mathbf E$ e $\mathbf B$. La forza di Lorentz agente sulla carica è $\mathbf F = q\mathbf e + q\mathbf v \times \mathbf B$. Nel riferimento $\Sigma^\prime$ solidale alla particella in moto la forza è $\mathbf F^\prime = q\mathbf E^\prime$. Nel caso non relativistico la forza è invariante quindi $\mathbf F^\prime = \mathbf F$ cioè $\mathbf E^\prime = \mathbf E + \mathbf v \times \mathbf B$. Per il campo magnetico la formula si dimostra con al teoria della relatività ristretta ed è $\mathbf B^\prime = \mathbf  B - \frac{\mathbf v}{c^2} \times \mathbf E$. È notevole osservare che nelle leggi di trasformazione compaiono in ogni caso sia $\mathbf E$ che $\mathbf B$.
+
+\subsection{Induzione elettromagnetica}
+\subsubsection{Induzione elettromagnetica, legge di Faraday e di Lenz}
+Dall'esperimento di Faraday si può dedurre la legge di Faraday $fem \propto \fracd{\Phi(\mathbf B)}{t}$. La variazione di $\Phi$ si può imputare a diverse cause: spostamento/deformazione del circuito indotto, spostamento del circuito inducente, variazione del campo magnetico inducente. Il segno della $fem$ è espresso dalla legge di Lenz "la corrente causata dalla f.e.m. indotta genera un campo magnetico che si oppone al campo magnetico inducente". Si possono riassumere le precedenti leggi nella formuala $fem = -\fracd{\Phi(\mathbf B)}{t}$.\\
+Per chiarire le idee prendo un sistema solenoide inducente e spira indotta. Tenendo fermi i componenti e aumentando la corrente nel solenoide aumenta anche $\Phi(\mathbf B)$ quindi la f.e.m. indotta fa circolare una corrente nel verso in cui il relativo campo magnetico va ad opporsi all'aumento di $\Phi(\mathbf B)$. Viceversa, se la corrente viene diminuita allora diminuisce anche $\Phi(\mathbf B)$ e il campo magnetico della corrente indotta va ad opporsi alla diminuzione di $\Phi(\mathbf B)$.
+
+\subsubsection{Circuito fermo in campo magnetico variabile}
+Supponiamo che $\mathbf E = 0$ quindi essendo il circuito fermo, sulle cariche in esso non agisce la forza di Lorenz. Tuttavia si osserva una una corrente e l'unica conclusione è che nel conduttore si generi un campo elettrico responsabile della corrente. In maniera più generale, la variazione di $\mathbf B$ è responsabile della comparsa di $\mathbf E$, che si manifesta nel conduttore come moto di cariche. La legge dell'induzione elettromagnetica si esplicita $\oint \mathbf E_{ind} \cdot \de\mathbf s = -\int \fracp{\mathbf B}t \cdot \mathbf n \de\varsigma$, passando la derivata dentro l'integrale poiché il dominio di integrazione è costante. Se $\mathbf E \neq 0$ allora i due contributi si sommano per dare il campo elettrico totale $\mathbf E + \mathbf E_{ind}$  in cui il primo termine soddisfa alle equazioni di Maxwell stazionarie.
+
+\subsubsection{Circuito mobile in campo magnetico costante}
+
+\subsubsection{III equazione di Maxwell}
+La forma più generale della legge dell'induzione elettromagnetica è $\oint (\mathbf E + \mathbf v_{tr} \times \mathbf B) \cdot \de\mathbf s = -\int \fracp{\mathbf B}{t} \cdot \mathbf n \de\varsigma$. Il primo membro rappresenta, per quanto detto sulla natura relativa del campo elettromagnetico, il campo elettrico nel sistema di riferimento in cui il circuito è in quiete. Per la trasformazione galileiana della velocità sarebbe $\mathbf v = \mathbf v_{der} + \mathbf v_{tr}$ ma $\mathbf v_{der} \parallel \mathbf \de\mathbf s$. \scriptsize La formula di dimostra introducendo l'operatore di derivata materiale $\fracd{}{t} = \fracp{}{t} + \mathbf v \cdot \nabla$ e l'identità $(\mathbf v \cdot \nabla)\mathbf B = \rot(\mathbf B \times \mathbf v) + \mathbf v\, \dive\mathbf B$.  [COME SI DIMOSTRA?]\normalsize
 
 	\section{Circuiti}
+\subsubsection{Moto di cariche e corrente}
+In un volume unitario ho $N$ portatori di carica $q$in moto, ognuno con velocità propria $\mathbf v_i$. Posso identificare una velocità media $\mathbf v_{der} = \frac1N \sum_i \mathbf v_i$. In assenza di azioni esterne è $\mathbf v_{der} = 0$. Un campo elettrico mette in moto i portatori quindi $\mathbf v_{der} \neq 0$ e definisco la densità di corrente $\mathbf J = N q\mathbf v_{der}$. Dato che in un intervallo $\de t$ un portatore si sposta in media di $\mathbf v_{der} \de t$, presa una superficie $\mathbf n \de\varsigma$, i portatori che nell'intervallo $\de t$ attraversano tale superficie sono quelli contenuti nel cilindretto di volume $\de \upsilon = \mathbf v_{der} \de t \cdot \mathbf n \de\varsigma = v_{der} \de t \cos\theta \de\varsigma$; essi sono in numero $N \de\upsilon$ e hanno carica $\de q = q N \de\upsilon$. L'intensità di corrente è $\de i = \fracd{q}{t} = q N v_{der} \cos\theta \de\varsigma = \mathbf J \cdot \mathbf n \de\varsigma$ da cui $I_S = \int_S \mathbf J \cdot \mathbf n\de\varsigma$.
+
 \subsubsection{Modello classico della conduzione e legge di Ohm}
-Il modello classico di conduttore è un reticolo di ioni positivi fissi e un mare di elettroni in moto che urtano continuamente con gli ioni. Fra gli urti le traiettorie sono rettilinee e complessivamente casuali ed isotrope. Se un elettrone ha velocità $\mathbf v$ e il cammino libero medio fra due urti è $l$ allora il tempo medio fra due urti è $\tau = l/v$. Quando viene applicato un campo elettrico $\mathbf E$ nel conduttore, l'elettrone risente della forza $-e \mathbf E$ che causa l'accelerazione $\mathbf a = -e/m_e \mathbf E$ e le traiettorie diventano parabole. L'applicazione del campo fa acquisire una velocità che si sovrappone a quella propria degli elettroni. Tale velocità di deriva $\mathbf v_{der}$ si può calcolare considerando la velocità $\mathbf v_{i}$ subito dopo un urto e la velocità $\mathbf v_{i+1}$ subito prima dell'urto successivo. Fra questi due istanti il moto è accelerato quindi $\mathbf v_{i+1} = \mathbf v_i + \frac{-e \mathbf E}{m_e} \tau$. La velocità di deriva è la velocità mediata su un gran numero di urti $\mathbf v_{der} = \langle \mathbf v_{i+1} \rangle = \langle \mathbf v_{i} \rangle -\frac{e \mathbf E}{m_e} \tau$. Statisticamente si osserva che dopo ogni urto la velocità è casuale quindi $\langle \mathbf v_i \rangle$ e di conseguenza $\mathbf v_{der} = -\frac{e \tau}{m_e} \mathbf E$. 
+Il modello classico di conduttore è un reticolo di ioni positivi fissi e un mare di elettroni in moto che urtano continuamente con gli ioni. Fra gli urti le traiettorie sono rettilinee e complessivamente casuali ed isotrope. Se un elettrone ha velocità $\mathbf v$ e il cammino libero medio fra due urti è $l$ allora il tempo medio fra due urti è $\tau = l/v$. Quando viene applicato un campo elettrico $\mathbf E$ nel conduttore, l'elettrone risente della forza $-e \mathbf E$ che causa l'accelerazione $\mathbf a = -e/m_e \mathbf E$ e le traiettorie diventano parabole. L'applicazione del campo fa acquisire una velocità che si sovrappone a quella propria degli elettroni. Tale velocità di deriva $\mathbf v_{der}$ si può calcolare considerando la velocità $\mathbf v_{i}$ subito dopo un urto e la velocità $\mathbf v_{i+1}$ subito prima dell'urto successivo. Fra questi due istanti il moto è accelerato quindi $\mathbf v_{i+1} = \mathbf v_i + \frac{-e \mathbf E}{m_e} \tau$. La velocità di deriva è la velocità mediata su un gran numero di urti $\mathbf v_{der} = \langle \mathbf v_{i+1} \rangle = \langle \mathbf v_{i} \rangle -\frac{e \mathbf E}{m_e} \tau$. Statisticamente si osserva che dopo ogni urto la velocità è casuale quindi $\langle \mathbf v_i \rangle$ e di conseguenza $\mathbf v_{der} = -\frac{e \tau}{m_e} \mathbf E$.
 
 \subsubsection{Legge di Ohm ed effetto Joule}
 La densità di corrente è quindi $\mathbf J = \frac{n e^2 \tau}{m_e} \mathbf E$, dove $\sigma = \frac{n e^2 \tau}{m_e}$ è la conduttività del conduttore e $\rho = 1/\sigma$ è la resistività. La potenza spesa dal campo per mantenere in moto con velocità $\mathbf v_{der}$ gli $n$ elettroni nell'unità di volume è $P = n e \mathbf E \cdot \mathbf v_{der} = \mathbf J \cdot \mathbf E = \sigma^2 E = \rho^2 J$ (i vettori sono concordi). Questa potenza viene trasferita al reticolo ionico durante gli urti e va ad aumentarew l'energia interna del conduttore, quindi la sua temperatura. 
@@ -247,6 +281,7 @@ La densità di corrente è quindi $\mathbf J = \frac{n e^2 \tau}{m_e} \mathbf E$
 Una maglia è costituita da $N$ generatori uguali con $f.e.m.=\mathcal E$ e resistenza interna $R$, collegati in serie con verso concorde delle f.e.m. Calcolare da d.d.p. fra due connessioni $A$ e $B$ qualsiasi fra i generatori\\
 \underline{Soluzione:} l'equazione della maglia è $\sum f.e.m.=I\sum R\;\Rightarrow\;N\mathcal E=INR\;\Rightarrow\;I=\frac{\mathcal E}{R}$. Per caloclare la d.d.p tra i punti $A$ e $B$ considero il ramo corrispondente, di equazione $V_A-V_B+n\mathcal E=InR\;\Rightarrow\;V_A-V_B+n\mathcal E=n\mathcal E\;\Rightarrow\;V_A=V_B$
 
+\subsection{Correnti lentamente variabili}
 \subsubsection{RC serie}
 Sono noti $f.e.m., R, C$. Determinare $q_C, i, v_C, v_R$ in funzione del tempo, al variare di $f.e.m.\in\{0,\mathcal E\}$\\
 \underline{Soluzione:} per $f.e.m.=0$ l'equazione del circuito è $0=v_R+v_C\;\Rightarrow\;0=Ri+Q/C$. Considerando che la circolazione di una corrente comporta la diminuzione della carica acccumulata dal condensatore, vale $i=-\dot q$ per cui $\dot q+\frac{q}{RC}=0$. Tenendo conto della condizione iniziale $q(0)=Q_0$ ottengo la soluzione $q(t)=Q_0e^{-\frac{t}{RC}}$. La corrente circolante è $i(t)=-\frac{\mathrm dq(t)}{\mathrm dt}=\frac{Q_0}{RC}e^{-\frac{t}{RC}}=\frac{V_0}{R}e^{-\frac{t}{RC}}$ essendo $V_0=\frac{Q_0}{C}$ la tensione iniziale tra le armature. La tensione tra le armature del condensatore è $v_C=\frac{q(t)}{C}=Q_0e^{-\frac{t}{RC}}$. La tensione ai capi della resistenza è $v_R=Ri(t)=\frac{Q_0}{C}e^{-\frac{t}{RC}}=v_C$. La potenza dissipata per effetto Jou0.le è $W_R=Ri^2(t)=\frac{v_R^2}{R}=\frac{Q_0^2}{RC^2}e^{-\frac{2t}{RC}}$, a cui corrisponde l'energia $U_R=R\int_0^{+\infty}i^2(t)\mathrm dt=\frac{Q_0^2}{2C}$\\
