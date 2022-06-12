@@ -61,13 +61,13 @@
 \subsection{Esperimenti}
 \subsubsection{Oersted}
 Un filo percorso da corrente genera un campo magnetico (1820)
-
 \subsubsection{Faraday}
 Un filo percorso da corrente risente dell'effetto di un campo magnetico esterno (1821)\\
 Una corrente elettrica compare in un circuito chiuso quando varia il flusso amgnetico ad esso concatenato (1831)
-
 \subsubsection{Ampere}
 Tra due fili percorsi da correnti si esercitano delle forze (1820)
+\subsubsection{Maxwell}
+Le equazioni di Maxwell sono state compiutamente definite (1865)
 
 	\section{Elettrostatica e magnetostatica}
 \subsection{Elettrostatica}
@@ -75,7 +75,7 @@ Tra due fili percorsi da correnti si esercitano delle forze (1820)
 La carica $q$ nell'origine produce il campo $\vec E(\vec r) = \frac{q}{4\pi\varepsilon_0}\frac{\vec r}{||\vec r||^3}$. La carica $Q$ si muove da $A$ a $B$ lungo un percorso arbitrario $\gamma$. Decompongo il percorso in due tratti: con $\gamma_1$ arrivo sullo stesso raggio passante per $B$ muovendomi lungo 'arco $AB$ centrato nella carica; con $\gamma_2$ arrivo a $B$ muovendomi radialmente. Il lavoro del campo sulla carica è $\mathscr L_\gamma = \frac{qQ}{4\pi\varepsilon_0}\int_A^B \frac{\vec r \cdot \de\vec s}{||\vec r||^3} = \mathscr L_{\gamma_1} + \mathscr L_{\gamma_2}$. Lungo $\gamma_1$ si ha $\vec r \perp \de\vec s$ quindi contano solo gli spostamenti radiali; il problema diventa unidimensionale. Lungo $\gamma_2$ si ha $\de\vec s = \hat r\,\de r$ quindi $\mathscr L_\gamma = \mathscr L_{\gamma_2} = \frac{qe}{4\pi\varepsilon_0}\int_{r_A}^{r_B} \frac{r\,\de r}{r^3} = -\frac{qQ}{4\pi\varepsilon_0}(\frac1{r_B}-\frac1{r_A})$.\\
 Gli spostamenti sulle superfici equipotenziali non fanno lavoro.
 
-\subsubsection{II equazione di Maxwell}
+\subsubsection{La legge di Coulomb definisce una forza conservativa}
 Nella definizione di campo elettrico si può usare l'identità $\nabla(-\frac1{|\mathbf r-\mathbf r^\prime|}) = \frac{\mathbf r-\mathbf r^\prime}{|\mathbf r-\mathbf r^\prime|^3}$ per definire $\mathbf E$ in termini del gradiente di una funzione (potenziale elettrostatico). La II equazione di Maxwell segue dall'identità $\rot(\nabla{A})=0$ dove $A$ è il potenziale elettrostatico definito sopra.
 
 \subsubsection{Potenziale dipolo elettrico}
@@ -84,7 +84,7 @@ Ho due cariche $q_+$ e $q_-$ a distanza $d$ e valuto il potenziale in un punto $
 \subsubsection{Potenziale a grandi distanze}
 Il potenziale di una distribuzione di carica è $V(\mathbf r) = \frac1{4\pi\epsilon} \int \frac{\rho(\mathbf r^\prime)}{|\mathbf r - \mathbf r^\prime|} \de\Upsilon$. Riscrivo $|\mathbf r - \mathbf r^\prime| = \sqrt{(\mathbf r - \mathbf r^\prime)\cdot(\mathbf r - \mathbf r^\prime)} = \sqrt{r^2 + {r^\prime}^2 - 2rr^\prime\cos\theta} = r\sqrt{(1 + (r^\prime/r)^2 - 2r^\prime/r\cos\theta)}$ in modo da sfruttare lo sviluppo $(1+\delta)^{-1/2} = 1 - \frac12 \delta + \frac38 \delta^2 + O(\delta^3)$ con $\delta = (\frac{r^\prime}r)^2 - 2\frac{r^\prime}r\cos\theta$. A grandi distanze vale $r^\prime \ll r$ quindi $\delta \ll 1$ e lo sviluppo è lecito. Espandendo fino all'ordine $(\frac{r^\prime}r)^2$ trovo $1/|\mathbf r - \mathbf r^\prime| = \frac1r[1+\frac{r^\prime}r\cos\theta+\frac{3\cos^2\theta-1}2(\frac{r^\prime}r)^2+O((\frac{r^\prime}r)^3)]$ cioè una quantità espressa come serie delle potenze di $1/r$. Introducendo questo sviluppo nel calcolo del potenziale elettrostatico si ha uno sviluppo analogo $V(\mathbf r)= \frac1{4\pi\epsilon}\frac1r\int \rho(\mathbf r^\prime)\de\Upsilon + \frac1{4\pi\epsilon}\frac1{r^2}\int r^\prime\cos\theta\rho(\mathbf r^\prime)\de\Upsilon + \ldots$. Si può dare una forma più significativa osservando che $\int\rho(\mathbf r^\prime)\de\Upsilon = Q$ e definendo il momento di dipolo della distribuzione $\mathbf p := \int \mathbf r^\prime \rho(\mathbf r^\prime)\de\Upsilon$ [DA FINIRE]
 
-\subsubsection{Dipolo in un campo esterno}
+\subsubsection{Forze sul dipolo elettrico}
 Sulle cariche agiscono le forze $\mathbf F_+ = q\mathbf E$ e $\mathbf F_- = -q\mathbf E$. Il momento risultate rispetto al centro del dipolo è $\mathbf M = \frac{\mathbf\delta}2 \times q\mathbf E + (-\frac{\mathbf\delta}2) \times -q\mathbf E = \mathbf p \times \mathbf E$. la forza risultate è $\mathbf F = q\mathbf E(\mathbf r_-)  -q \mathbf E(\mathbf r_+)$. Senza perdita di generalità (?) posso assumere $\mathbf r_-=(x,y,z)$ e $\mathbf r_+=(x+\de x,y+\de y,z+\de z)$. Per ogni componente della forza trovo $F_j = q(\fracp{E_x}{x}\de x + \fracp{E_x}{y}\de y + \fracp{E_x}{z}\de z) = q \nabla E_j \cdot \mathbf \delta = \mathbf p \cdot \nabla E_j$. Si dimostra che $\mathbf F = \nabla (\mathbf p \cdot \mathbf E)$
 
 \subsubsection{Le distribuzioni superficiali introducono discontinuità}
@@ -102,15 +102,17 @@ Per il campo $\mathbf E_s$ delle forze elettrostatiche vale la II equazione di M
 generatore van de Graff, reazioni chimiche nelle pila/accumulatore, forza di Lorentz in effetto Hall, induzione elettromagnetica (!).
 
 \subsubsection{Dalle sorgenti al campo}
-$\mathbf E = 4\pi k \int \frac{\mathbf r-\mathbf r^\prime}{|\mathbf r-\mathbf r^\prime|^3}\de q$
 \subsubsection{Dal campo al potenziale}
 \subsubsection{Dal potenziale al campo}
-$\mathbf E = -\nabla V$
 \subsubsection{Dal campo alle sorgenti}
 
 \subsection{Magnetostatica}
-\subsubsection{Potenziale magnetico}
+\subsubsection{IV equazione di Maxwell} 
+La legge di Ampère nel caso stazionario è $\rot\mathbf B = \mu_0 \mathbf J$. Applicando la divergenza segue $\dive\rot \mathbf B = \mu_0\; \dive\mathbf J$. Ma per un'identità vettoriale segue $\dive\rot\mathbf B= 0 \;\Longrightarrow\; \dive\mathbf J = 0$. Dall'equazione di continuità segue quindi $\dive\mathbf J = 0 \;\Longrightarrow\; \fracp{\rho}{t} = 0$ cioè il caso di condizioni stazionarie.
+\subsubsection{Potenziale magnetico vettoriale}
 vedi Jackson, ma passaggio 5.16 non mi torna. Quindi $\mathbf A(\mathbf r) = \oint \frac{\mathbf J(\mathbf r^\prime) \de\upsilon^\prime}{|\mathbf r - \mathbf r^\prime|}$. Il calcolo $\rot\mathbf B = \rot(\rot\mathbf A)$ con identità vettoriale introduce un termine con $\nabla^2$
+
+\subsubsection{Potenziale magnetico scalare}
 
 \subsubsection{Campo magnetico generato da filo rettilineo}
 Nel filo rettilineo indefinito scorre la corrente $i$. Si vuole il campo magnetico a distanza $r$ dal filo.\\
@@ -122,9 +124,6 @@ Soluzione 1: per la simmetria cilindrica i contributi $\de\mathbf B(\mathbf r)$ 
 
 \subsubsection{Spira circolare a grande distanza}
 Dalla precedente con $z \gg R$ risulta $\mathbf B(z) \simeq \frac{\mu_0 i}{2} \frac{R^2}{z^3} \mathbf u_z$. Posso reinterpretare questo risultato considerando che $A = \pi R^2$ e definendo (analogamente al dipolo elettrico) il momento magnetico della spira $\mathbf m = i A \mathbf n$. In questo caso $\mathbf n = \mathbf u_z$ quindi $\mathbf B(z \gg R) \simeq \frac{\mu_0}{2\pi} \frac{\mathbf m}{z^3}$.
-
-\subsubsection{Forza magnetica su elemento di corrente}
-Su una particella di carica $q$ in moto con velocità $\mathbf v$ in un campo magnetico $\mathbf B$ è $\mathbf F = q\mathbf v \times \mathbf B$. In un conduttore avrò $n$ cariche per unità di volume in moto con velocità media $\mathbf v_{der}$ quindi 
 
 \subsubsection{Due fili rettilinei indefiniti e paralleli}
 Nel piano $xy$ un filo rettilineo coincidente con l'asse $y$ è sede della corrente $I_1$. L'altro filo posto a dx del precedente alla distanza $d$ è sede della corrente $I_2$. Determinare il campo di induzione in tutto lo spazio e vedere se ci sono punti dell'asse delle ascisse nei quali esso è nullo (utilizzando $I_1=I_\mathrm n$ del problema precedente). Determinare la forza per unità di lunghezza tra i due fili.
@@ -158,20 +157,74 @@ Viene fatta scorrere corrente in una piastra conduttrice in senso longitudinale
 
 \subsection{Equazioni di Maxwell stazionarie nel vuoto}
 \subsubsection{I equazione - Legge di Gauss - Sorgenti del campo eletrtico}
-$\Phi(\mathbf E) = Q_{int}/\epsilon \;\;\Longrightarrow\;\; \iint \mathbf E \cdot \mathbf n\de\varsigma = \frac 1\epsilon \iiint \rho\,\de\upsilon \;\;\Longrightarrow\;\; \dive\mathbf E = \rho/\epsilon$\\
+$\Phi(\mathbf E) = Q_{int}/\varepsilon_0 \qquad \iint \mathbf E(\mathbf r) \cdot \mathbf n(\mathbf r ) \de\varsigma = \frac 1\epsilon \iiint \rho(\mathbf r)\,\de\upsilon \qquad \dive\mathbf E(\mathbf r) = \frac1{\varepsilon_0}\rho(\mathbf r)$\\
 definizione di flusso, teorema della divergenza
-
 \subsubsection{II equazione - Inesistenza di monopoli magnetici}
-$\Phi(\mathbf B) = 0 \;\;\Longrightarrow\;\; \iint \mathbf B \cdot \mathbf n\de\varsigma = 0 \;\;\Longrightarrow\;\; \dive\mathbf B = 0$\\
+$\Phi(\mathbf B) = 0 \qquad \iint \mathbf B(\mathbf r) \cdot \mathbf n(\mathbf r)\de\varsigma = 0 \qquad \dive\mathbf B(\mathbf r) = 0$\\
 definizione di flusso, teorema della divergenza
-
 \subsubsection{III equazione - Conservatività del campo elettrostatico}
-$\Gamma(\mathbf E) = 0 \;\;\Longrightarrow\;\; \oint \mathbf E \cdot \de\mathbf s = 0 \;\;\Longrightarrow\;\; \rot\mathbf E = 0$\\
+$\Gamma(\mathbf E) = 0 \qquad \oint \mathbf E(\mathbf r) \cdot \de\mathbf s = 0 \qquad \rot\mathbf E(\mathbf r) = 0$\\
 definizione di circuitazione, teorema del rotore
-
 \subsubsection{IV equazione - Teorema di Ampère - Sorgenti del campo magnetico}
-$\Gamma(\mathbf B) = \mu_0 \sum_k m_k i_k \;\;\Longrightarrow\;\; \oint \mathbf B \cdot \de\mathbf s = \mu_0 \iint \mathbf J \cdot \mathbf n\de\varsigma \;\;\Longrightarrow\;\; \rot\mathbf B  = \mu_0 \mathbf J$\\
+$\Gamma(\mathbf B) = \mu_0 \sum_k m_k i_k \qquad \oint \mathbf B(\mathbf r) \cdot \de\mathbf s = \mu_0 \iint \mathbf J(\mathbf r) \cdot \mathbf n(\mathbf r) \de\varsigma \qquad \rot\mathbf B(\mathbf r) = \mu_0 \mathbf J(\mathbf r)$\\
 definizione di circuitazione e densità di corrente, teorema del rotore
+
+
+
+	\section{Campo elettromagnetico}
+\subsubsection{Natura relativa dei campi elettrici e magnetici}
+In un riferimento inerziale $\Sigma= Oxyz$ fisso nello spazio è data una particella di carica $q$ in moto con velocità $\mathbf v$. Nello spazio è quindi presente $\mathbf E$ generato dalla particella e $\mathbf B$ dovuto al suo moto. Preso un altro riferimento inerziale $\Sigma^\prime = O^\prime\xi\eta\zeta$ in moto uniforme con la particella, in questo riferimento la particella è ferma quindi si ha solo $\mathbf E^\prime$.\\
+Ora la particella è ferma in $\Sigma$ mentre $\Sigma^\prime$ continua muoversi di moto uniforme. In $\Sigma$ si avrà solo $\mathbf E$ mentre in $\Sigma^\prime$ sia $\mathbf E^\prime$ che $\textbf B^\prime$\\
+La presenza dei fenomeni elettrici e magnetici dipende quindi dal sistema di riferimento scelto. Prescindendo da esso si può dedurre l'esistenza di una entità unica, il campo elettromagnetico, le cui manifestazioni dipendono dal riferimento in cui la si studia.
+
+\subsubsection{Trasformazione non relativistica del campo elettromagnetico}
+La carica $q$ si muove rispeto a $\Sigma$ con velocità $\mathbf v$ in una regione in cui sono presenti $\mathbf E$ e $\mathbf B$. La forza di Lorentz agente sulla carica è $\mathbf F = q\mathbf e + q\mathbf v \times \mathbf B$. Nel riferimento $\Sigma^\prime$ solidale alla particella in moto la forza è $\mathbf F^\prime = q\mathbf E^\prime$. Nel caso non relativistico la forza è invariante quindi $\mathbf F^\prime = \mathbf F$ cioè $\mathbf E^\prime = \mathbf E + \mathbf v \times \mathbf B$. Per il campo magnetico la formula si dimostra con al teoria della relatività ristretta ed è $\mathbf B^\prime = \mathbf  B - \frac{\mathbf v}{c^2} \times \mathbf E$. È notevole osservare che nelle leggi di trasformazione compaiono in ogni caso sia $\mathbf E$ che $\mathbf B$.
+
+\subsection{Induzione elettromagnetica}
+\subsubsection{Induzione elettromagnetica, legge di Faraday e di Lenz}
+Dall'esperimento di Faraday si può dedurre la legge di Faraday $fem \propto \fracd{\Phi(\mathbf B)}{t}$. La variazione di $\Phi$ si può imputare a diverse cause: spostamento/deformazione del circuito indotto, spostamento del circuito inducente, variazione del campo magnetico inducente. Il segno della $fem$ è espresso dalla legge di Lenz "la corrente causata dalla f.e.m. indotta genera un campo magnetico che si oppone al campo magnetico inducente". Si possono riassumere le precedenti leggi nella formuala $fem = -\fracd{\Phi(\mathbf B)}{t}$.\\
+Per chiarire le idee prendo un sistema solenoide inducente e spira indotta. Tenendo fermi i componenti e aumentando la corrente nel solenoide aumenta anche $\Phi(\mathbf B)$ quindi la f.e.m. indotta fa circolare una corrente nel verso in cui il relativo campo magnetico va ad opporsi all'aumento di $\Phi(\mathbf B)$. Viceversa, se la corrente viene diminuita allora diminuisce anche $\Phi(\mathbf B)$ e il campo magnetico della corrente indotta va ad opporsi alla diminuzione di $\Phi(\mathbf B)$.
+
+\subsubsection{Circuito fermo in campo magnetico variabile}
+Supponiamo che $\mathbf E = 0$ quindi essendo il circuito fermo, sulle cariche in esso non agisce la forza di Lorenz. Tuttavia si osserva una una corrente e l'unica conclusione è che nel conduttore si generi un campo elettrico responsabile della corrente. In maniera più generale, la variazione di $\mathbf B$ è responsabile della comparsa di $\mathbf E$, che si manifesta nel conduttore come moto di cariche. La legge dell'induzione elettromagnetica si esplicita $\oint \mathbf E_{ind} \cdot \de\mathbf s = -\int \fracp{\mathbf B}t \cdot \mathbf n \de\varsigma$, passando la derivata dentro l'integrale poiché il dominio di integrazione è costante. Se $\mathbf E \neq 0$ allora i due contributi si sommano per dare il campo elettrico totale $\mathbf E + \mathbf E_{ind}$  in cui il primo termine soddisfa alle equazioni di Maxwell stazionarie.
+
+\subsubsection{Circuito mobile in campo magnetico costante}
+
+\subsubsection{III equazione di Maxwell}
+La forma più generale della legge dell'induzione elettromagnetica è $\oint (\mathbf E + \mathbf v_{tr} \times \mathbf B) \cdot \de\mathbf s = -\int \fracp{\mathbf B}{t} \cdot \mathbf n \de\varsigma$. Il primo membro rappresenta, per quanto detto sulla natura relativa del campo elettromagnetico, il campo elettrico nel sistema di riferimento in cui il circuito è in quiete. Per la trasformazione galileiana della velocità sarebbe $\mathbf v = \mathbf v_{der} + \mathbf v_{tr}$ ma $\mathbf v_{der} \parallel \mathbf \de\mathbf s$. \scriptsize La formula di dimostra introducendo l'operatore di derivata materiale $\fracd{}{t} = \fracp{}{t} + \mathbf v \cdot \nabla$ e l'identità $(\mathbf v \cdot \nabla)\mathbf B = \rot(\mathbf B \times \mathbf v) + \mathbf v\, \dive\mathbf B$.  [COME SI DIMOSTRA?]\normalsize
+
+\subsection{Corrente di spostamento}
+\subsubsection{Paradosso del condensatore come circuito aperto}
+SI considera un condensatore (piano senza perdita di generalità) carico che si sta scaricando su una resistenza, quindi $i \neq 0$. Prendo una curva $\Gamma$ che concatena il filo collegato a una delle armature; delle infinite superfici correlate al contorno ne predo due, $\Sigma_1$ è quella di area minima (che quindi interseca il filo), $\Sigma_2$ è una superficie fra le due armature che non interseca nulla. Applico la IV equazione in forma integrale: per $\Sigma_1$ vale $\oint \mathbf B \cdot \de\mathbf s = \mu_0 \int \mathbf J \cdot n\de\varsigma$ mentre per $\Sigma_2$ vale $\oint \mathbf B \cdot \de\mathbf s = 0$. Questo non può essere possibile per 2 motivi: $i \neq 0$ per ipotesi e rifacendosi al filo rettilineo si ha $\mathbf B \neq 0$; a parità di $\Gamma$ il flusso dipende dalla superficie scelta e questo non è possibile [perchè?].
+
+\subsubsection{IV equazione di Maxwell}
+Nel caso non stazionario è $\fracp{\rho}{t} \neq 0$. L'intuizione di Maxwell è stata di usare la I equazione di Maxwell nell'equazione di continuità $\dive\mathbf J= -\fracp{\rho}t$ in modo da ottenere $\dive(\mathbf J + \varepsilon_0 \fracp{\mathbf E}t) = 0$ e fare la sostituzione $\mathbf J \to \mathbf J + \varepsilon_0 \fracp{\mathbf E}t$, dove il secondo termine è la corrente di spostamento, nella legge di Ampère 
+
+\subsection{Equazioni di Maxwell}
+\subsubsection{I equazione - Legge di Gauss - Sorgenti del campo elettrico}
+$\Phi(\mathbf E) = Q_{int}/\varepsilon_0 \qquad \iint \mathbf E(\mathbf r,t) \cdot \mathbf n(\mathbf r)\de\varsigma = \frac 1\epsilon \iiint \rho(\mathbf r,t)\,\de\upsilon \qquad \dive\mathbf E(\mathbf r,t) = \frac1{\varepsilon_0}\rho(\mathbf r,t)$\\
+continua a valere come nella forma stazionaria
+\subsubsection{II equazione - Inesistenza di monopoli magnetici}
+$\Phi(\mathbf B) = 0 \qquad \iint \mathbf B(\mathbf r,t) \cdot \mathbf n(\mathbf r) \de\varsigma = 0 \qquad \dive\mathbf B(\mathbf r,t) = 0$\\
+definizione di flusso, teorema della divergenza
+continua a valere come nella forma stazionaria
+\subsubsection{III equazione - Legge di Faraday-Lenz - Induzione elettromagnetica}
+$\Gamma(\mathbf E) = -\fracd{\Phi(\mathbf B)}t \qquad \oint \mathbf E(\mathbf r,t) \cdot \de\mathbf s = -\int \fracp{\mathbf B}t(\mathbf r,t) \cdot \mathbf n(\mathbf r) \de\varsigma \qquad \rot\mathbf E(\mathbf r,t) = -\fracp{\mathbf B}t(\mathbf r,t)$
+\subsubsection{IV equazione - Legge di Ampère - Corrente di spostamento}
+$\Gamma(\mathbf B) = \mu_0 \sum_k m_k i_k + \mu_0\varepsilon_0 \Phi(\mathbf J_{d}) \qquad
+\oint \mathbf B(\mathbf r,t) \cdot \de\mathbf s =  \int (\mu_0 \mathbf J(\mathbf r,t) + \mu_0\varepsilon_0 \fracp{\mathbf E}t(\mathbf r,t)) \cdot \mathbf n(\mathbf r) \de\varsigma \qquad
+\rot\mathbf B(\mathbf r,t) = \mu_0 \mathbf J(\mathbf r,t) + \mu_0\varepsilon_0 \fracp{\mathbf E}t(\mathbf r,t)$
+
+\subsubsection{Equazioni di Maxwell nel vuoto in assenza di sorgenti}
+In assenza di sorgenti vuol dire $\rho(\mathbf r,t) = 0$ e $\mathbf J(\mathbf r,t) = 0$ quindi le equazioni diventano\\
+$\begin{cases}
+	\nabla \cdot \mathbf E = 0\\
+	\nabla \cdot \mathbf B = 0\\
+	\nabla \times \mathbf E + \fracp{\mathbf B}t = 0\\
+	\nabla \times \mathbf B - \mu_0\varepsilon_0 \fracp{\mathbf E}t = 0 
+\end{cases}$
+
+
 
 	\section{Conduttori e dielettrici}
 \subsection{Conduttori}
@@ -228,44 +281,31 @@ La cavità è stretta e lunga, in direzione del campo esterno. Prendo un cammino
 \subsubsection{Cavo coassiale}
 Un cavo coassiale è un conduttore cilindrico indefinito di raggio $R_1$ circondato da una corona cilindrica di dielettrico con raggio esterno $R_2$. La carica sul conduttore è determinata dalla densità lineare $\lambda$. Suppongo che il dielettrico è lineare ed isotropo. Il campo elettrico nel conduttore è $\mathbf E(r < R_1) = 0$. All'esterno del cavo ha direzione radiale (per simmetria) e modulo tramite Gauss, quindi $\mathbf E(r > R_2) = \frac{\lambda}{2\pi \varepsilon_0 r} \mathbf u_\rho$. Nel dielettrico vale $\Phi(\mathbf D) = Q_{lib}$ dove $Q_{lib} = \lambda h$ e $\Phi(\mathbf D) = D(r) 2\pi r h$, quindi $\mathbf D(R_1 < r < R_2) = \frac{\lambda}{2\pi r} \mathbf u_\rho$. Per il campo elettrico nel dielettrico serve la relazione costitutiva del dielettrico: ipotizzato lineare vale l'equazione $\mathbf D = \varepsilon \mathbf E$ da cui $\mathbf E(R_1 < r < R_2) = \mathbf D/\varepsilon = \frac{\lambda}{2\pi \varepsilon r} \mathbf u_\rho$
 
-\subsection{Equazioni di Maxwell stazionarie nella materia}
-\subsubsection{I equazione}
-$\Phi(\mathbf D) = Q_{lib} \;\;\Longrightarrow\;\; \iint \mathbf D \cdot \mathbf n\de\varsigma = \iiint \rho_{lib} \,\de\upsilon \;\;\Longrightarrow\;\; \dive\mathbf D = \rho_{lib}$\\
-definizione di flusso, teorema della divergenza
+\subsection{Equazioni di Maxwell}
+\subsubsection{Stazionarie}
+$\begin{cases}
+\Phi(\mathbf D) = Q_{lib} \qquad \iint \mathbf D \cdot \mathbf n\de\varsigma = \iiint \rho_{lib} \,\de\upsilon \qquad \dive\mathbf D = \rho_{lib}\\
 
-\subsubsection{II equazione}
-$\Phi(\mathbf B) = 0 \;\;\Longrightarrow\;\; \iint \mathbf B \cdot \mathbf n\de\varsigma = 0 \;\;\Longrightarrow\;\; \dive\mathbf B = 0$\\
-definizione di flusso, teorema della divergenza
+\Phi(\mathbf B) = 0 \qquad \iint \mathbf B \cdot \mathbf n\de\varsigma = 0 \qquad \dive\mathbf B = 0\\
 
-\subsubsection{III equazione}
-$\Gamma(\mathbf E) = 0 \;\;\Longrightarrow\;\; \oint \mathbf E \cdot \de\mathbf s = 0 \;\;\Longrightarrow\;\; \rot\mathbf E = 0$\\
-definizione di circuitazione, teorema del rotore
+\Gamma(\mathbf E) = 0 \qquad \oint \mathbf E \cdot \de\mathbf s = 0 \qquad \rot\mathbf E = 0\\
 
-\subsubsection{IV equazione - Teorema di Ampère - Sorgenti del campo magnetico}
-$\Gamma(\mathbf B) = \mu_0 \sum_k m_k i_k \;\;\Longrightarrow\;\; \oint \mathbf B \cdot \de\mathbf s = \mu_0 \iint \mathbf J \cdot \mathbf n\de\varsigma \;\;\Longrightarrow\;\; \rot\mathbf B  = \mu_0 \mathbf J$\\
-definizione di circuitazione e densità di corrente, teorema del rotore
+?
+\end{cases}$\\
+Campo elettrico e campo magnetico sono entità separate
 
-	\section{Campo elettromagnetico}
-\subsubsection{Natura relativa dei campi elettrici e magnetici}
-In un riferimento inerziale $\Sigma= Oxyz$ fisso nello spazio è data una particella di carica $q$ in moto con velocità $\mathbf v$. Nello spazio è quindi presente $\mathbf E$ generato dalla particella e $\mathbf B$ dovuto al suo moto. Preso un altro riferimento inerziale $\Sigma^\prime = O^\prime\xi\eta\zeta$ in moto uniforme con la particella, in questo riferimento la particella è ferma quindi si ha solo $\mathbf E^\prime$.\\
-Ora la particella è ferma in $\Sigma$ mentre $\Sigma^\prime$ continua muoversi di moto uniforme. In $\Sigma$ si avrà solo $\mathbf E$ mentre in $\Sigma^\prime$ sia $\mathbf E^\prime$ che $\textbf B^\prime$\\
-La presenza dei fenomeni elettrici e magnetici dipende quindi dal sistema di riferimento scelto. Prescindendo da esso si può dedurre l'esistenza di una entità unica, il campo elettromagnetico, le cui manifestazioni dipendono dal riferimento in cui la si studia.
+\subsubsection{Non stazionarie}
+$\begin{cases}
+	\Phi(\mathbf D) = Q_{lib} \qquad \iint \mathbf D \cdot \mathbf n\de\varsigma = \iiint \rho_{lib} \,\de\upsilon \qquad \dive\mathbf D = \rho_{lib}\\
+	
+	\Phi(\mathbf B) = 0 \qquad \iint \mathbf B \cdot \mathbf n\de\varsigma = 0 \qquad \dive\mathbf B = 0\\
+	
+	\Gamma(\mathbf E) = 0 \qquad \oint \mathbf E \cdot \de\mathbf s = 0 \qquad \rot\mathbf E = 0\\
+	
+	?
+\end{cases}$\\
+Campo elettrico e magnetico sono manifestazioni della stessa entità
 
-\subsubsection{Trasformazione non relativistica del campo elettromagnetico}
-La carica $q$ si muove rispeto a $\Sigma$ con velocità $\mathbf v$ in una regione in cui sono presenti $\mathbf E$ e $\mathbf B$. La forza di Lorentz agente sulla carica è $\mathbf F = q\mathbf e + q\mathbf v \times \mathbf B$. Nel riferimento $\Sigma^\prime$ solidale alla particella in moto la forza è $\mathbf F^\prime = q\mathbf E^\prime$. Nel caso non relativistico la forza è invariante quindi $\mathbf F^\prime = \mathbf F$ cioè $\mathbf E^\prime = \mathbf E + \mathbf v \times \mathbf B$. Per il campo magnetico la formula si dimostra con al teoria della relatività ristretta ed è $\mathbf B^\prime = \mathbf  B - \frac{\mathbf v}{c^2} \times \mathbf E$. È notevole osservare che nelle leggi di trasformazione compaiono in ogni caso sia $\mathbf E$ che $\mathbf B$.
-
-\subsection{Induzione elettromagnetica}
-\subsubsection{Induzione elettromagnetica, legge di Faraday e di Lenz}
-Dall'esperimento di Faraday si può dedurre la legge di Faraday $fem \propto \fracd{\Phi(\mathbf B)}{t}$. La variazione di $\Phi$ si può imputare a diverse cause: spostamento/deformazione del circuito indotto, spostamento del circuito inducente, variazione del campo magnetico inducente. Il segno della $fem$ è espresso dalla legge di Lenz "la corrente causata dalla f.e.m. indotta genera un campo magnetico che si oppone al campo magnetico inducente". Si possono riassumere le precedenti leggi nella formuala $fem = -\fracd{\Phi(\mathbf B)}{t}$.\\
-Per chiarire le idee prendo un sistema solenoide inducente e spira indotta. Tenendo fermi i componenti e aumentando la corrente nel solenoide aumenta anche $\Phi(\mathbf B)$ quindi la f.e.m. indotta fa circolare una corrente nel verso in cui il relativo campo magnetico va ad opporsi all'aumento di $\Phi(\mathbf B)$. Viceversa, se la corrente viene diminuita allora diminuisce anche $\Phi(\mathbf B)$ e il campo magnetico della corrente indotta va ad opporsi alla diminuzione di $\Phi(\mathbf B)$.
-
-\subsubsection{Circuito fermo in campo magnetico variabile}
-Supponiamo che $\mathbf E = 0$ quindi essendo il circuito fermo, sulle cariche in esso non agisce la forza di Lorenz. Tuttavia si osserva una una corrente e l'unica conclusione è che nel conduttore si generi un campo elettrico responsabile della corrente. In maniera più generale, la variazione di $\mathbf B$ è responsabile della comparsa di $\mathbf E$, che si manifesta nel conduttore come moto di cariche. La legge dell'induzione elettromagnetica si esplicita $\oint \mathbf E_{ind} \cdot \de\mathbf s = -\int \fracp{\mathbf B}t \cdot \mathbf n \de\varsigma$, passando la derivata dentro l'integrale poiché il dominio di integrazione è costante. Se $\mathbf E \neq 0$ allora i due contributi si sommano per dare il campo elettrico totale $\mathbf E + \mathbf E_{ind}$  in cui il primo termine soddisfa alle equazioni di Maxwell stazionarie.
-
-\subsubsection{Circuito mobile in campo magnetico costante}
-
-\subsubsection{III equazione di Maxwell}
-La forma più generale della legge dell'induzione elettromagnetica è $\oint (\mathbf E + \mathbf v_{tr} \times \mathbf B) \cdot \de\mathbf s = -\int \fracp{\mathbf B}{t} \cdot \mathbf n \de\varsigma$. Il primo membro rappresenta, per quanto detto sulla natura relativa del campo elettromagnetico, il campo elettrico nel sistema di riferimento in cui il circuito è in quiete. Per la trasformazione galileiana della velocità sarebbe $\mathbf v = \mathbf v_{der} + \mathbf v_{tr}$ ma $\mathbf v_{der} \parallel \mathbf \de\mathbf s$. \scriptsize La formula di dimostra introducendo l'operatore di derivata materiale $\fracd{}{t} = \fracp{}{t} + \mathbf v \cdot \nabla$ e l'identità $(\mathbf v \cdot \nabla)\mathbf B = \rot(\mathbf B \times \mathbf v) + \mathbf v\, \dive\mathbf B$.  [COME SI DIMOSTRA?]\normalsize
 
 	\section{Circuiti}
 \subsubsection{Moto di cariche e corrente}
