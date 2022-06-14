@@ -46,6 +46,7 @@
 \begin{document}
 	
 \tableofcontents
+\newpage
 	
 	\section*{}
 \subsection{Costanti}
@@ -71,18 +72,27 @@ Le equazioni di Maxwell sono state compiutamente definite (1865)
 
 	\section{Elettrostatica e magnetostatica}
 \subsection{Elettrostatica}
-\subsubsection{Lavoro del campo su una carica puntiforme}
+\subsubsection{Legge di Coulomb}
+$\mathbf E = \frac1{4\pi\varepsilon_0} \int \rho \de\upsilon^\prime \frac{\mathbf r - \mathbf r^\prime}{|\mathbf r - \mathbf r^\prime|^3} = \frac1{4\pi\varepsilon_0} \int \rho \de\upsilon^\prime \nabla(-\frac1 {|\mathbf r-\mathbf r^\prime|}) = - \frac1{4\pi\varepsilon_0} \nabla (\int \frac{\rho \de\upsilon^\prime}{|\mathbf r-\mathbf r^\prime|})$
+
+\subsubsection{Lavoro di una forza centrale}
 La carica $q$ nell'origine produce il campo $\vec E(\vec r) = \frac{q}{4\pi\varepsilon_0}\frac{\vec r}{||\vec r||^3}$. La carica $Q$ si muove da $A$ a $B$ lungo un percorso arbitrario $\gamma$. Decompongo il percorso in due tratti: con $\gamma_1$ arrivo sullo stesso raggio passante per $B$ muovendomi lungo 'arco $AB$ centrato nella carica; con $\gamma_2$ arrivo a $B$ muovendomi radialmente. Il lavoro del campo sulla carica è $\mathscr L_\gamma = \frac{qQ}{4\pi\varepsilon_0}\int_A^B \frac{\vec r \cdot \de\vec s}{||\vec r||^3} = \mathscr L_{\gamma_1} + \mathscr L_{\gamma_2}$. Lungo $\gamma_1$ si ha $\vec r \perp \de\vec s$ quindi contano solo gli spostamenti radiali; il problema diventa unidimensionale. Lungo $\gamma_2$ si ha $\de\vec s = \hat r\,\de r$ quindi $\mathscr L_\gamma = \mathscr L_{\gamma_2} = \frac{qe}{4\pi\varepsilon_0}\int_{r_A}^{r_B} \frac{r\,\de r}{r^3} = -\frac{qQ}{4\pi\varepsilon_0}(\frac1{r_B}-\frac1{r_A})$.\\
 Gli spostamenti sulle superfici equipotenziali non fanno lavoro.
 
-\subsubsection{La legge di Coulomb definisce una forza conservativa}
-Nella definizione di campo elettrico si può usare l'identità $\nabla(-\frac1{|\mathbf r-\mathbf r^\prime|}) = \frac{\mathbf r-\mathbf r^\prime}{|\mathbf r-\mathbf r^\prime|^3}$ per definire $\mathbf E$ in termini del gradiente di una funzione (potenziale elettrostatico). La II equazione di Maxwell segue dall'identità $\rot(\nabla{A})=0$ dove $A$ è il potenziale elettrostatico definito sopra.
+\subsubsection{II equazione di Maxwell}
+Ci sono 2 modi per ottenerla: nella definizione di campo elettrico uso l'identità $\nabla(-\frac1{|\mathbf r-\mathbf r^\prime|}) = \frac{\mathbf r-\mathbf r^\prime}{|\mathbf r-\mathbf r^\prime|^3}$ per definire $\mathbf E$ in termini del gradiente di una funzione. Per un'identità vettoriale segue $\rot\mathbf E= 0$. L'altro modo è calcolare il lavoro del campo elettrico e vedere che viene $L_{AB} \propto (\frac1{r_1} - \frac1{r_2})$ cioè non dipende dalla traiettoria quindi è un campo conservativo ed esiste una funzione tale che $L_{AB} = V(A) - V(B)$ e $\mathbf E = -\nabla V$
 
-\subsubsection{Potenziale dipolo elettrico}
-Ho due cariche $q_+$ e $q_-$ a distanza $d$ e valuto il potenziale in un punto $P$ a distanza $r\gg d$ dal centro del dipolo, che vale $V(r)=\frac{q}{4\pi\varepsilon} (\frac1{r_+}-\frac1{r_-})=\frac{q}{4\pi\varepsilon}\frac{r_- - r_+}{r_- r_+}$. Lo voglio scrivere in termini di $\mathbf r$ e $\mathbf p=q\mathbf d$. Nel triangolo $q_+ P q_-$, se $r\gg d$ allora l'angolo in P è piccolo ed il suo coseno è circa 1; quindi $r_+$ e $r_-$ si confondono con $r$, e la proiezione di $r_+$ su $r_-$ si confonde con $r_-$. Inoltre l'angolo fra d e $r_-$ si confonde con quello fra $d$ e $r$. Dunque $r_- r_+\approx r^2$ e $r_- - r_+ \approx d \cos\theta$ essendo $\theta$ l'angolo fra $d$ e $r$. Rielaborando l'espressione ottengo $V(r)\approx\frac1{4\pi\varepsilon}\frac{\mathbf p\cdot\mathbf r}{r^3}$ ed è tanto migliore quanto più $r\gg d$.
+\subsubsection{Energia potenziale elettrostatica}
+Il lavoro fatto per spostare una carica è $\int_A^B \mathbf F \cdot \de\mathbf s = \int_A^O + \int_O^B = U(A) - U(B)$. La forza è $\mathbf F = q \mathbf E$ quindi $U = qV$.
 
-\subsubsection{Potenziale a grandi distanze}
-Il potenziale di una distribuzione di carica è $V(\mathbf r) = \frac1{4\pi\epsilon} \int \frac{\rho(\mathbf r^\prime)}{|\mathbf r - \mathbf r^\prime|} \de\Upsilon$. Riscrivo $|\mathbf r - \mathbf r^\prime| = \sqrt{(\mathbf r - \mathbf r^\prime)\cdot(\mathbf r - \mathbf r^\prime)} = \sqrt{r^2 + {r^\prime}^2 - 2rr^\prime\cos\theta} = r\sqrt{(1 + (r^\prime/r)^2 - 2r^\prime/r\cos\theta)}$ in modo da sfruttare lo sviluppo $(1+\delta)^{-1/2} = 1 - \frac12 \delta + \frac38 \delta^2 + O(\delta^3)$ con $\delta = (\frac{r^\prime}r)^2 - 2\frac{r^\prime}r\cos\theta$. A grandi distanze vale $r^\prime \ll r$ quindi $\delta \ll 1$ e lo sviluppo è lecito. Espandendo fino all'ordine $(\frac{r^\prime}r)^2$ trovo $1/|\mathbf r - \mathbf r^\prime| = \frac1r[1+\frac{r^\prime}r\cos\theta+\frac{3\cos^2\theta-1}2(\frac{r^\prime}r)^2+O((\frac{r^\prime}r)^3)]$ cioè una quantità espressa come serie delle potenze di $1/r$. Introducendo questo sviluppo nel calcolo del potenziale elettrostatico si ha uno sviluppo analogo $V(\mathbf r)= \frac1{4\pi\epsilon}\frac1r\int \rho(\mathbf r^\prime)\de\Upsilon + \frac1{4\pi\epsilon}\frac1{r^2}\int r^\prime\cos\theta\rho(\mathbf r^\prime)\de\Upsilon + \ldots$. Si può dare una forma più significativa osservando che $\int\rho(\mathbf r^\prime)\de\Upsilon = Q$ e definendo il momento di dipolo della distribuzione $\mathbf p := \int \mathbf r^\prime \rho(\mathbf r^\prime)\de\Upsilon$ [DA FINIRE]
+\subsubsection{Potenziale dipolo elettrico a grandi distanze}
+A grandi distanze $(r \gg d$) il potenziale del dipolo elettrico si può scrivere $V(\mathbf r) \approx \frac1{4\pi\varepsilon_0} \frac{\mathbf p \cdot \mathbf r}{r^3}$ dove $\mathbf p = q \mathbf d$ è il momento di dipolo. Ho due cariche $q_+$ e $q_-$ a distanza $d$ e valuto il potenziale in un punto $P$ a distanza $r\gg d$ dal centro del dipolo, che vale $V(r)=\frac{q}{4\pi\varepsilon} (\frac1{r_+}-\frac1{r_-}) = \frac{q}{4\pi\varepsilon} \frac{r_- - r_+}{r_- r_+}$. Se $r \ll d$ allora $r_- \approx r_+$ quindi $r_- r_+ \approx r^2$. La differenza al numeratore dipende dalla posizione di $P$ rispetto all'asse del dipolo: se è sull'asse vale $d$, se è sull'ortogonale vale $0$, è facile convincersi che $r_- - r_+ \approx d \cos\theta$. Con queste approssimazioni il potenziale si scrive nella forma sopra osservando che $\frac{q d \cos\theta}{r^2} = \frac{\mathbf p \cdot \mathbf r}{r^3}$. L'approssimazione è tanto migliore quanto più $r\gg d$.
+
+\subsubsection{Sviluppo in multipoli}
+Da lontano una generica distribuzione è vista come una carica totale + un momento di dipolo + momenti di ordine superiore. In altre parole il potenziale di una distribuzione di carica per $r \gg r^\prime$ si può scrivere $V(\mathbf r) = \frac1{4\pi\epsilon_0} \frac 1r (Q_{tot} + \frac{\mathbf  p \cdot \mathbf  r}{r^2} + \ldots)$. Si dimostra partendo dalla definizione di potenziale $V(\mathbf r) = \frac1{4\pi\varepsilon_0} \int \frac{\rho \de\upsilon^\prime}{|\mathbf r - \mathbf r^\prime|}$. Riscrivo il denominatore facendo emergere la quantità $\frac {r^\prime}r$ quindi (per definizione è $\cos\theta = \frac{\mathbf r \cdot \mathbf r^\prime}{r r^\prime}$) $|\mathbf r - \mathbf r^\prime| = \sqrt{(\mathbf r - \mathbf r^\prime)\cdot(\mathbf r - \mathbf r^\prime)} = \sqrt{r^2 + {r^\prime}^2 - 2rr^\prime\cos\theta} = r\sqrt{(1 + (r^\prime/r)^2 - 2r^\prime/r\cos\theta)}$. Osservo che posso sfruttare lo sviluppo di Taylor di $\sqrt{1+\delta}$ con $\delta = (\frac{r^\prime}r)^2 - 2\frac{r^\prime}r\cos\theta$ per l'ipotesi di grandi distanze ($\delta \ll 1$). Facendo un po' di calcoli alla fine trovo $1/|\mathbf r - \mathbf r^\prime| = \frac1r (1 + \frac{r^\prime}r \cos\theta + (\frac{r^\prime}r)^2 \frac{3\cos^2\theta-1}2 + \ldots)$. Integrando la quantità ho il potenziale $V(\mathbf r) = \frac1{4\pi\epsilon_0} \frac1r \int \rho \de\upsilon^\prime + \frac1{4\pi\epsilon} \frac1{r^2} \int r^\prime \cos\theta \rho \de\upsilon^\prime + \ldots$ Il primo termine è la carica totale della distribuzione. Per il secondo termine uso la definizione di $\cos\theta$ per avere $\int \rho r^\prime \cos\theta \de\upsilon^\prime = \frac{\mathbf r}r \cdot \int \rho \mathbf r^\prime \de\upsilon^\prime = \frac{\mathbf p \cdot \mathbf r}r$
+
+\subsubsection{Ancora sullo sviluppo in multipoli}
+Vedi Picasso
 
 \subsubsection{Forze sul dipolo elettrico}
 Sulle cariche agiscono le forze $\mathbf F_+ = q\mathbf E$ e $\mathbf F_- = -q\mathbf E$. Il momento risultate rispetto al centro del dipolo è $\mathbf M = \frac{\mathbf\delta}2 \times q\mathbf E + (-\frac{\mathbf\delta}2) \times -q\mathbf E = \mathbf p \times \mathbf E$. la forza risultate è $\mathbf F = q\mathbf E(\mathbf r_-)  -q \mathbf E(\mathbf r_+)$. Senza perdita di generalità (?) posso assumere $\mathbf r_-=(x,y,z)$ e $\mathbf r_+=(x+\de x,y+\de y,z+\de z)$. Per ogni componente della forza trovo $F_j = q(\fracp{E_x}{x}\de x + \fracp{E_x}{y}\de y + \fracp{E_x}{z}\de z) = q \nabla E_j \cdot \mathbf \delta = \mathbf p \cdot \nabla E_j$. Si dimostra che $\mathbf F = \nabla (\mathbf p \cdot \mathbf E)$
@@ -101,18 +111,15 @@ Una sfera di raggio $R_1$ e densità di carica uniforme $\varrho$ ha al suo inte
 Per il campo $\mathbf E_s$ delle forze elettrostatiche vale la II equazione di Maxwell $\rot\mathbf E_s = 0$ quindi $\Gamma(\mathbf E) = \oint E_s\cdot\de s = 0$. Ma esistono campi elettrici $E_{nc}$ per i quali si verifica $\Gamma(\mathbf E_{nc}) \neq 0$ e si parla di forze elettromotrici $fem$. Alcuni esempi sono:
 generatore van de Graff, reazioni chimiche nelle pila/accumulatore, forza di Lorentz in effetto Hall, induzione elettromagnetica (!).
 
-\subsubsection{Dalle sorgenti al campo}
-\subsubsection{Dal campo al potenziale}
-\subsubsection{Dal potenziale al campo}
-\subsubsection{Dal campo alle sorgenti}
-
 \subsection{Magnetostatica}
+\subsubsection{Legge di Laplace}
+$B = \frac{\mu_0}{4\pi} \oint \mathbf J \de\upsilon^\prime \times \frac{\mathbf r - \mathbf r^\prime}{|\mathbf r - \mathbf r^\prime|^3} = \frac{\mu_0}{4\pi} \oint \mathbf J \de\upsilon^\prime \times \nabla(-\frac1 {|\mathbf r-\mathbf r^\prime|}) = \frac{\mu_0}{4\pi} \nabla \times \oint \frac{\mathbf J \de\upsilon^\prime}{|\mathbf r-\mathbf r^\prime|}$ [vedi Jackson, passaggio 5.16 non mi torna]
+
 \subsubsection{IV equazione di Maxwell} 
 La legge di Ampère nel caso stazionario è $\rot\mathbf B = \mu_0 \mathbf J$. Applicando la divergenza segue $\dive\rot \mathbf B = \mu_0\; \dive\mathbf J$. Ma per un'identità vettoriale segue $\dive\rot\mathbf B= 0 \;\Longrightarrow\; \dive\mathbf J = 0$. Dall'equazione di continuità segue quindi $\dive\mathbf J = 0 \;\Longrightarrow\; \fracp{\rho}{t} = 0$ cioè il caso di condizioni stazionarie.
-\subsubsection{Potenziale magnetico vettoriale}
-vedi Jackson, ma passaggio 5.16 non mi torna. Quindi $\mathbf A(\mathbf r) = \oint \frac{\mathbf J(\mathbf r^\prime) \de\upsilon^\prime}{|\mathbf r - \mathbf r^\prime|}$. Il calcolo $\rot\mathbf B = \rot(\rot\mathbf A)$ con identità vettoriale introduce un termine con $\nabla^2$
 
-\subsubsection{Potenziale magnetico scalare}
+\subsubsection{Potenziale magnetico}
+Dalla II equazione di Maxwell segue $\dive\mathbf B = 0 \;\Rightarrow\; \mathbf B = \rot \oint \frac{\mathbf J \de\upsilon^\prime} {|\mathbf r - \mathbf r^\prime|} + \nabla\psi$
 
 \subsubsection{Campo magnetico generato da filo rettilineo}
 Nel filo rettilineo indefinito scorre la corrente $i$. Si vuole il campo magnetico a distanza $r$ dal filo.\\
@@ -123,7 +130,7 @@ La spira di  raggio $R$ conduce la corrente $i$ ed è posta nel piano $Oxy$ con 
 Soluzione 1: per la simmetria cilindrica i contributi $\de\mathbf B(\mathbf r)$ di elementi diametralmente opposti hanno intensità costante e si sommano vettorialmente in un contributo lungo l'asse. Posso quindi considerarne solo la componente $\de B_z$ e di conseguenza $\mathbf B = B_z \mathbf u_z$ con $B_z = \oint \de B_z$. Per il modulo $\de B_z = |\de\mathbf B| \cos\alpha$ applico la legge di B-S considerando che $|\de\mathbf l^\prime \times (\mathbf r - \mathbf r^\prime)| = \de l^\prime |\mathbf r - \mathbf r^\prime|$, $\de l^\prime = R\de\theta$ e $\cos\alpha = \frac{R}{|\mathbf r - \mathbf r^\prime|}$ quindi $\de B_z = \frac{\mu_0 i}{4\pi} |\mathbf r - \mathbf r^\prime| \frac1{|\mathbf r - \mathbf r^\prime|^3} \frac{R}{|\mathbf r - \mathbf r^\prime|} R\de\theta$. Integrando su tutta la spira ottengo $\mathbf B(z\mathbf u_z) = \frac{\mu_0 i}{2} \frac{R^2}{(z^2 + R^2)^{3/2}} \mathbf u_z$. I casi notevoli sono $z = 0$ e $z \gg R$
 
 \subsubsection{Spira circolare a grande distanza}
-Dalla precedente con $z \gg R$ risulta $\mathbf B(z) \simeq \frac{\mu_0 i}{2} \frac{R^2}{z^3} \mathbf u_z$. Posso reinterpretare questo risultato considerando che $A = \pi R^2$ e definendo (analogamente al dipolo elettrico) il momento magnetico della spira $\mathbf m = i A \mathbf n$. In questo caso $\mathbf n = \mathbf u_z$ quindi $\mathbf B(z \gg R) \simeq \frac{\mu_0}{2\pi} \frac{\mathbf m}{z^3}$.
+Dalla precedente con $z \gg R$ risulta $\mathbf B(z) \approx \frac{\mu_0 i}{2} \frac{R^2}{z^3} \mathbf u_z$. Posso reinterpretare questo risultato considerando che $A = \pi R^2$ e definendo (analogamente al dipolo elettrico) il momento magnetico della spira $\mathbf m = i A \mathbf n$. In questo caso $\mathbf n = \mathbf u_z$ quindi $\mathbf B(z \gg R) \approx \frac{\mu_0}{2\pi} \frac{\mathbf m}{z^3}$.
 
 \subsubsection{Due fili rettilinei indefiniti e paralleli}
 Nel piano $xy$ un filo rettilineo coincidente con l'asse $y$ è sede della corrente $I_1$. L'altro filo posto a dx del precedente alla distanza $d$ è sede della corrente $I_2$. Determinare il campo di induzione in tutto lo spazio e vedere se ci sono punti dell'asse delle ascisse nei quali esso è nullo (utilizzando $I_1=I_\mathrm n$ del problema precedente). Determinare la forza per unità di lunghezza tra i due fili.
@@ -178,7 +185,7 @@ Ora la particella è ferma in $\Sigma$ mentre $\Sigma^\prime$ continua muoversi 
 La presenza dei fenomeni elettrici e magnetici dipende quindi dal sistema di riferimento scelto. Prescindendo da esso si può dedurre l'esistenza di una entità unica, il campo elettromagnetico, le cui manifestazioni dipendono dal riferimento in cui la si studia.
 
 \subsubsection{Trasformazione non relativistica del campo elettromagnetico}
-La carica $q$ si muove rispeto a $\Sigma$ con velocità $\mathbf v$ in una regione in cui sono presenti $\mathbf E$ e $\mathbf B$. La forza di Lorentz agente sulla carica è $\mathbf F = q\mathbf e + q\mathbf v \times \mathbf B$. Nel riferimento $\Sigma^\prime$ solidale alla particella in moto la forza è $\mathbf F^\prime = q\mathbf E^\prime$. Nel caso non relativistico la forza è invariante quindi $\mathbf F^\prime = \mathbf F$ cioè $\mathbf E^\prime = \mathbf E + \mathbf v \times \mathbf B$. Per il campo magnetico la formula si dimostra con al teoria della relatività ristretta ed è $\mathbf B^\prime = \mathbf  B - \frac{\mathbf v}{c^2} \times \mathbf E$. È notevole osservare che nelle leggi di trasformazione compaiono in ogni caso sia $\mathbf E$ che $\mathbf B$.
+La carica $q$ si muove rispetto a $\Sigma$ con velocità $\mathbf v$ in una regione in cui sono presenti $\mathbf E$ e $\mathbf B$. La forza di Lorentz agente sulla carica è $\mathbf F = q\mathbf e + q\mathbf v \times \mathbf B$. Nel riferimento $\Sigma^\prime$ solidale alla particella in moto la forza è $\mathbf F^\prime = q\mathbf E^\prime$. Nel caso non relativistico la forza è invariante quindi $\mathbf F^\prime = \mathbf F$ cioè $\mathbf E^\prime = \mathbf E + \mathbf v \times \mathbf B$. Per il campo magnetico la formula si dimostra con la teoria della relatività ristretta ed è $\mathbf B^\prime = \mathbf  B - \frac{\mathbf v}{c^2} \times \mathbf E$. È notevole osservare che nelle leggi di trasformazione compaiono in ogni caso sia $\mathbf E$ che $\mathbf B$.
 
 \subsection{Induzione elettromagnetica}
 \subsubsection{Induzione elettromagnetica, legge di Faraday e di Lenz}
@@ -198,7 +205,7 @@ La forma più generale della legge dell'induzione elettromagnetica è $\oint (\m
 SI considera un condensatore (piano senza perdita di generalità) carico che si sta scaricando su una resistenza, quindi $i \neq 0$. Prendo una curva $\Gamma$ che concatena il filo collegato a una delle armature; delle infinite superfici correlate al contorno ne predo due, $\Sigma_1$ è quella di area minima (che quindi interseca il filo), $\Sigma_2$ è una superficie fra le due armature che non interseca nulla. Applico la IV equazione in forma integrale: per $\Sigma_1$ vale $\oint \mathbf B \cdot \de\mathbf s = \mu_0 \int \mathbf J \cdot n\de\varsigma$ mentre per $\Sigma_2$ vale $\oint \mathbf B \cdot \de\mathbf s = 0$. Questo non può essere possibile per 2 motivi: $i \neq 0$ per ipotesi e rifacendosi al filo rettilineo si ha $\mathbf B \neq 0$; a parità di $\Gamma$ il flusso dipende dalla superficie scelta e questo non è possibile [perchè?].
 
 \subsubsection{IV equazione di Maxwell}
-Nel caso non stazionario è $\fracp{\rho}{t} \neq 0$. L'intuizione di Maxwell è stata di usare la I equazione di Maxwell nell'equazione di continuità $\dive\mathbf J= -\fracp{\rho}t$ in modo da ottenere $\dive(\mathbf J + \varepsilon_0 \fracp{\mathbf E}t) = 0$ e fare la sostituzione $\mathbf J \to \mathbf J + \varepsilon_0 \fracp{\mathbf E}t$, dove il secondo termine è la corrente di spostamento, nella legge di Ampère 
+Nel caso non stazionario è $\fracp{\rho}{t} \neq 0$. L'intuizione di Maxwell è stata di usare la I equazione di Maxwell nell'equazione di continuità $\dive\mathbf J= -\fracp{\rho}t$ in modo da ottenere $\dive(\mathbf J + \varepsilon_0 \fracp{\mathbf E}t) = 0$ e fare la sostituzione $\mathbf J \to \mathbf J + \varepsilon_0 \fracp{\mathbf E}t$, dove il secondo termine è la corrente di spostamento, nella legge di Ampère.
 
 \subsection{Equazioni di Maxwell}
 \subsubsection{I equazione - Legge di Gauss - Sorgenti del campo elettrico}
@@ -206,7 +213,6 @@ $\Phi(\mathbf E) = Q_{int}/\varepsilon_0 \qquad \iint \mathbf E(\mathbf r,t) \cd
 continua a valere come nella forma stazionaria
 \subsubsection{II equazione - Inesistenza di monopoli magnetici}
 $\Phi(\mathbf B) = 0 \qquad \iint \mathbf B(\mathbf r,t) \cdot \mathbf n(\mathbf r) \de\varsigma = 0 \qquad \dive\mathbf B(\mathbf r,t) = 0$\\
-definizione di flusso, teorema della divergenza
 continua a valere come nella forma stazionaria
 \subsubsection{III equazione - Legge di Faraday-Lenz - Induzione elettromagnetica}
 $\Gamma(\mathbf E) = -\fracd{\Phi(\mathbf B)}t \qquad \oint \mathbf E(\mathbf r,t) \cdot \de\mathbf s = -\int \fracp{\mathbf B}t(\mathbf r,t) \cdot \mathbf n(\mathbf r) \de\varsigma \qquad \rot\mathbf E(\mathbf r,t) = -\fracp{\mathbf B}t(\mathbf r,t)$
@@ -220,9 +226,14 @@ In assenza di sorgenti vuol dire $\rho(\mathbf r,t) = 0$ e $\mathbf J(\mathbf r,
 $\begin{cases}
 	\nabla \cdot \mathbf E = 0\\
 	\nabla \cdot \mathbf B = 0\\
-	\nabla \times \mathbf E + \fracp{\mathbf B}t = 0\\
-	\nabla \times \mathbf B - \mu_0\varepsilon_0 \fracp{\mathbf E}t = 0 
+	\nabla \times \mathbf E = -  \fracp{\mathbf B}t\\
+	\nabla \times \mathbf B = \mu_0\varepsilon_0 \fracp{\mathbf E}t
 \end{cases}$
+
+\subsubsection{}
+Le equazioni di Maxwell sono un sistema di equazioni differenziali del primo ordine accoppiate. L'obiettivo è avere meno equazioni del secondo ordine. Dalla II equazione di Maxwell $\dive\mathbf B = 0 \;\Rightarrow\; \mathbf B = \rot(\mathbf A + \nabla\psi)$. L'ultima la sostituisco nella III equazione di Maxwell $\rot(\mathbf E + \fracp{\mathbf A}t) = 0 \;\Rightarrow\; \mathbf E + \fracp{\mathbf A}{t} = -\nabla\Phi \;\Rightarrow\; \mathbf E = -\nabla\Phi - \fracp{\mathbf A}t$
+
+
 
 
 
@@ -265,7 +276,7 @@ Si dimostrano le due relazioni $\sigma_{pol} = \mathbf P \cdot \mathbf n$ e $\rh
 Per la seconda relazione, 
 
 \subsubsection{I equazione di Maxwell nei dielettrici}
-Il teorema di Gauss per $\mathbf E = \mathbf E_{lib} + \mathbf E_{pol}$ fornisce $\int \dive\mathbf E \de\upsilon = (Q_{lib} + Q_{pol})/\varepsilon$. Conoscendo la relazione fra $\rho_{pol}$ e $\mathbf P$ si ottiene $\frac1\varepsilon \int \dive(\varepsilon\mathbf E +  \mathbf P)\de\upsilon = \frac 1\varepsilon \int \rho_{lib} \de\upsilon$ da cui $\dive\mathbf D = \rho_{lib}$.
+Il teorema di Gauss per $\mathbf E = \mathbf E_{lib} + \mathbf E_{pol}$ fornisce $\int \dive\mathbf E \de\upsilon = (Q_{lib} + Q_{pol})/\varepsilon$. Conoscendo la relazione fra $\rho_{pol}$ e $\mathbf P$ si ottiene $\frac1\varepsilon \int \dive(\varepsilon\mathbf E +  \mathbf P)\de\upsilon = \frac 1\varepsilon \int \rho_{lib} \de\upsilon$ da cui $\dive\mathbf D = \rho_{lib}$. La stessa equazione si ottiene anche osservando che un dielettrico polarizzato è sovrapposizione lineare di molti dipoli ognuno dei quali, a grandi distanze, 
 
 \subsubsection{II equazione di Maxwell nei dielettrici}
 vedi Jackson
