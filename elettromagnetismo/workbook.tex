@@ -242,11 +242,22 @@ $\begin{cases}
 Nonostante ho utilizzato i potenziali di gauge non compaiono termini con la funzione di gauge $\psi$, cioè le 4 equazioni di Maxwell sono invarianti rispetto alle trasformazioni di gauge.
 
 \subsubsection{Gauge di Lorentz}
-Se impongo la condizione $\dive\mathbf{\hat A} + \mu_0\varepsilon_0 \fracp{\hat\Phi}t = 0$ ottengo delle equazioni disaccoppiate per i potenziali\\
+Se impongo la condizione di Lorentz $\dive\mathbf{\hat A} + \mu_0\varepsilon_0 \fracp{\hat\Phi}t = 0$ ottengo delle equazioni disaccoppiate per i potenziali\\
 $\begin{cases}
 		\nabla^2 \hat\Phi - \mu_0\varepsilon_0 \fracpq{\hat\Phi}t = -\rho/\varepsilon_0\\
 	\nabla^2\mathbf{\hat A} - \mu_0\varepsilon_0 \fracpq{\mathbf{\hat A}}t = -\mu_0 \mathbf J
-\end{cases} $
+\end{cases}$\\
+Rimane da determinare la funzione di gauge $\psi$ affinché i potenziali soddisfino la relazione di Lorentz. Applicando la trasformazione di gauge a quest ultima si trova $\nabla^2\psi - \mu_0\varepsilon_0 \fracpq{\psi}t = -\dive\mathbf{\hat A} - \mu_0\varepsilon_0 \fracp{\hat\Phi}t = 0$. 
+
+\subsubsection{Gauge di Coulomb}
+Un altra scelta è $\dive\mathbf A = 0$, con la quale le equazioni dei potenziali diventano\\
+$\begin{cases}
+	\nabla^2 \hat\Phi = -\rho/\varepsilon_0\\
+	\nabla^2\mathbf{\hat A} - \mu_0\varepsilon_0 \fracpq{\mathbf{\hat A}}t = -\mu_0 \mathbf J + \mu_0\varepsilon_0 \nabla \fracp{\hat\Phi}t
+\end{cases}$\\
+In assenza di sorgenti le precedenti sono facilmente risolvibili. [NEL JACKSON C'È APPROFONDIMENTO SU CORRENTE LONG E TRASV]
+
+\subsubsection{Teorema di Poynting}
 
 
 
