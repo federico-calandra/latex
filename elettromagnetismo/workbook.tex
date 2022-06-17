@@ -1,4 +1,4 @@
-\documentclass[10pt,a4paper]{article}
+\documentclass[11pt,a4paper]{article}
 
 %% PACCHETTI AGGIUNTIVI
 \usepackage{amssymb,amsmath,amsthm,amsfonts}
@@ -36,7 +36,7 @@
 \newcommand{\de}{\mathrm d}
 \newcommand{\fracd}[2]{\frac{\de #1}{\de #2}}
 \newcommand{\fracp}[2]{\frac{\partial #1}{\partial #2}}
-\newcommand{\fracpq}[2]{\frac{\partial^2 #1}{{\partial #2}^2}}
+\newcommand{\fracpq}[2]{\frac{\partial^2\! #1}{{\partial #2}^2}}
 \newcommand{\fracpp}[3]{\frac{\partial^2 #1}{\partial #2 \partial #3}}
 \newcommand{\grad}[1]{\text{grad}\,#1}
 \newcommand{\dive}[1]{\text{div}\,#1}
@@ -118,8 +118,8 @@ $B = \frac{\mu_0}{4\pi} \oint \mathbf J \de\upsilon^\prime \times \frac{\mathbf 
 \subsubsection{IV equazione di Maxwell} 
 La legge di Ampère nel caso stazionario è $\rot\mathbf B = \mu_0 \mathbf J$. Applicando la divergenza segue $\dive\rot \mathbf B = \mu_0\; \dive\mathbf J$. Ma per un'identità vettoriale segue $\dive\rot\mathbf B= 0 \;\Longrightarrow\; \dive\mathbf J = 0$. Dall'equazione di continuità segue quindi $\dive\mathbf J = 0 \;\Longrightarrow\; \fracp{\rho}{t} = 0$ cioè il caso di condizioni stazionarie.
 
-\subsubsection{Potenziale magnetico}
-Dalla II equazione di Maxwell segue $\dive\mathbf B = 0 \;\Rightarrow\; \mathbf B = \rot \oint \frac{\mathbf J \de\upsilon^\prime} {|\mathbf r - \mathbf r^\prime|} + \nabla\psi$
+\subsubsection{Potenziale magnetico vettoriale}
+Dalla II equazione di Maxwell segue $\dive\mathbf B = 0 \;\Rightarrow\; \mathbf B = \rot\mathbf A$. Sostituisco nella IV equazione di Maxwell usando un'identità vettoriale  $\nabla(\dive\mathbf A) - \nabla^2\mathbf A = \mu_0 \mathbf J$.
 
 \subsubsection{Campo magnetico generato da filo rettilineo}
 Nel filo rettilineo indefinito scorre la corrente $i$. Si vuole il campo magnetico a distanza $r$ dal filo.\\
@@ -221,19 +221,32 @@ $\Gamma(\mathbf B) = \mu_0 \sum_k m_k i_k + \mu_0\varepsilon_0 \Phi(\mathbf J_{d
 \oint \mathbf B(\mathbf r,t) \cdot \de\mathbf s =  \int (\mu_0 \mathbf J(\mathbf r,t) + \mu_0\varepsilon_0 \fracp{\mathbf E}t(\mathbf r,t)) \cdot \mathbf n(\mathbf r) \de\varsigma \qquad
 \rot\mathbf B(\mathbf r,t) = \mu_0 \mathbf J(\mathbf r,t) + \mu_0\varepsilon_0 \fracp{\mathbf E}t(\mathbf r,t)$
 
-\subsubsection{Equazioni di Maxwell nel vuoto in assenza di sorgenti}
-In assenza di sorgenti vuol dire $\rho(\mathbf r,t) = 0$ e $\mathbf J(\mathbf r,t) = 0$ quindi le equazioni diventano\\
+%\subsubsection{Equazioni di Maxwell nel vuoto in assenza di sorgenti}
+%In assenza di sorgenti vuol dire $\rho(\mathbf r,t) = 0$ e $\mathbf J(\mathbf r,t) = 0$ quindi le equazioni diventano\\
+%$\begin{cases}
+%	\nabla \cdot \mathbf E(\mathbf r,t) = 0\\
+%	\nabla \cdot \mathbf B(\mathbf r,t) = 0\\
+%	\nabla \times \mathbf E(\mathbf r,t) = -  \fracp{\mathbf B}t (\mathbf r,t)\\
+%	\nabla \times \mathbf B(\mathbf r,t) = \mu_0\varepsilon_0 \fracp{\mathbf E}t (\mathbf r,t)
+%\end{cases}$
+
+\subsubsection{Trasformazioni di gauge}
+Le equazioni di Maxwell sono un sistema di equazioni differenziali del primo ordine accoppiate. L'obiettivo è avere meno equazioni del secondo ordine e possibilmente disaccoppiate. Dalla II equazione ho $\mathbf A$ il potenziale magnetico $\mathbf B = \rot\mathbf A$ che sostituisco nella III equazione per avere $\Phi$ il potenziale elettrico $\rot(\mathbf E + \fracp{\mathbf A}t) = 0 \;\Rightarrow\; \mathbf E + \fracp{\mathbf A}{t} = -\nabla\Phi \;\Rightarrow\; \mathbf E = -\nabla\Phi - \fracp{\mathbf A}t$. Se definisco le trasformazioni di gauge $\mathbf A_g = \mathbf {\hat A} + \nabla\psi$ e $\Phi_g= \hat\Phi - \fracp{\psi}t$, si verifica facilmente che $\mathbf B(\mathbf A_g) = \mathbf B(\mathbf{\hat A})$ e $\mathbf E(\Phi_g,\mathbf A_g) = \mathbf E(\hat\Phi,\mathbf{\hat A})$ ed espresse dalla II e III equazione di Maxwell.
+
+\subsubsection{Equazioni dei potenziali}
+Utilizzando i potenziali di gauge, dalla I e IV equazione ricavo (ricordando che $\nabla(\nabla^2\psi)=\nabla^2(\nabla\psi))$\\ 
 $\begin{cases}
-	\nabla \cdot \mathbf E = 0\\
-	\nabla \cdot \mathbf B = 0\\
-	\nabla \times \mathbf E = -  \fracp{\mathbf B}t\\
-	\nabla \times \mathbf B = \mu_0\varepsilon_0 \fracp{\mathbf E}t
-\end{cases}$
+	\nabla^2 \hat\Phi + \fracp{}{t}\dive\mathbf{\hat A} = -\rho/\varepsilon_0\\
+	\nabla^2\mathbf{\hat A} - \nabla(\dive\mathbf{\hat A} + \mu_0\varepsilon_0 \fracp{\hat\Phi}t) - \mu_0\varepsilon_0 \fracpq{\mathbf{\hat A}}t = -\mu_0 \mathbf J
+\end{cases}$\\
+Nonostante ho utilizzato i potenziali di gauge non compaiono termini con la funzione di gauge $\psi$, cioè le 4 equazioni di Maxwell sono invarianti rispetto alle trasformazioni di gauge.
 
-\subsubsection{}
-Le equazioni di Maxwell sono un sistema di equazioni differenziali del primo ordine accoppiate. L'obiettivo è avere meno equazioni del secondo ordine. Dalla II equazione di Maxwell $\dive\mathbf B = 0 \;\Rightarrow\; \mathbf B = \rot(\mathbf A + \nabla\psi)$. L'ultima la sostituisco nella III equazione di Maxwell $\rot(\mathbf E + \fracp{\mathbf A}t) = 0 \;\Rightarrow\; \mathbf E + \fracp{\mathbf A}{t} = -\nabla\Phi \;\Rightarrow\; \mathbf E = -\nabla\Phi - \fracp{\mathbf A}t$
-
-
+\subsubsection{Gauge di Lorentz}
+Se impongo la condizione $\dive\mathbf{\hat A} + \mu_0\varepsilon_0 \fracp{\hat\Phi}t = 0$ ottengo delle equazioni disaccoppiate per i potenziali\\
+$\begin{cases}
+		\nabla^2 \hat\Phi - \mu_0\varepsilon_0 \fracpq{\hat\Phi}t = -\rho/\varepsilon_0\\
+	\nabla^2\mathbf{\hat A} - \mu_0\varepsilon_0 \fracpq{\mathbf{\hat A}}t = -\mu_0 \mathbf J
+\end{cases} $
 
 
 
