@@ -72,8 +72,8 @@ Le equazioni di Maxwell sono state compiutamente definite (1865)
 
 	\section{Elettrostatica e magnetostatica}
 \subsection{Elettrostatica}
-\subsubsection{Legge di Coulomb}
-$\mathbf E = \frac1{4\pi\epsilon_0} \int \rho \de\upsilon^\prime \frac{\mathbf r - \mathbf r^\prime}{|\mathbf r - \mathbf r^\prime|^3} = \frac1{4\pi\epsilon_0} \int \rho \de\upsilon^\prime \nabla(-\frac1 {|\mathbf r-\mathbf r^\prime|}) = - \frac1{4\pi\epsilon_0} \nabla (\int \frac{\rho \de\upsilon^\prime}{|\mathbf r-\mathbf r^\prime|})$
+\subsubsection{Legge di Coulomb e potenziale}
+$\mathbf E = \frac1{4\pi\epsilon_0} \int \rho \de\upsilon^\prime \frac{\mathbf r - \mathbf r^\prime}{|\mathbf r - \mathbf r^\prime|^3} = \frac1{4\pi\epsilon_0} \int \rho \de\upsilon^\prime \nabla(-\frac1 {|\mathbf r-\mathbf r^\prime|}) = - \frac1{4\pi\epsilon_0} \nabla (\int \frac{\rho \de\upsilon^\prime}{|\mathbf r-\mathbf r^\prime|}) = - \frac1{4\pi\epsilon_0} \nabla V$
 
 \subsubsection{Lavoro di una forza centrale}
 La carica $q$ nell'origine produce il campo $\vec E(\vec r) = \frac{q}{4\pi\epsilon_0}\frac{\vec r}{||\vec r||^3}$. La carica $Q$ si muove da $A$ a $B$ lungo un percorso arbitrario $\gamma$. Decompongo il percorso in due tratti: con $\gamma_1$ arrivo sullo stesso raggio passante per $B$ muovendomi lungo 'arco $AB$ centrato nella carica; con $\gamma_2$ arrivo a $B$ muovendomi radialmente. Il lavoro del campo sulla carica è $\mathscr L_\gamma = \frac{qQ}{4\pi\epsilon_0}\int_A^B \frac{\vec r \cdot \de\vec s}{||\vec r||^3} = \mathscr L_{\gamma_1} + \mathscr L_{\gamma_2}$. Lungo $\gamma_1$ si ha $\vec r \perp \de\vec s$ quindi contano solo gli spostamenti radiali; il problema diventa unidimensionale. Lungo $\gamma_2$ si ha $\de\vec s = \hat r\,\de r$ quindi $\mathscr L_\gamma = \mathscr L_{\gamma_2} = \frac{qe}{4\pi\epsilon_0}\int_{r_A}^{r_B} \frac{r\,\de r}{r^3} = -\frac{qQ}{4\pi\epsilon_0}(\frac1{r_B}-\frac1{r_A})$.\\
@@ -83,7 +83,14 @@ Gli spostamenti sulle superfici equipotenziali non fanno lavoro.
 Ci sono 2 modi per ottenerla: nella definizione di campo elettrico uso l'identità $\nabla(-\frac1{|\mathbf r-\mathbf r^\prime|}) = \frac{\mathbf r-\mathbf r^\prime}{|\mathbf r-\mathbf r^\prime|^3}$ per definire $\mathbf E$ in termini del gradiente di una funzione. Per un'identità vettoriale segue $\rot\mathbf E= 0$. L'altro modo è calcolare il lavoro del campo elettrico e vedere che viene $L_{AB} \propto (\frac1{r_1} - \frac1{r_2})$ cioè non dipende dalla traiettoria quindi è un campo conservativo ed esiste una funzione tale che $L_{AB} = V(A) - V(B)$ e $\mathbf E = -\nabla V$
 
 \subsubsection{Energia potenziale elettrostatica}
-Il lavoro fatto per spostare una carica è $\int_A^B \mathbf F \cdot \de\mathbf s = \int_A^O + \int_O^B = U(A) - U(B)$. La forza è $\mathbf F = q \mathbf E$ quindi $U = qV$.
+Il lavoro da fare sulla carica per spostarla fra due punti è $\mathscr L_A^B = -\int_A^B q \mathbf E \cdot \de\mathbf s$, il segno meno in quanto è fatto dall'ambiente esterno sulla carica. Se si assume $A \equiv \infty$ come riferimento, ritrovo la definizione di energia potenziale elettrostatica rispetto all'$\infty$ cioè $U_\infty(P) = -\int_\infty^P q \mathbf E \cdot \de\mathbf s$, in cui si pone $U(\infty) = 0$. Di conseguenza si trova $\mathscr L_A^B = -(U_\infty(A) - U_\infty(B)) = \Delta U_\infty$.
+
+\subsubsection{Energia potenziale elettrostatica e potenziale elettrostatico}
+Per la conservatività vale $\mathscr L_A^B = -\int q (-\nabla\mathbf V) \cdot \de\mathbf s = -q\int_A^B -\de V = -q [-V_B - (-V_A)] = q \Delta V$. Confrontando con la precedente si ottiene $\Delta U = q \Delta V$. Il trucco sta nell'assumere $A \equiv \infty$ e $U(\infty) = 0$ in modo da avere $U(P) = q V(P)$.
+
+\subsubsection{Energia potenziale elettrostatica e densità di energia}
+Parto con il sistema di $N-1$ cariche $\{(q_k, \mathbf r_k)\}_{k=1,\ldots,N-1}$ a cui aggiungo una carica $q$ dall'infinito portandola in $\mathbf r$. Per sovrapposizione lineare si muove nel potenziale delle altre $N$ quindi serve l'energia $U = \sum_k q V_k(\mathbf r) = q \sum_k \frac{q_k} {4\pi\epsilon_0} \frac{ \mathbf r}{|\mathbf r - \mathbf r_k|}$. Con lo stesso ragionamento posso calcolare l'energia necessaria per assemblare il sistema delle $N$ cariche partendo dalla prima. Nel limite del continuo si dimostra che vale $U_{tot} = \frac12 \int \rho V \de\upsilon$. È messa in evidenza l'interazione fra le cariche ma si può trovare una forma alternativa in cui si mette in evidenza l'energia del campo elettrico. Poiché $\nabla^2 V = -\rho/\epsilon_0$ si trova,integrando per parti ($\nabla V \cdot V = 0$), $U = \frac{\epsilon_0}2 \int |\nabla V|^2 \de\upsilon = \frac{\epsilon_0}2 \int \mathbf E^2 \de\upsilon$, e posso definire la densità di energin $w = \frac{\epsilon_0}2 \mathbf E^2$ [VEDI JACKSON PER AUTO ENERGIE]
+
 
 \subsubsection{Potenziale dipolo elettrico a grandi distanze}
 A grandi distanze $(r \gg d$) il potenziale del dipolo elettrico si può scrivere $V(\mathbf r) \approx \frac1{4\pi\epsilon_0} \frac{\mathbf p \cdot \mathbf r}{r^3}$ dove $\mathbf p = q \mathbf d$ è il momento di dipolo. Ho due cariche $q_+$ e $q_-$ a distanza $d$ e valuto il potenziale in un punto $P$ a distanza $r\gg d$ dal centro del dipolo, che vale $V(r)=\frac{q}{4\pi\epsilon} (\frac1{r_+}-\frac1{r_-}) = \frac{q}{4\pi\epsilon} \frac{r_- - r_+}{r_- r_+}$. Se $r \ll d$ allora $r_- \approx r_+$ quindi $r_- r_+ \approx r^2$. La differenza al numeratore dipende dalla posizione di $P$ rispetto all'asse del dipolo: se è sull'asse vale $d$, se è sull'ortogonale vale $0$, è facile convincersi che $r_- - r_+ \approx d \cos\theta$. Con queste approssimazioni il potenziale si scrive nella forma sopra osservando che $\frac{q d \cos\theta}{r^2} = \frac{\mathbf p \cdot \mathbf r}{r^3}$. L'approssimazione è tanto migliore quanto più $r\gg d$.
@@ -95,7 +102,7 @@ Da lontano una generica distribuzione è vista come una carica totale + un momen
 Vedi Picasso
 
 \subsubsection{Forze sul dipolo elettrico}
-Sulle cariche agiscono le forze $\mathbf F_+ = q\mathbf E$ e $\mathbf F_- = -q\mathbf E$. Il momento risultate rispetto al centro del dipolo è $\mathbf M = \frac{\mathbf\delta}2 \times q\mathbf E + (-\frac{\mathbf\delta}2) \times -q\mathbf E = \mathbf p \times \mathbf E$. la forza risultate è $\mathbf F = q\mathbf E(\mathbf r_-)  -q \mathbf E(\mathbf r_+)$. Senza perdita di generalità (?) posso assumere $\mathbf r_-=(x,y,z)$ e $\mathbf r_+=(x+\de x,y+\de y,z+\de z)$. Per ogni componente della forza trovo $F_j = q(\fracp{E_x}{x}\de x + \fracp{E_x}{y}\de y + \fracp{E_x}{z}\de z) = q \nabla E_j \cdot \mathbf \delta = \mathbf p \cdot \nabla E_j$. Si dimostra che $\mathbf F = \nabla (\mathbf p \cdot \mathbf E)$
+La risultante delle forze è $\mathbf F = q(\mathbf E(\mathbf r) - \mathbf E(\mathbf r + \mathbf d)) = q (\mathbf d \cdot \nabla\mathbf E) = \mathbf p \cdot \nabla\mathbf E$. Il momento risultate rispetto al centro del dipolo è $\mathbf M = \frac{\mathbf\delta}2 \times q\mathbf E + (-\frac{\mathbf\delta}2) \times -q\mathbf E = \mathbf p \times \mathbf E$.
 
 \subsubsection{Le distribuzioni superficiali introducono discontinuità}
 Sia distribuita una carica $\sigma(\mathbf r)$ su una superficie. Prendo un cilindretto di Gauss a cavallo della superficie con altezza infinitesima rispetto al raggio; il flusso elementare è $\mathbf E_1 \cdot \mathbf n \de S - \mathbf E_1 \cdot \mathbf n \de S$ e la carica racchiusa è $\sigma \de S$. Per Gauss trovo $(\mathbf E_1 - \mathbf E_2)\cdot\mathbf n = \sigma/\epsilon$ cioè la componenti normale del campo subisce una discontinuità di $\sigma/\epsilon$
@@ -110,6 +117,9 @@ Una sfera di raggio $R_1$ e densità di carica uniforme $\varrho$ ha al suo inte
 \subsubsection{Campi elettrici non conservativi}
 Per il campo $\mathbf E_s$ delle forze elettrostatiche vale la II equazione di Maxwell $\rot\mathbf E_s = 0$ quindi $\Gamma(\mathbf E) = \oint E_s\cdot\de s = 0$. Ma esistono campi elettrici $E_{nc}$ per i quali si verifica $\Gamma(\mathbf E_{nc}) \neq 0$ e si parla di forze elettromotrici $fem$. Alcuni esempi sono:
 generatore van de Graff, reazioni chimiche nelle pila/accumulatore, forza di Lorentz in effetto Hall, induzione elettromagnetica (!).
+
+\subsubsection{Moto in un campo elettrostatico}
+L'equazione del moto è $q \mathbf E(\mathbf r) = m \ddot{\mathbf r}$. Se $\mathbf E$ è uniforme ($\mathbf E \parallel \mathbf x$) allora $\ddot x = \frac{qE}m$, cioè l'accelerazione è costante.
 
 \subsection{Magnetostatica}
 \subsubsection{Legge di Laplace}
@@ -159,6 +169,9 @@ Un conduttore filiforme è piegato ad U, con i rami paralleli a distanza $L$. Su
 \underline{Soluzione:} il moto delle cariche genera una densità di corrente $\vec J_\mathrm n=\sigma_0v_0\,\hat\jmath$ a cui corrisponde una corrente circolante in direzione $\hat\jmath$ di intensità $I_\mathrm n=\int_{-a/2}^{a/2}\vec J_\mathrm n\cdot\hat n\,\mathrm dx=\sigma_0v_0a$. Posso pensare di suddividere il nastro in fili rettilinei indefiniti infinitesimi larghi $\mathrm dx$. Per capire la corrente che scorre in ognuno di essi scrivo la corrente per unità di larghezza del nastro che è $\frac{I_\mathrm n}a$. Visto che un filo è largo $\mathrm dx$ allora in ogni filo scorre la corrente $\mathrm dI=\frac {I_\mathrm n}a\,\mathrm dx$. Il contributo di un filo al campo di induzione in $P$ è $\mathrm d\vec B=-\frac{\mu_0}{2\pi}\frac 1x\frac{I_\mathrm n}a\,\mathrm dx\,\hat k$, dove $x$ è la distanza di $P$ dal generico filo infinitesimo. Tutti i contributi dei vari fili infinitesimi sono paralleli fra di loro e concordi quindi basta integrarli $\vec B=-\frac{\mu_0I_\mathrm n}{2\pi a}\int_d^{d+a}\frac{\mathrm dx}{x}=-\frac{\mu_oI_\mathrm n}{2\pi a}\log(\frac{d+a}{d})$.\\
 Il campo di induzione generato dalla corrente $I_\mathrm n$ induce sugli elementi di corrente del filo la forza $\mathrm d\vec F=I_\mathrm f\,\mathrm dy\,\hat\jmath\times\frac{\mu_0I_\mathrm n}{2\pi a}\log(\frac{d+a}{d})(-\hat k)=-\frac{\mu_0I_\mathrm nI_\mathrm f}{2\pi a}\log(\frac{d+a}a)\mathrm dy\,\hat\imath$. Questa rappresenta la forza indotta dal nastro sul filo, per unità di lunghezza del filo.
 
+\subsubsection{Moto in un campo magnetostatico}
+L'equazione del moto è $q (\mathbf v_\parallel + \mathbf v_\perp) \times \mathbf B = m(\dot{\mathbf v}_\parallel + \dot{\mathbf v}_\perp)$. Poiché $\mathbf v_\parallel \times \mathbf B = 0$ si riduce alle equazioni $v_\parallel = cost$ e $q v_\perp B = m \dot v_\perp$. Il moto è elicoidale uniforme.
+
 \subsubsection{Effetto Hall}
 Viene fatta scorrere corrente in una piastra conduttrice in senso longitudinale
 
@@ -172,7 +185,7 @@ Viene fatta scorrere corrente in una piastra conduttrice in senso longitudinale
 	
 	III & $\Gamma(\mathbf E) = 0$ & $\oint \mathbf E(\mathbf r) \cdot \de\mathbf s = 0$ & $\nabla \times \mathbf E(\mathbf r) = 0$\\
 	
-	IV & $\Gamma(\mathbf B) = \Phi(\mathbf J)$ & $\oint \mathbf B(\mathbf r) \cdot \de\mathbf s = \mu_0 \int \mathbf J(\mathbf r) \cdot \mathbf n \de\varsigma$ & $\nabla \times \mathbf B(\mathbf r) = \mu_0 \mathbf J(\mathbf r)$
+	IV & $\Gamma(\mathbf B) = \Phi(\mu_0 \mathbf J)$ & $\oint \mathbf B(\mathbf r) \cdot \de\mathbf s = \mu_0 \int \mathbf J(\mathbf r) \cdot \mathbf n \de\varsigma$ & $\nabla \times \mathbf B(\mathbf r) = \mu_0 \mathbf J(\mathbf r)$
 \end{tabular}\\
 Campo elettrico e campo magnetico sono entità separate
 
@@ -345,34 +358,41 @@ Nel vuoto $\begin{cases}
 \end{cases}$
 	
 \section{Elettrodinamica}
+\subsubsection{Potenziali elettromagnetici}
+Le equazioni di Maxwell sono un sistema di equazioni differenziali del primo ordine accoppiate. L'obiettivo è avere meno equazioni del secondo ordine e possibilmente disaccoppiate. Dalla II equazione ho $\mathbf A$ il potenziale vettoriale $\mathbf B = \rot\mathbf A$ che sostituisco nella III equazione per avere $\Phi$ il potenziale scalare $\rot(\mathbf E + \fracp{\mathbf A}t) = 0 \;\Rightarrow\; \mathbf E + \fracp{\mathbf A}{t} = -\nabla\Phi \;\Rightarrow\; \mathbf E = -\nabla\Phi - \fracp{\mathbf A}t$. In altre parole $\mathbf A$ e $\Phi$ definiscono il campo elettromagnetico.
+
 \subsubsection{Trasformazioni di gauge}
-Le equazioni di Maxwell sono un sistema di equazioni differenziali del primo ordine accoppiate. L'obiettivo è avere meno equazioni del secondo ordine e possibilmente disaccoppiate. Dalla II equazione ho $\mathbf A$ il potenziale magnetico $\mathbf B = \rot\mathbf A$ che sostituisco nella III equazione per avere $\Phi$ il potenziale elettrico $\rot(\mathbf E + \fracp{\mathbf A}t) = 0 \;\Rightarrow\; \mathbf E + \fracp{\mathbf A}{t} = -\nabla\Phi \;\Rightarrow\; \mathbf E = -\nabla\Phi - \fracp{\mathbf A}t$. Se definisco le trasformazioni di gauge $\mathbf A_g = \mathbf {\hat A} + \nabla\psi$ e $\Phi_g= \hat\Phi - \fracp{\psi}t$, si verifica facilmente che $\mathbf B(\mathbf A_g) = \mathbf B(\mathbf{\hat A})$ e $\mathbf E(\Phi_g,\mathbf A_g) = \mathbf E(\hat\Phi,\mathbf{\hat A})$.
+Si verifica facilmente che, se $\mathbf A$ e $\Phi$ sono i potenziali come definiti sopra, allora $\forall \psi$ anche $\mathbf A_\psi = \mathbf A + \nabla\psi$ e $\Phi_\psi= \Phi - \fracp{\psi}t$ definiscono lo stesso campo elettromagnetico, cioè $\mathbf B(\mathbf A_\psi) = \mathbf B(\mathbf A)$ e $\mathbf E(\Phi_\psi\mathbf A_\psi) = \mathbf E(\Phi,\mathbf A)$. La scelta di $\psi$ è del tutto arbitraria, posso sfruttarla a mio vantaggio
 
 \subsubsection{Equazioni dei potenziali}
-Utilizzando i potenziali di gauge, dalla I e IV equazione ricavo (ricordando che $\nabla(\nabla^2\psi)=\nabla^2(\nabla\psi))$\\ 
+Utilizzando i potenziali di gauge, dalla I e IV equazione ricavo (ricordando che $\nabla(\nabla^2 f)=\nabla^2(\nabla f))$\\ 
 $\begin{cases}
-	\nabla^2 \hat\Phi + \fracp{}{t}\dive\mathbf{\hat A} = -\rho/\epsilon_0\\
-	\nabla^2\mathbf{\hat A} - \nabla(\dive\mathbf{\hat A} + \frac1c \fracp{\hat\Phi}t) - \frac1c \fracpq{\mathbf{\hat A}}t = -\mu_0 \mathbf J
+	\nabla^2 \Phi + \fracp{}{t}\dive\mathbf A = -\rho/\epsilon_0\\
+	\nabla^2\mathbf A - \nabla(\dive\mathbf A + \frac1{c^2} \fracp{\Phi}t) - \frac1{c^2} \fracpq{\mathbf A}t = -\mu_0 \mathbf J
 \end{cases}$\\
-Nonostante ho utilizzato i potenziali di gauge non compaiono termini con la funzione di gauge $\psi$, cioè le 4 equazioni di Maxwell sono invarianti rispetto alle trasformazioni di gauge.
+Nonostante ho utilizzato i potenziali di gauge non compaiono termini con $\psi$, cioè le equazioni di Maxwell sono invarianti rispetto alle TG. Posso scegliere arbitrariamente $\psi$ al fine di semplificare queste equazioni.
 
 \subsubsection{Gauge di Lorentz}
-Se impongo la condizione di Lorentz $\dive\mathbf A + \frac1c \fracp\Phi t = 0$ ottengo delle equazioni disaccoppiate per i potenziali\\
+Se impongo la condizione (di Lorentz) $\dive\mathbf A + \frac1{c^2} \fracp\Phi t = 0$ le equazioni dei potenziali diventano equazioni delle onde\\
 $\begin{cases}
-	\nabla^2 \hat\Phi - \frac1c \fracpq\Phi t = -\rho/\epsilon_0\\
-	\nabla^2\mathbf A - \frac1c \fracpq{\mathbf A}t = -\mu_0 \mathbf J
+	\nabla^2 \Phi - \frac1c \fracpq\Phi t = -\rho/\epsilon_0\\
+	\nabla^2 \mathbf A - \frac1c \fracpq{\mathbf A}t = -\mu_0 \mathbf J
 \end{cases}$\\
-Rimane da determinare la funzione di gauge $\psi$ affinché i potenziali soddisfino la relazione di Lorentz. Applicando la trasformazione di gauge a quest ultima si trova $\nabla^2\psi - \frac1c \fracpq{\psi}t = -\dive\mathbf{\hat A} - \frac1c \fracp{\hat\Phi}t = 0$. 
+che hanno soluzioni $\mathbf A$ e $\Phi$ note. La $\psi$\ associata si trova applicando la TG alla CL (cioè sostituisco $\mathbf A \to \mathbf A_\psi$ e $\Phi \to \Phi_\psi$) e trovo $\dive\mathbf  A + \frac1{c^2} \fracp\Phi t + \nabla^2\psi + \frac1{c^2} \fracpq{\psi}t = 0$. Se riesco a trovare una tale $\psi$ allora la CL è soddisfatta e $\mathbf A_\psi$ e $\Phi_\psi$ sono soluzioni equivalenti.
 
 \subsubsection{Gauge di Coulomb}
-Un altra scelta è $\dive\mathbf A = 0$, con la quale le equazioni dei potenziali diventano\\
+Un altra scelta è $\dive\mathbf A = 0$ e le equazioni dei potenziali diventano\\
 $\begin{cases}
-	\nabla^2 \hat\Phi = -\rho/\epsilon_0\\
-	\nabla^2\mathbf{\hat A} - \frac1c \fracpq{\mathbf{\hat A}}t = -\mu_0 \mathbf J + \frac1c \nabla \fracp{\hat\Phi}t
+	\nabla^2 \Phi = -\rho/\epsilon_0\\
+	\nabla^2 \mathbf A - \frac1{c^2} \fracpq{\mathbf A}t = -\mu_0 \mathbf J + \frac1{c^2} \nabla \fracp{\Phi} t
 \end{cases}$\\
-In assenza di sorgenti le precedenti sono facilmente risolvibili. [NEL JACKSON C'È APPROFONDIMENTO SU CORRENTE LONG E TRASV]
+La prima ha soluzione nota $\Phi = \frac1{4\pi\epsilon_0} \int \frac\rho{|\mathbf x - \mathbf x^\prime|} \de\upsilon^\prime$. In assenza di sorgenti le precedenti sono facilmente risolvibili. [NEL JACKSON C'È APPROFONDIMENTO SU CORRENTE LONG E TRASV]
+
+\subsubsection{Equazioni delle onde elettromagnetiche}
+Dalle equazioni nel vuoto in assenza di sorgenti, facendo il rotore della III e IV equazione, si arriva alle equazioni che governano la propagazione del campo elettromagnetico $\nabla^2 \mathbf E = \frac1{c^2} \fracpq{\mathbf E}t$ e $\nabla^2 \mathbf B = \frac1{c^2} \fracpq{\mathbf B}t$ nella forma di onde elettromagnetiche.
 
 \subsubsection{Teorema di Poynting}
 
-
+\subsubsection{Equazione di D'Alambert}
+Scrivo l'equazione del moto di un tratto $\de l$ di corda ideale (omogenmea, flessibile, inestensibile, \ldots) in direzione della sua oscillazione. Se chiamo $\xi$ lo spostamento del tratto infinitesimo allora $[0,L] \times [0,T] \ni (x,t)  \mapsto \xi(x,t)$ individua il moto della corda. La forza lungo $y$ è $F_y = T(\sin\alpha_2 - \sin\alpha_1) \approx T[(\xi_x(x_2) - \xi_x(x_1)] \approx T \xi_{xx}(\frac{x_1+x_2}2) \de x \approx T \xi_{xx} (\frac{x_1+x_2}2) \de l$. Quindi l'equazione del moto è $\rho \de l \xi_{tt} = T \xi_{xx} \de l$. Si definisce la velocità di fase $v = \sqrt{T/\rho}$ quindi $\xi_{tt} = v \xi_{xx}$. 
 \end{document}

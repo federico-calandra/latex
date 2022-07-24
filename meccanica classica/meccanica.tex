@@ -163,7 +163,22 @@ $\frac{\mathrm{d}}{dt}\frac{\partial T}{\partial\dot{\mathbf{q}}}(\mathbf{q},\do
 $\frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L}{\partial\dot{\mathbf{q}}}(\mathbf{q},\dot{\mathbf{q}},t)-\frac{\partial L}{\partial \mathbf{q}}(\mathbf{q},\dot{\mathbf{q}},t)=0$\\
 $Q_h(\mathbf{q},\dot{\mathbf{q}},t)=\sum_j(\frac{\partial a_h}{\partial q_j}-\frac{\partial a_j}{\partial q_h})\dot q_h+\frac{\partial a_h}{\partial t}-\frac{\partial V_0}{\partial q_h}$
 
-\section{ASPETTI ENERGETICI}+
+\section{ASPETTI ENERGETICI}
+\subsubsection{Lavoro}
+$\mathscr L_{A \to B}^\gamma (\mathbf F) = \int_A^B \mathbf F \cdot \de\mathbf s$\\
+$\mathscr L > 0$ se è fatto dal sistema sull'ambiente\\
+$\mathscr L < 0$ se è fatto dall'ambiente sul sistema\\
+
+\subsubsection{Energia potenziale}
+Sono equivalenti \begin{enumerate}
+	\item $\forall i,j \quad \mathscr L_{A \to B}^{\gamma_i} (\mathbf F) = \mathscr L_{A \to B}^{\gamma_j} (\mathbf F)$
+\item $\oint \mathbf F \cdot \de\mathbf s = 0$
+	\item $\exists U : \mathscr L_{A \to B}^\gamma (\mathbf F) = U(A) - U(B)$
+	\item $\mathbf F = -\nabla U$
+	\item $\rot\mathbf F = 0$\\
+\end{enumerate}
+$U_O(P) = -\int_O^P \mathbf F \cdot \de\mathbf s$
+
 \subsubsection{Teorema dell'energia cinetica}
 $\mathscr L_{A \to B}^\gamma (\mathbf F) = \int_A^B \mathbf{\dot p} \cdot \de\mathbf s$
 
