@@ -2,7 +2,7 @@
 
 %% PACCHETTI AGGIUNTIVI
 \usepackage{amssymb,amsmath,amsthm,amsfonts}
-%\usepackage{bm}
+\usepackage{bm}
 \usepackage{calc}
 %\usepackage[inline]{enumitem}
 %\usepackage{ifthen}
@@ -70,7 +70,7 @@ Tra due fili percorsi da correnti si esercitano delle forze (1820)
 \subsubsection{Maxwell}
 Le equazioni di Maxwell sono state compiutamente definite (1865)
 
-	\section{Elettrostatica e magnetostatica}
+	\section{Campi elettrici e magnetici nel vuoto}
 \subsection{Elettrostatica}
 \subsubsection{Legge di Coulomb e potenziale}
 $\mathbf E = \frac1{4\pi\epsilon_0} \int \rho \de\upsilon^\prime \frac{\mathbf r - \mathbf r^\prime}{|\mathbf r - \mathbf r^\prime|^3} = \frac1{4\pi\epsilon_0} \int \rho \de\upsilon^\prime \nabla(-\frac1 {|\mathbf r-\mathbf r^\prime|}) = - \frac1{4\pi\epsilon_0} \nabla (\int \frac{\rho \de\upsilon^\prime}{|\mathbf r-\mathbf r^\prime|}) = - \frac1{4\pi\epsilon_0} \nabla V$
@@ -191,7 +191,7 @@ Campo elettrico e campo magnetico sono entità separate
 
 
 
-	\section{Conduttori e dielettrici}
+	\section{Campi elettrici e magnetici nella materia}
 \subsubsection{Condizioni di raccordo all'interfaccia}
 La situazione generale è una superficie regolare $\Sigma$, che porta carica superficiale $\sigma$ e correnti $\mathbf K$, e separa le regioni 1 e 2 di spazio con materia diversa. Si applicano la I e II equazione di Maxwell ad una pillbox gaussiana a cavallo dell'interfaccia. La III e IV equazione di Maxwell si applicano ad un cammino stokesiano a cavallo dell'interfaccia; il piano di giacitura del cammino ha $\mathbf t$ come versore normale (quindi tangente a $\Sigma$).\\
 Con la I equazione si trova $(\mathbf D_2 - \mathbf D_1) \cdot \mathbf n = \sigma$, cioè la componente normale di $\mathbf D$ ha una discontinuità a salto. Nel vuoto è $\epsilon = \epsilon_0$ quindi $(\mathbf E_2 - \mathbf E_1) \cdot \mathbf n = \sigma/\epsilon_0$.\\
@@ -357,47 +357,70 @@ Nel vuoto $\begin{cases}
 	\nabla \times \mathbf B(\mathbf r,t) = \frac1c \fracp{\mathbf E}t (\mathbf r,t)
 \end{cases}$
 	
-\section{Elettrodinamica}
-\subsubsection{Potenziali elettromagnetici}
-Le equazioni di Maxwell sono un sistema di equazioni differenziali del primo ordine accoppiate. L'obiettivo è avere meno equazioni del secondo ordine e possibilmente disaccoppiate. Dalla II equazione ho $\mathbf A$ il potenziale vettoriale $\mathbf B = \rot\mathbf A$ che sostituisco nella III equazione per avere $\Phi$ il potenziale scalare $\rot(\mathbf E + \fracp{\mathbf A}t) = 0 \;\Rightarrow\; \mathbf E + \fracp{\mathbf A}{t} = -\nabla\Phi \;\Rightarrow\; \mathbf E = -\nabla\Phi - \fracp{\mathbf A}t$. In altre parole $\mathbf A$ e $\Phi$ definiscono il campo elettromagnetico.
-
-\subsubsection{Trasformazioni di gauge}
-Si verifica facilmente che, se $\mathbf A$ e $\Phi$ sono i potenziali come definiti sopra, allora $\forall \psi$ anche $\mathbf A_\psi = \mathbf A + \nabla\psi$ e $\Phi_\psi= \Phi - \fracp{\psi}t$ definiscono lo stesso campo elettromagnetico, cioè $\mathbf B(\mathbf A_\psi) = \mathbf B(\mathbf A)$ e $\mathbf E(\Phi_\psi\mathbf A_\psi) = \mathbf E(\Phi,\mathbf A)$. La scelta di $\psi$ è del tutto arbitraria, posso sfruttarla a mio vantaggio
-
-\subsubsection{Equazioni dei potenziali}
-Utilizzando i potenziali di gauge, dalla I e IV equazione ricavo (ricordando che $\nabla(\nabla^2 f)=\nabla^2(\nabla f))$\\ 
-$\begin{cases}
-	\nabla^2 \Phi + \fracp{}{t}\dive\mathbf A = -\rho/\epsilon_0\\
-	\nabla^2\mathbf A - \nabla(\dive\mathbf A + \frac1{c^2} \fracp{\Phi}t) - \frac1{c^2} \fracpq{\mathbf A}t = -\mu_0 \mathbf J
-\end{cases}$\\
-Nonostante ho utilizzato i potenziali di gauge non compaiono termini con $\psi$, cioè le equazioni di Maxwell sono invarianti rispetto alle TG. Posso scegliere arbitrariamente $\psi$ al fine di semplificare queste equazioni.
-
-\subsubsection{Gauge di Lorentz}
-Se impongo la condizione (di Lorentz) $\dive\mathbf A + \frac1{c^2} \fracp\Phi t = 0$ le equazioni dei potenziali diventano equazioni delle onde\\
-$\begin{cases}
-	\nabla^2 \Phi - \frac1c \fracpq\Phi t = -\rho/\epsilon_0\\
-	\nabla^2 \mathbf A - \frac1c \fracpq{\mathbf A}t = -\mu_0 \mathbf J
-\end{cases}$\\
-che hanno soluzioni $\mathbf A$ e $\Phi$ note. La $\psi$\ associata si trova applicando la TG alla CL (cioè sostituisco $\mathbf A \to \mathbf A_\psi$ e $\Phi \to \Phi_\psi$) e trovo $\dive\mathbf  A + \frac1{c^2} \fracp\Phi t + \nabla^2\psi + \frac1{c^2} \fracpq{\psi}t = 0$. Se riesco a trovare una tale $\psi$ allora la CL è soddisfatta e $\mathbf A_\psi$ e $\Phi_\psi$ sono soluzioni equivalenti.
-
-\subsubsection{Gauge di Coulomb}
-Un altra scelta è $\dive\mathbf A = 0$ e le equazioni dei potenziali diventano\\
-$\begin{cases}
-	\nabla^2 \Phi = -\rho/\epsilon_0\\
-	\nabla^2 \mathbf A - \frac1{c^2} \fracpq{\mathbf A}t = -\mu_0 \mathbf J + \frac1{c^2} \nabla \fracp{\Phi} t
-\end{cases}$\\
-La prima ha soluzione nota $\Phi = \frac1{4\pi\epsilon_0} \int \frac\rho{|\mathbf x - \mathbf x^\prime|} \de\upsilon^\prime$. In assenza di sorgenti le precedenti sono facilmente risolvibili. [NEL JACKSON C'È APPROFONDIMENTO SU CORRENTE LONG E TRASV]
+%\section{Elettrodinamica}
+%\subsubsection{Potenziali elettromagnetici}
+%Le equazioni di Maxwell sono un sistema di equazioni differenziali del primo ordine accoppiate. L'obiettivo è avere meno equazioni del secondo ordine e possibilmente disaccoppiate. Dalla II equazione ho $\mathbf A$ il potenziale vettoriale $\mathbf B = \rot\mathbf A$ che sostituisco nella III equazione per avere $\Phi$ il potenziale scalare $\rot(\mathbf E + \fracp{\mathbf A}t) = 0 \;\Rightarrow\; \mathbf E + \fracp{\mathbf A}{t} = -\nabla\Phi \;\Rightarrow\; \mathbf E = -\nabla\Phi - \fracp{\mathbf A}t$. In altre parole $\mathbf A$ e $\Phi$ definiscono il campo elettromagnetico.
+%
+%\subsubsection{Trasformazioni di gauge}
+%Si verifica facilmente che, se $\mathbf A$ e $\Phi$ sono i potenziali come definiti sopra, allora $\forall \psi$ anche $\mathbf A_\psi = \mathbf A + \nabla\psi$ e $\Phi_\psi= \Phi - \fracp{\psi}t$ definiscono lo stesso campo elettromagnetico, cioè $\mathbf B(\mathbf A_\psi) = \mathbf B(\mathbf A)$ e $\mathbf E(\Phi_\psi\mathbf A_\psi) = \mathbf E(\Phi,\mathbf A)$. La scelta di $\psi$ è del tutto arbitraria, posso sfruttarla a mio vantaggio
+%
+%\subsubsection{Equazioni dei potenziali}
+%Utilizzando i potenziali di gauge, dalla I e IV equazione ricavo (ricordando che $\nabla(\nabla^2 f)=\nabla^2(\nabla f))$\\ 
+%$\begin{cases}
+%	\nabla^2 \Phi + \fracp{}{t}\dive\mathbf A = -\rho/\epsilon_0\\
+%	\nabla^2\mathbf A - \nabla(\dive\mathbf A + \frac1{c^2} \fracp{\Phi}t) - \frac1{c^2} \fracpq{\mathbf A}t = -\mu_0 \mathbf J
+%\end{cases}$\\
+%Nonostante ho utilizzato i potenziali di gauge non compaiono termini con $\psi$, cioè le equazioni di Maxwell sono invarianti rispetto alle TG. Posso scegliere arbitrariamente $\psi$ al fine di semplificare queste equazioni.
+%
+%\subsubsection{Gauge di Lorentz}
+%Se impongo la condizione (di Lorentz) $\dive\mathbf A + \frac1{c^2} \fracp\Phi t = 0$ le equazioni dei potenziali diventano equazioni delle onde\\
+%$\begin{cases}
+%	\nabla^2 \Phi - \frac1c \fracpq\Phi t = -\rho/\epsilon_0\\
+%	\nabla^2 \mathbf A - \frac1c \fracpq{\mathbf A}t = -\mu_0 \mathbf J
+%\end{cases}$\\
+%che hanno soluzioni $\mathbf A$ e $\Phi$ note. La $\psi$\ associata si trova applicando la TG alla CL (cioè sostituisco $\mathbf A \to \mathbf A_\psi$ e $\Phi \to \Phi_\psi$) e trovo $\dive\mathbf  A + \frac1{c^2} \fracp\Phi t + \nabla^2\psi + \frac1{c^2} \fracpq{\psi}t = 0$. Se riesco a trovare una tale $\psi$ allora la CL è soddisfatta e $\mathbf A_\psi$ e $\Phi_\psi$ sono soluzioni equivalenti.
+%
+%\subsubsection{Gauge di Coulomb}
+%Un altra scelta è $\dive\mathbf A = 0$ e le equazioni dei potenziali diventano\\
+%$\begin{cases}
+%	\nabla^2 \Phi = -\rho/\epsilon_0\\
+%	\nabla^2 \mathbf A - \frac1{c^2} \fracpq{\mathbf A}t = -\mu_0 \mathbf J + \frac1{c^2} \nabla \fracp{\Phi} t
+%\end{cases}$\\
+%La prima ha soluzione nota $\Phi = \frac1{4\pi\epsilon_0} \int \frac\rho{|\mathbf x - \mathbf x^\prime|} \de\upsilon^\prime$. In assenza di sorgenti le precedenti sono facilmente risolvibili. [NEL JACKSON C'È APPROFONDIMENTO SU CORRENTE LONG E TRASV]
 
 	\section{Onde elettromagnetiche}
 \subsubsection{Equazioni delle onde elettromagnetiche}
-Si cercano soluzioni delle EdM in assenza di sorgenti, della forma $\mathbf E = \mathbf E(x,t)$ e $\mathbf B = \mathbf B(x,t)$ cioè che assumono valori costanti in piani $\perp$ all'asse $x$. Con queste ipotesi le EdM si semplificano e si trova: $E_x = 0 \quad B_x = 0 \quad \square E_\alpha = 0 \quad \square B_\alpha = 0$ con $\alpha = y,z$. Il campo elettromagnetico si propaga lungo l'asse $x$ sotto forma di onde piane trasversali con velocità $v = 1/\sqrt{\epsilon\mu}$; si può dimostrare che $v < c$ in ogni caso. Le precedenti si possono risolvere e individuano $\mathbf E = E_y(x-vt) \mathbf u_y + E_z(x-vt) \mathbf u_z$ e $\mathbf B = B_y(x-vt) \mathbf u_y + B_z(x-vt) \mathbf u_z$
+Si cercano soluzioni delle EdM in assenza di sorgenti, della forma $\mathbf E = \mathbf E(x,t)$ e $\mathbf B = \mathbf B(x,t)$ cioè che assumono valori costanti in piani $\perp$ all'asse $x$. Con queste ipotesi le EdM si semplificano ($\alpha = y,z$):\\
+$\begin{cases} I \Rightarrow E_x = 0\\
+II \Rightarrow B_x = 0\\
+III \Rightarrow \square E_\alpha = 0\\
+IV \Rightarrow \square B_\alpha = 0 \end{cases}$\\
+Il campo elettromagnetico si propaga lungo l'asse $x$ sotto forma di onde piane trasversali con velocità $v = 1/\sqrt{\epsilon\mu}$; si può dimostrare che $v < c$ in ogni caso. Le precedenti si possono risolvere e individuano $\mathbf E = E_y(u) \mathbf u_y + E_z(u) \mathbf u_z$ e $\mathbf B = B_y(u) \mathbf u_y + B_z(u) \mathbf u_z$, dove $u = x-vt$.
 
-\subsubsection{Polarizzazione}
-Fra $\mathbf E$ e $\mathbf B$ esistono delle relazioni geometriche
+\subsubsection{Relazioni fra i campi}
+Nei passaggi intermedi per ottenere le precedenti si trovano equazioni che legano fra loro le derivate di $\mathbf E$ e $\mathbf B$, fra cui (con il cambio di variabile) $\partial_t B_y = \partial_x E_z = \partial_u E_z \partial_x u$ e $\partial_t B_z = -\partial_x E_y$. Dalla loro integrazione seguono delle relazioni che permettono di scrivere $v \mathbf B = -E_z(u) \mathbf u_y + E_y(u) \mathbf u_z$ (e analogamente per $\mathbf E$). In ogni caso si trova $\mathbf E \cdot \mathbf B = 0$ (sono ortogonali) e $\mathbf E \times \mathbf B = \frac1v (E_y^2 + E_z^2) \mathbf u_x = E^2/v \mathbf u_x$ (entrambi ortogonali alla direzione di propagazione). Anche i moduli sono in relazione, infatti si trova $E^2 = v^2 B^2$ da cui $E/B = v$.
 
+\subsubsection{Indice di rifrazione e impedenza del vuoto}
+Vedi Mazzoldi Cap 13
 
 \subsubsection{Teorema di Poynting}
+La diminuzione di energia elettromagnetica è dovuta al flusso del vettore di Poynting e alla potenza trasferita dal campo alle cariche. La densità di energia del campo in mezzi isotropi lineari è $u = \frac12(\mathbf E \cdot \epsilon\mathbf E + \mathbf B \cdot \mathbf B/\mu$). La potenza trasferita ad una distribuzione continua è $\fracd{E_{mecc}}{t} = \int \mathbf E \cdot \mathbf J \de\upsilon$. Con la III e IV equazione, l'identità vettoriale DPV si può riscrivere $P = -\int (\dive(\mathbf E\times\mathbf H) + \mathbf E \cdot \partial_t\mathbf D + \mathbf B \cdot \partial_t \mathbf H)\de\upsilon$. Si riconosce $\partial_t u$ negli ultimi due termini del rhs, quindi $\int (\mathbf E \cdot \mathbf J)\de\upsilon = -\int(\dive(\mathbf E \times \mathbf H) + \partial_t u)\de\upsilon$. La forma locale $-\partial_t u = \dive\mathbf S - \mathbf E \cdot \mathbf J$ mette meglio in evidenza la legge di bilancio, essendo $\mathbf S = \mathbf E \times H$ il vettore di Poynting che descrive il flusso dell'energia trasportata dall'onda elettromagnetica.
 
-\subsubsection{Equazione di D'Alambert}
-Scrivo l'equazione del moto di un tratto $\de l$ di corda ideale (omogenmea, flessibile, inestensibile, \ldots) in direzione della sua oscillazione. Se chiamo $\xi$ lo spostamento del tratto infinitesimo allora $[0,L] \times [0,T] \ni (x,t)  \mapsto \xi(x,t)$ individua il moto della corda. La forza lungo $y$ è $F_y = T(\sin\alpha_2 - \sin\alpha_1) \approx T[(\xi_x(x_2) - \xi_x(x_1)] \approx T \xi_{xx}(\frac{x_1+x_2}2) \de x \approx T \xi_{xx} (\frac{x_1+x_2}2) \de l$. Quindi l'equazione del moto è $\rho \de l \xi_{tt} = T \xi_{xx} \de l$. Si definisce la velocità di fase $v = \sqrt{T/\rho}$ quindi $\xi_{tt} = v \xi_{xx}$. 
+
+\section{Appendice}
+\subsubsection{Equazione di D'Alambert per la corda vibrante}
+Scrivo l'equazione del moto di un tratto $\de l$ di corda ideale (omogenea, flessibile, inestensibile, \ldots) in direzione della sua oscillazione. Se chiamo $\xi$ lo spostamento del tratto infinitesimo allora $[0,L] \times [0,T] \ni (x,t)  \mapsto \xi(x,t)$ individua il moto della corda. Ad ogni istante, la forza lungo $y$ è $F_y = T(\sin\alpha_2 - \sin\alpha_1) \approx T[(\xi_x(x_2) - \xi_x(x_1)] \approx T \xi_{xx}(\frac{x_1+x_2}2) \de x \approx T \xi_{xx} (\frac{x_1+x_2}2) \de l$. Quindi l'equazione del moto è $\rho \de l \xi_{tt} = T \xi_{xx} \de l$. Si definisce la velocità di fase $v = \sqrt{T/\rho}$ quindi $\xi_{xx} = \frac1{v^2} \xi_{tt}$. Si può dimostrare che la soluzione più generale(funzione d'onda) è $\xi(x,t) = f(x-vt) + g(x+vt)$, in cui $f$ e $g$ possono avere forma arbitraria ma devono dipendere dalla variabile $u=x\mp vt$.
+
+\subsubsection{Onda piana armonica e suoi parametri}
+La funzione d'onda dell'onda piana armonica è $\xi(x,t) = \xi_0 \sin(k(x \mp vt))$. La costante $k$ adimensionalizza l'argomento e si chiama numero d'onda. Si riscrivere $k(x \mp vt) = kx \mp \omega t$ dove $\omega = vt$ è la pulsazione. Per onde armoniche è utile introdurre la periodicità spaziale (lunghezza d'onda) e quella temporale (periodo). A tempo fissato, $\xi(x,\bar t)$ individua una sinusoide il cui periodo spaziale si trova da $k(x_2-v\bar t) - k(x_1-v\bar t) = 2\pi \Rightarrow x_2 - x_1 = 2\pi/k$. La lunghezza d'onda è $\lambda = x_2 - x_1 = 2\pi/k$. Il numero d'onda è il numero di lunghezza d'onda su una distanza di $2\pi$ metri. A posizione fissata, $\xi(\bar x,t)$ è ancora una sinusoide il cui periodo temporale è $T = 2\pi/\omega$. Le grandezze introdotte sono correlate dalla relazione $v = \lambda/T = \lambda \nu$, posta la frequenza $\nu= 1/T$.
+
+\subsubsection{L'onda piana è indipendente dal sistema di coordinate}
+È stato scelto un sistema di assi cartesiani con $x \parallel$ alla propagazione. Tuttavia l'onda è un fenomeno che non dipende dal sistema di riferimento scelto. Se $\mathbf r$ è un punto dello spazio, esso si troverà su un certo fronte d'onda (piano $\perp$ alla direzione di propagazione e in cui la fase $kx-\omega t$ è costante). È comodo introdurre il vettore d'onda $\mathbf k = (2\pi/\lambda) \mathbf {\hat v}$ in modo che $\xi(\mathbf r,t) = \xi_0 \sin(\mathbf k \cdot \mathbf r - \omega t)$.
+
+\subsubsection{Polarizzazione}
+Per le onde piane armoniche fa comodo rappresentare la funzione d'onda $\xi(x,t)$ come un vettore $\bm \xi = (0, \xi_y(x,t), \xi_z(x,t))$, con $\xi_\alpha$ funzioni armoniche differenti alpiù nella fase ($x-vt+\delta$). La dipendenza della direzione di $\bm \xi$ rispetto all'asse $x$ individua il tipo di polarizzazione. Per dipendenza casuale l'onda è non polarizzata. Se la direzione è fissa l'onda è polarizzata linearmente ($\delta = 0,\pi$), e si identificano la direzione di polarizzazione ed il piano di polarizzazione. Per $\delta =\pi/2,3\pi/2$ vale in ogni istante $\xi_y^2/\xi_{y_0}^2 + \xi_z^2/\xi_{z_0}^2 = 1$ cioè $\bm \xi$ descrive un'ellisse e l'onda è polarizzata ellitticamente. Se $\xi_{0y} = \xi_{0z}$ allora è polarizzata circolarmente. Per $\delta$ arbitrario ma costante la polarizzazione è ellittica ma con assi non paralleli al riferimento.
+
+\subsubsection{Pacchetto d'onda e indeterminazione}
+Nella realtà ogni onda ha durata finita, cioè si parla di pacchetto d'onda che ha lunghezza $\Delta x = N \lambda$ e durata $\Delta t = N T$, dove $N$ è il numero di oscillazioni contenute nel pacchetto. In questo modo le quantità $k = 2\pi/\lambda= 2\pi N/\Delta x$ e $\omega = 2\pi/T = 2\pi N/\Delta t$ hanno significato più chiaro. Se $N$ non è precisamente determinato, cioèho indeterminazione $\Delta N$ sul numero di oscillazioni del pacchetto d'onda, allora avrò le indeterminazione per $\Delta k =  2\pi \Delta N/\Delta x$ e $\Delta\omega = 2\pi\Delta N/\Delta t$, e quindi anche sulla frequenza. Minore è a durata del pacchetto e maggiori sono le indeterminazioni.
+
 \end{document}
